@@ -45,7 +45,8 @@ El enlace de WhatsApp se arma desde `negocio.json`: `https://wa.me/51<número>?t
 
 ## Diseño
 
-- Base de la maqueta: titulares Anton, texto Manrope y un tema de colores elegido entre 5 combinaciones (lima, dorado, rojo, claro y cobre) o sacado del logo (P-20).
+- Base de la maqueta: titulares Anton, texto Manrope y un tema de colores elegido en la maqueta (recomendadas para unisex: negro/arena/camel, verde botella/dorado, moka/crema; también lima, claro y dorado) o sacado del logo (P-20).
+- Animaciones previstas (vistas en la maqueta): video en bucle en la portada, aparición suave, franja en movimiento, tarjetas con inclinación 3D ligera por CSS, antes/después deslizable y botón de WhatsApp que late. Sin 3D completo (WebGL): pesa en Android de gama media y no ayuda al SEO; queda como extra opcional solo en computadora.
 - Tokens de color y tipografía en un solo archivo de configuración de Tailwind.
 - Prioridad móvil: botones de al menos 48 px de alto y botón flotante de WhatsApp.
 
