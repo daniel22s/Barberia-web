@@ -27,4 +27,4 @@
 ## Estado
 
 - 2026-10-29: base documental creada (sin código). Maqueta visual publicada: https://claude.ai/artifact/Hndx8FYZznfbKXcbiQXPWp (web en computadora y celular, más una vista previa del sistema de reservas y del panel, marcada como «siguiente paso»). Pendiente: respuestas del cliente (`docs/QUESTIONS.md`), aprobación del precio para la versión «moderna + SEO» y de ADR-0001.
-- El push desde la sesión en la nube estaba bloqueado (la app de Claude no tenía permiso de escritura en el repositorio).
+- Rama `docs/base-documental`: primera rama del repositorio (estaba vacío). Se fusiona a `main` cuando el dueño lo apruebe.
