@@ -10,7 +10,7 @@ Etiquetas: **[C]** confirmado · **[S]** suposición · **[P]** propuesta · **[
 - **[C]** Contacto y reservas por WhatsApp.
 - **[S]** La mayoría de visitas llegarán desde el celular, vía TikTok, Instagram, Google Maps o un enlace compartido por WhatsApp.
 - **[S]** Un solo local y un solo barbero por ahora.
-- **[C]** Negocio: **Vektra «Hair Studio»**, en **Mi Perú** (Callao, por confirmar). Dominio **`.com`**. Tiene logo y muchas fotos. No tiene Perfil de Empresa de Google.
+- **[C]** Negocio: **Vektra «Hair Studio»**, en **Mi Perú** (Callao, por confirmar). Dominio **`.com`**. Atiende a **hombres y mujeres**. Tiene logo y muchas fotos. No tiene Perfil de Empresa de Google.
 - **[C]** Opción A de `COSTS.md`.
 - **[C]** El cliente quiere **editar él mismo precios y fotos** → panel de edición (ADR-0003, propuesta).
 - **[C]** Plazo comunicado al cliente: **7 días** (condiciones en `ROADMAP.md`).

@@ -17,7 +17,7 @@ La web sola no basta: **web + perfil de Google + reseñas** es lo que funciona.
 
 ## Parte técnica (incluida en el desarrollo)
 
-- [ ] Título de la página: «Barbería en [Distrito], [Ciudad] | [Nombre]».
+- [ ] Título de la página: «Barbería y peluquería unisex en Mi Perú, Callao | Vektra Hair Studio» (atiende a hombres y mujeres: apuntar a «barbería», «peluquería» y «salón de belleza»).
 - [ ] Meta descripción con servicios, distrito y llamado a la acción.
 - [ ] Un solo `<h1>`; títulos de sección ordenados.
 - [ ] HTML estático y rápido (LCP < 2,5 s en móvil).

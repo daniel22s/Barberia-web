@@ -15,13 +15,14 @@ Impacto en precio o plazo: **A** alto · **M** medio · **B** bajo.
 | P-13 | Dominio | **`.com`** | `vektrahairstudio.com` estaba libre el 2026-10-29 (consulta RDAP); comprarlo pronto |
 | P-06 | ¿Logo? | **Sí tiene** | Enviar el archivo original |
 | P-05 | ¿Colores de la maqueta? | **No le gustan del todo** | La maqueta ofrece 5 combinaciones; o se sacan del logo |
+| P-19 | ¿Hombres o también mujeres? | **Hombres y mujeres** (unisex) | Servicios de dama, textos y búsquedas «peluquería» y «salón» además de «barbería»; colores no solo masculinos |
 | P-12 | Fecha | **7 días** (ya se le comunicó) | Plan diario en `ROADMAP.md`, con condiciones |
 
 ## Pendientes
 
 - **P-17** ¿Cómo se escribe exactamente el nombre: «Vektra Hair Studio»? ¿Así debe aparecer en Google? (B)
 - **P-18** ¿Distrito de Mi Perú, Callao? ¿Dirección y referencia exactas? (B)
-- **P-19** ¿Atiende solo a hombres, o también cortes y peinados para mujeres? Cambia los textos y las búsquedas a las que apuntamos. (M)
+- **P-22** Lista de servicios de dama con precios (corte, peinado, color, mechas, tratamientos…). (M)
 - **P-20** ¿Cuál de las 5 combinaciones de colores le gusta? ¿O prefiere los colores de su logo? (M)
 - **P-03** ¿Atiende solo con cita, o también sin cita? (B)
 - **P-07** ¿Webs o cuentas que le gusten? (B)
