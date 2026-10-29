@@ -16,6 +16,7 @@ Impacto en precio o plazo: **A** alto · **M** medio · **B** bajo.
 | P-06 | ¿Logo? | **Sí tiene** | Enviar el archivo original |
 | P-05 | ¿Colores de la maqueta? | **No le gustan del todo** | La maqueta ofrece 5 combinaciones; o se sacan del logo |
 | P-19 | ¿Hombres o también mujeres? | **Hombres y mujeres** (unisex) | Servicios de dama, textos y búsquedas «peluquería» y «salón» además de «barbería»; colores no solo masculinos |
+| P-10b | ¿Quién usa el panel? | **El desarrollador**; el cliente pide los cambios | ADR-0003 aceptada con ese cambio; P-21 (GitHub del cliente) ya no aplica |
 | P-12 | Fecha | **7 días** (ya se le comunicó) | Plan diario en `ROADMAP.md`, con condiciones |
 
 ## Pendientes
@@ -30,4 +31,3 @@ Impacto en precio o plazo: **A** alto · **M** medio · **B** bajo.
 - **P-14** Correo del negocio para crear las cuentas a su nombre. (B, bloquea dominio y Google)
 - **P-15** Pago 50/50 y garantía de 30 días: ¿de acuerdo? (Contractual)
 - **P-16** ¿Le interesa el sistema de reservas más adelante? (B)
-- **P-21** ¿Tiene cuenta de GitHub? Hace falta para el panel de edición (gratis). (B)

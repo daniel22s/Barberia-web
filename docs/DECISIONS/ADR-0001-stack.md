@@ -1,6 +1,6 @@
 # ADR-0001 — Stack de la web
 
-- **Estado:** propuesta (pendiente de aprobación del dueño)
+- **Estado:** aceptada por el dueño (2026-10-29)
 - **Fecha:** 2026-10-29
 
 ## Contexto

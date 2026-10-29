@@ -11,7 +11,7 @@ Plazo comunicado al cliente: 7 días. Se cumple **solo si** el contenido llega e
 | **1** | Comprar el dominio; crear el Perfil de Empresa de Google y pedir la verificación | El cliente, con guía | Verificación en curso |
 | **2** | TASK-002 y TASK-003 | — | Portada y servicios en vista previa |
 | **3** | TASK-004 y TASK-005 | — | Web completa en vista previa |
-| **4** | TASK-009 (panel de edición) | Cuenta de GitHub del cliente | El cliente prueba cambiar un precio |
+| **4** | TASK-009 (panel de edición) | — | Cambiar un precio y subir una foto desde el celular |
 | **5** | TASK-006 y TASK-007 (SEO, animaciones, accesibilidad, rendimiento) | — | Lighthouse con resultados reales |
 | **6** | Ronda 2 de cambios; TASK-008 (dominio y publicación) | Revisión del cliente | Web publicada en `.com` |
 | **7** | Search Console, sitemap, prueba de resultados enriquecidos y guía de entrega | 50 % final | Entrega |
@@ -20,7 +20,7 @@ Plazo comunicado al cliente: 7 días. Se cumple **solo si** el contenido llega e
 
 **Si el contenido se retrasa, la fecha se corre lo mismo.** Conviene decírselo al cliente desde hoy.
 
-## Tareas para Codex (sin crear todavía)
+## Tareas para Codex (redactadas en `docs/tasks/`)
 
 | ID | Objetivo |
 |---|---|
@@ -34,7 +34,7 @@ Plazo comunicado al cliente: 7 días. Se cumple **solo si** el contenido llega e
 | TASK-008 | Publicación en Cloudflare Pages y dominio |
 | TASK-009 | Panel de edición (Pages CMS) para servicios, precios, fotos y horario |
 
-Cada tarea tendrá su archivo en `docs/tasks/` con objetivo, contexto, requisitos, restricciones, criterios, pruebas y resultados.
+Orden: 001 → 002/003 → 004/005 → 009 → 006/007 → 008. Codex completa «Resultados reales y pendientes» en cada archivo.
 
 ## Futuro (no incluido)
 

@@ -12,9 +12,9 @@ Etiquetas: **[C]** confirmado · **[S]** suposición · **[P]** propuesta · **[
 - **[S]** Un solo local y un solo barbero por ahora.
 - **[C]** Negocio: **Vektra «Hair Studio»**, en **Mi Perú** (Callao, por confirmar). Dominio **`.com`**. Atiende a **hombres y mujeres**. Tiene logo y muchas fotos. No tiene Perfil de Empresa de Google.
 - **[C]** Opción A de `COSTS.md`.
-- **[C]** El cliente quiere **editar él mismo precios y fotos** → panel de edición (ADR-0003, propuesta).
+- **[C]** Precios y fotos se editan con un panel (ADR-0003, aceptada); **lo usa el desarrollador** a pedido del cliente. Precio cerrado: **S/ 1,400**.
 - **[C]** Plazo comunicado al cliente: **7 días** (condiciones en `ROADMAP.md`).
-- **[D]** Colores: no le gustan del todo los de la maqueta; elegirá entre 5 combinaciones o se sacan del logo.
+- **[D]** Colores: no le gustan del todo los de la maqueta; elegirá entre las combinaciones de la maqueta (3 recomendadas para unisex) o se sacan del logo (P-20).
 
 ## Secciones (MVP)
 
@@ -61,4 +61,4 @@ Etiquetas: **[C]** confirmado · **[S]** suposición · **[P]** propuesta · **[
 6. `sitemap.xml` y `robots.txt` publicados; sitio enviado a Google Search Console.
 7. Dominio propio con HTTPS, registrado a nombre del cliente.
 8. El cliente aprobó el diseño tras las 2 rondas de cambios incluidas.
-9. Desde su celular, el cliente cambia un precio y sube una foto con el panel, y la web publicada los muestra en menos de 5 minutos.
+9. Desde un celular, con el panel, se cambia un precio y se sube una foto, y la web publicada los muestra en menos de 5 minutos.

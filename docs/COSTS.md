@@ -19,9 +19,9 @@ El precio acordado inicialmente fue **S/ 800** para una página de catálogo sen
 | 2 rondas de cambios | 4 |
 | **Total** | **≈ 46 h** |
 
-**[C] Elegida la opción A: S/ 1,200** (todo lo de arriba, ≈ S/ 26 por hora). La opción B (S/ 800, reducida) quedó descartada.
+**[C] Elegida la opción A** (todo lo de arriba). La opción B (S/ 800, reducida) quedó descartada.
 
-**[D] Panel de edición (P-10, ADR-0003):** suma unas 6 h (≈ 52 h en total). Propuesta: **S/ 1,400** en total (+ S/ 200), o dejarlo en S/ 1,200 como precio familiar. Lo decide el dueño.
+**[C] Precio cerrado: S/ 1,400**, con el panel de edición (ADR-0003). El panel lo usa el desarrollador: el cliente pide los cambios por WhatsApp.
 
 Pago sugerido: 50 % al empezar y 50 % al publicar.
 
@@ -42,5 +42,5 @@ Pago sugerido: 50 % al empezar y 50 % al publicar.
 ## Después de la entrega
 
 - **Garantía:** 30 días para corregir defectos del alcance contratado. **[D]**
-- **Cambios:** S/ 30–50 por cambio (precios, fotos, un servicio), o S/ 50 al mes con hasta 2 cambios.
+- **Cambios después de la garantía:** S/ 30–50 por cambio (precios, fotos, un servicio), o S/ 50 al mes con hasta 2 cambios. **[D]** Confirmar con el cliente.
 - Lo que no está en `REQUIREMENTS.md` se cotiza aparte.

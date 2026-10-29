@@ -1,0 +1,38 @@
+# TASK-003 — Servicios y precios
+
+## Objetivo
+Mostrar los servicios «Para él» y «Para ella» desde `servicios.json`, cada uno con un enlace a WhatsApp con el servicio ya escrito.
+
+## Contexto
+Depende de TASK-001. Referencia: sección «Elige tu estilo» de la maqueta. Los precios los cambia el desarrollador con el panel (TASK-009), así que todo sale del contenido.
+
+## Requisitos
+**Incluye**
+- `Servicios.astro`: título, dos grupos (`el`, `ella`) en el orden de `orden`; un grupo sin servicios no se muestra.
+- `TarjetaServicio.astro`: nombre, precio con formato `S/ 25` (o `desde S/ 90` si `precioDesde`), duración legible («40 min», «2 h»), descripción y enlace «Pedir este →».
+- Tarjeta `destacado`: estilo resaltado con la etiqueta «El más pedido» (como en la maqueta). Si hay más de un destacado, se resaltan todos y el build muestra una advertencia.
+- Mensaje de WhatsApp por servicio: «Hola, vi su web y quiero reservar: {nombre}».
+- `src/lib/formato.ts`: `formatearPrecio` y `formatearDuracion`, puras, con pruebas.
+
+**No incluye:** reservas, carrito ni pagos.
+
+## Archivos afectados
+`src/components/Servicios.astro`, `TarjetaServicio.astro`, `src/lib/formato.ts`, `src/lib/formato.test.ts`, `src/pages/index.astro`.
+
+## Restricciones
+- Sin JavaScript en el cliente para esta sección.
+- Precios como número en el contenido; nunca escritos en el componente.
+
+## Criterios de aceptación
+1. Cambiar un precio en `servicios.json` cambia la web sin tocar código.
+2. Cuadrícula de 1 columna en móvil, 2 en tableta y 3 en escritorio.
+3. Cada «Pedir este» abre WhatsApp con el nombre correcto del servicio.
+
+## Pruebas requeridas
+`npm run check`; Vitest de `formato.ts` (25 → «S/ 25», 12.5 → «S/ 12.50», 90 desde → «desde S/ 90», 40 → «40 min», 120 → «2 h», 90 → «1 h 30 min»).
+
+## Documentación a actualizar
+Ninguna.
+
+## Resultados reales y pendientes
+_(Codex)_
