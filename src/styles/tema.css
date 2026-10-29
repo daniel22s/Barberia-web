@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+/* Paleta activa: cambiar arena por botella o moka en esta línea (P-20). */
+@import "./paletas/arena.css";
+/* Alternativas: @import "./paletas/botella.css"; @import "./paletas/moka.css"; */
+
+@theme {
+  --color-fondo: var(--paleta-fondo);
+  --color-superficie: var(--paleta-superficie);
+  --color-linea: var(--paleta-linea);
+  --color-texto: var(--paleta-texto);
+  --color-suave: var(--paleta-suave);
+  --color-apagado: var(--paleta-apagado);
+  --color-acento: var(--paleta-acento);
+  --color-sobre-acento: var(--paleta-sobre-acento);
+  --font-titulo: "Anton", sans-serif;
+  --font-texto: "Manrope", sans-serif;
+}
+
+@layer base {
+  html {
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: var(--font-texto);
+    color-scheme: dark;
+  }
+  body {
+    margin: 0;
+    min-width: 320px;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-titulo);
+  }
+}

@@ -1,0 +1,8 @@
+[
+  {
+    "id": "ejemplo",
+    "imagen": "../assets/galeria/ejemplo.svg",
+    "alt": "[IMAGEN SINTÉTICA DE EJEMPLO; REEMPLAZAR POR FOTO AUTORIZADA]",
+    "categoria": "local"
+  }
+]

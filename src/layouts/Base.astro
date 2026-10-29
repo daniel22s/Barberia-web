@@ -1,0 +1,22 @@
+---
+import { getEntry } from "astro:content";
+import "@fontsource/anton/latin-400.css";
+import "@fontsource/manrope/latin-400.css";
+import "../styles/tema.css";
+
+const negocio = await getEntry("negocio", "principal");
+if (!negocio) throw new Error("Falta el contenido principal del negocio.");
+---
+
+<!doctype html>
+<html lang="es-PE">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{negocio.data.nombre}</title>
+    <meta name="description" content={negocio.data.descripcion} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

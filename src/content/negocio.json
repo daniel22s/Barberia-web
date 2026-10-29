@@ -1,0 +1,23 @@
+{
+  "nombre": "Vektra Hair Studio",
+  "eslogan": "[ESLOGAN]",
+  "descripcion": "[DESCRIPCIÓN DEL NEGOCIO]",
+  "distrito": "Mi Perú",
+  "provincia": "[PROVINCIA]",
+  "direccion": "[DIRECCIÓN]",
+  "referencia": "[REFERENCIA]",
+  "coordenadas": {
+    "lat": 0,
+    "lng": 0
+  },
+  "mapsUrl": "[URL DE GOOGLE MAPS]",
+  "whatsapp": "51900000000",
+  "mensajeWhatsapp": "[MENSAJE DE RESERVA]",
+  "horario": [],
+  "redes": {
+    "tiktok": "[URL DE TIKTOK]",
+    "instagram": "[URL DE INSTAGRAM]",
+    "facebook": "[URL DE FACEBOOK]"
+  },
+  "dominio": "[DOMINIO]"
+}

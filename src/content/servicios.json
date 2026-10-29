@@ -1,0 +1,24 @@
+[
+  {
+    "id": "ejemplo-el",
+    "grupo": "el",
+    "nombre": "[SERVICIO PARA ÉL]",
+    "precio": 0,
+    "precioDesde": false,
+    "duracionMin": 1,
+    "descripcion": "[DESCRIPCIÓN SINTÉTICA: PRECIO Y DURACIÓN POR CONFIRMAR]",
+    "destacado": false,
+    "orden": 0
+  },
+  {
+    "id": "ejemplo-ella",
+    "grupo": "ella",
+    "nombre": "[SERVICIO PARA ELLA]",
+    "precio": 0,
+    "precioDesde": false,
+    "duracionMin": 1,
+    "descripcion": "[DESCRIPCIÓN SINTÉTICA: PRECIO Y DURACIÓN POR CONFIRMAR]",
+    "destacado": false,
+    "orden": 1
+  }
+]
