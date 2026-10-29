@@ -19,12 +19,9 @@ El precio acordado inicialmente fue **S/ 800** para una página de catálogo sen
 | 2 rondas de cambios | 4 |
 | **Total** | **≈ 46 h** |
 
-**[D] Decisión pendiente del dueño:**
+**[C] Elegida la opción A: S/ 1,200** (todo lo de arriba, ≈ S/ 26 por hora). La opción B (S/ 800, reducida) quedó descartada.
 
-| Opción | Precio | Alcance |
-|---|---|---|
-| A (recomendada) | **S/ 1,200** | Todo lo de arriba (≈ S/ 26 por hora) |
-| B | **S/ 800** | Mismo diseño, con animaciones básicas, sin la sección de preguntas frecuentes; el perfil de Google lo configura el cliente con la guía de `SEO.md` (≈ 30 h) |
+**[D] Panel de edición (P-10, ADR-0003):** suma unas 6 h (≈ 52 h en total). Propuesta: **S/ 1,400** en total (+ S/ 200), o dejarlo en S/ 1,200 como precio familiar. Lo decide el dueño.
 
 Pago sugerido: 50 % al empezar y 50 % al publicar.
 

@@ -1,16 +1,26 @@
 # Roadmap
 
-| Etapa | Objetivo | Entregables | Depende de | Aceptación y pruebas |
-|---|---|---|---|---|
-| **W0. Acuerdo** | Cerrar alcance y precio | Respuestas de `QUESTIONS.md`, opción A o B de `COSTS.md`, ADR-0001 aprobada, 50 % inicial | Cliente | Alcance aprobado por escrito |
-| **W1. Contenido y diseño** | Diseño final con datos reales | Maqueta actualizada con logo, colores, fotos y servicios reales | Contenido de `CONTENT.md` | El cliente aprueba la maqueta (ronda 1) |
-| **W2. Construcción** | Web funcionando en vista previa | TASK-001 a TASK-005 | W1 | Lint y compilación sin errores; revisión a 375 y 1280 px |
-| **W3. SEO y calidad** | Lista técnica de `SEO.md` | TASK-006 y TASK-007 | W2 | Lighthouse móvil ≥ 90/95/95/95; resultados enriquecidos sin errores |
-| **W4. Publicación** | Dominio propio y Google | TASK-008, Search Console, guía del perfil de Google | Dominio del cliente | Criterios 1–8 de `REQUIREMENTS.md`; ronda 2 de cambios; 50 % final |
+## Plan de 7 días
 
-Duración estimada: **2–3 semanas** de trabajo, más lo que tarde el cliente en entregar el contenido (suele ser lo que más retrasa).
+Plazo comunicado al cliente: 7 días. Se cumple **solo si** el contenido llega el día 1 y el stack (ADR-0001 y ADR-0003) se aprueba antes de empezar. Unas 52 h de trabajo: con Codex como ejecutor es posible, pero ajustado.
 
-## Tareas previstas para Codex (sin crear todavía)
+| Día | Trabajo | Lo que necesita del cliente | Al terminar el día |
+|---|---|---|---|
+| **0 (hoy)** | Aprobar alcance, precio y stack; elegir colores | Respuestas de `QUESTIONS.md`; 50 % inicial | Alcance cerrado |
+| **1** | Maqueta con logo, colores y fotos reales; TASK-001 (proyecto base) | **Logo, 15–20 fotos, servicios y precios, horario, dirección, WhatsApp, redes**; correo del negocio | Maqueta final aprobada (ronda 1) |
+| **1** | Comprar el dominio; crear el Perfil de Empresa de Google y pedir la verificación | El cliente, con guía | Verificación en curso |
+| **2** | TASK-002 y TASK-003 | — | Portada y servicios en vista previa |
+| **3** | TASK-004 y TASK-005 | — | Web completa en vista previa |
+| **4** | TASK-009 (panel de edición) | Cuenta de GitHub del cliente | El cliente prueba cambiar un precio |
+| **5** | TASK-006 y TASK-007 (SEO, animaciones, accesibilidad, rendimiento) | — | Lighthouse con resultados reales |
+| **6** | Ronda 2 de cambios; TASK-008 (dominio y publicación) | Revisión del cliente | Web publicada en `.com` |
+| **7** | Search Console, sitemap, prueba de resultados enriquecidos y guía de entrega | 50 % final | Entrega |
+
+**Fuera del plazo de 7 días:** la verificación del perfil de Google (la hace Google: puede tardar días o semanas) y la posición en búsquedas (semanas o meses, ver `SEO.md`).
+
+**Si el contenido se retrasa, la fecha se corre lo mismo.** Conviene decírselo al cliente desde hoy.
+
+## Tareas para Codex (sin crear todavía)
 
 | ID | Objetivo |
 |---|---|
@@ -22,12 +32,12 @@ Duración estimada: **2–3 semanas** de trabajo, más lo que tarde el cliente e
 | TASK-006 | SEO técnico: meta, Open Graph, `HairSalon`, FAQ, sitemap, robots |
 | TASK-007 | Animaciones, accesibilidad y presupuesto de rendimiento |
 | TASK-008 | Publicación en Cloudflare Pages y dominio |
+| TASK-009 | Panel de edición (Pages CMS) para servicios, precios, fotos y horario |
 
 Cada tarea tendrá su archivo en `docs/tasks/` con objetivo, contexto, requisitos, restricciones, criterios, pruebas y resultados.
 
 ## Futuro (no incluido)
 
-- Sistema de reservas y panel (SaaS): ver la vista previa en la maqueta.
+- Sistema de reservas y panel (SaaS): vista previa en la maqueta.
 - Versión en inglés.
-- Panel para editar precios y fotos sin ayuda.
 - Publicidad pagada local.

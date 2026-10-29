@@ -1,31 +1,32 @@
-# Preguntas pendientes para el cliente
+# Preguntas para el cliente
 
 Impacto en precio o plazo: **A** alto · **M** medio · **B** bajo.
 
-## Negocio
+## Respondidas (2026-10-29)
 
-- **P-01** Nombre comercial exacto de la barbería. (B, bloquea dominio y diseño)
-- **P-02** Distrito y ciudad; ¿hay más barberías cerca? Hace falta para el SEO local. (B)
+| # | Pregunta | Respuesta | Consecuencia |
+|---|---|---|---|
+| P-09 | Opción A o B | **Opción A** (completa) | `COSTS.md` |
+| P-10 | ¿Edita él mismo? | **Sí: precios y fotos** | Panel de edición: [ADR-0003](DECISIONS/ADR-0003-edicion-cliente.md); suma horas y precio |
+| P-08 | ¿Fotos? | **Tiene muchas** | Elegir las mejores 15–20 para empezar |
+| P-04 | ¿Perfil de Google? | **No tiene** | Crearlo **ya**: la verificación puede tardar más de 7 días |
+| P-01 | Nombre | **Vektra «Hair Studio»** | Ver P-17 |
+| P-02 | Ubicación | **Mi Perú** | Ver P-18 |
+| P-13 | Dominio | **`.com`** | `vektrahairstudio.com` estaba libre el 2026-10-29 (consulta RDAP); comprarlo pronto |
+| P-06 | ¿Logo? | **Sí tiene** | Enviar el archivo original |
+| P-05 | ¿Colores de la maqueta? | **No le gustan del todo** | La maqueta ofrece 5 combinaciones; o se sacan del logo |
+| P-12 | Fecha | **7 días** (ya se le comunicó) | Plan diario en `ROADMAP.md`, con condiciones |
+
+## Pendientes
+
+- **P-17** ¿Cómo se escribe exactamente el nombre: «Vektra Hair Studio»? ¿Así debe aparecer en Google? (B)
+- **P-18** ¿Distrito de Mi Perú, Callao? ¿Dirección y referencia exactas? (B)
+- **P-19** ¿Atiende solo a hombres, o también cortes y peinados para mujeres? Cambia los textos y las búsquedas a las que apuntamos. (M)
+- **P-20** ¿Cuál de las 5 combinaciones de colores le gusta? ¿O prefiere los colores de su logo? (M)
 - **P-03** ¿Atiende solo con cita, o también sin cita? (B)
-- **P-04** ¿Tiene Perfil de Empresa de Google? ¿Cuántas reseñas y qué nota? (M: si no tiene, hay que crearlo y verificarlo, y eso tarda días)
-
-## Diseño
-
-- **P-05** ¿Le gusta la maqueta (negro y amarillo)? ¿Qué cambiaría? (M)
-- **P-06** ¿Tiene logo? ¿En qué formato? (M: si no, se usa tipografía o se cotiza un logo aparte)
 - **P-07** ¿Webs o cuentas que le gusten? (B)
-- **P-08** ¿Cuántas fotos y videos de calidad tiene hoy? (A: sin fotos buenas, la web no luce)
-
-## Alcance y precio
-
-- **P-09** Opción A (S/ 1,200, completa) u opción B (S/ 800, reducida) de `COSTS.md`. (A)
-- **P-10** ¿Quiere editar precios y fotos él mismo, o prefiere pedir los cambios? (A: un panel de edición cambia el stack y el precio)
-- **P-11** ¿Solo español, o también inglés? (M)
-- **P-12** ¿Fecha en la que necesita la web publicada? (M)
-
-## Cuentas y contrato
-
-- **P-13** Dominio preferido (2–3 opciones). ¿`.com` o `.pe`? (B)
-- **P-14** ¿Tiene un correo del negocio para crear las cuentas a su nombre? (B)
-- **P-15** Forma de pago (50/50) y garantía de 30 días: ¿de acuerdo? (Contractual)
-- **P-16** ¿Le interesa el sistema de reservas más adelante? No cambia esta web, pero ayuda a planificar. (B)
+- **P-11** ¿Solo español? (M)
+- **P-14** Correo del negocio para crear las cuentas a su nombre. (B, bloquea dominio y Google)
+- **P-15** Pago 50/50 y garantía de 30 días: ¿de acuerdo? (Contractual)
+- **P-16** ¿Le interesa el sistema de reservas más adelante? (B)
+- **P-21** ¿Tiene cuenta de GitHub? Hace falta para el panel de edición (gratis). (B)

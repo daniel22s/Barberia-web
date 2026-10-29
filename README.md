@@ -1,6 +1,6 @@
 # Barbería Web
 
-Página web de catálogo para una barbería en Perú: servicios y precios, trabajos, reseñas, ubicación, horario y botón de WhatsApp. Diseño moderno, pensada primero para el celular y para aparecer en las búsquedas locales de Google.
+Página web de catálogo de **Vektra Hair Studio** (Mi Perú, Callao): servicios y precios, trabajos, reseñas, ubicación, horario y botón de WhatsApp. Diseño moderno, pensada primero para el celular y para aparecer en las búsquedas locales de Google.
 
 **Estado:** planificación. Todavía no hay código. El stack es una propuesta pendiente de aprobación ([ADR-0001](docs/DECISIONS/ADR-0001-stack.md)).
 

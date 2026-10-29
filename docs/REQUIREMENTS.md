@@ -10,6 +10,11 @@ Etiquetas: **[C]** confirmado · **[S]** suposición · **[P]** propuesta · **[
 - **[C]** Contacto y reservas por WhatsApp.
 - **[S]** La mayoría de visitas llegarán desde el celular, vía TikTok, Instagram, Google Maps o un enlace compartido por WhatsApp.
 - **[S]** Un solo local y un solo barbero por ahora.
+- **[C]** Negocio: **Vektra «Hair Studio»**, en **Mi Perú** (Callao, por confirmar). Dominio **`.com`**. Tiene logo y muchas fotos. No tiene Perfil de Empresa de Google.
+- **[C]** Opción A de `COSTS.md`.
+- **[C]** El cliente quiere **editar él mismo precios y fotos** → panel de edición (ADR-0003, propuesta).
+- **[C]** Plazo comunicado al cliente: **7 días** (condiciones en `ROADMAP.md`).
+- **[D]** Colores: no le gustan del todo los de la maqueta; elegirá entre 5 combinaciones o se sacan del logo.
 
 ## Secciones (MVP)
 
@@ -40,7 +45,7 @@ Etiquetas: **[C]** confirmado · **[S]** suposición · **[P]** propuesta · **[
 ## No incluye
 
 - Reservas automáticas, agenda, panel, pagos en línea (eso es el sistema SaaS).
-- Panel para que el cliente edite la web solo **[D]**: los cambios los hace el desarrollador.
+- Edición de todo lo demás por el cliente: con el panel (ADR-0003) solo edita servicios, precios, fotos y horario; textos y diseño los cambia el desarrollador.
 - Blog, tienda, varios idiomas.
 - Redacción profesional, sesión de fotos, diseño de logo.
 - Publicidad pagada (Google Ads, TikTok Ads) y manejo de redes.
@@ -56,3 +61,4 @@ Etiquetas: **[C]** confirmado · **[S]** suposición · **[P]** propuesta · **[
 6. `sitemap.xml` y `robots.txt` publicados; sitio enviado a Google Search Console.
 7. Dominio propio con HTTPS, registrado a nombre del cliente.
 8. El cliente aprobó el diseño tras las 2 rondas de cambios incluidas.
+9. Desde su celular, el cliente cambia un precio y sube una foto con el panel, y la web publicada los muestra en menos de 5 minutos.
