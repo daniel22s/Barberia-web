@@ -1,0 +1,116 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { enlaceWhatsApp } from "../lib/whatsapp";
+import { formatearPrecio, formatearDuracion } from "../lib/formato";
+interface Props {
+  servicio: CollectionEntry<"servicios">["data"];
+  numero: string;
+}
+const { servicio, numero } = Astro.props;
+---
+
+<article class:list={["tarjeta", { destacado: servicio.destacado }]}>
+  {servicio.destacado && <span class="distintivo">El más pedido</span>}
+  <div class="titulo">
+    <h4>{servicio.nombre}</h4>
+    <p class="precio">
+      {formatearPrecio(servicio.precio, servicio.precioDesde)}
+    </p>
+  </div>
+  <p class="descripcion">{servicio.descripcion}</p>
+  <div class="pie">
+    <span>{formatearDuracion(servicio.duracionMin)}</span>
+    <a
+      href={enlaceWhatsApp(
+        numero,
+        `Hola, vi su web y quiero reservar: ${servicio.nombre}`,
+      )}
+      aria-label={`Pedir este servicio: ${servicio.nombre}`}
+    >
+      Pedir este <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</article>
+<style>
+  .tarjeta {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--color-superficie);
+    border: 1px solid var(--color-linea);
+    border-radius: 24px;
+    color: var(--color-texto);
+    min-width: 0;
+  }
+  .titulo {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  h4 {
+    font-family: var(--font-texto);
+    font-size: 1.1rem;
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+  .precio {
+    font: 1.7rem var(--font-titulo);
+    color: var(--color-acento);
+    margin: 0;
+    flex-shrink: 0;
+  }
+  .descripcion {
+    color: var(--color-apagado);
+    line-height: 1.6;
+    font-size: 0.9rem;
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+  .pie {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: auto;
+    font-size: 0.85rem;
+  }
+  .pie a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    color: var(--color-acento);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .pie a:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 4px;
+  }
+  .distintivo {
+    position: absolute;
+    top: -0.7rem;
+    left: 1.5rem;
+    padding: 0.2rem 0.65rem;
+    border-radius: 99px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    background: var(--color-sobre-acento);
+    color: var(--color-acento);
+  }
+  .destacado {
+    background: var(--color-acento);
+    color: var(--color-sobre-acento);
+    border-color: var(--color-acento);
+  }
+  .destacado .precio,
+  .destacado .descripcion,
+  .destacado a {
+    color: inherit;
+  }
+</style>

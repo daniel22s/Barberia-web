@@ -1,0 +1,82 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import TarjetaServicio from "./TarjetaServicio.astro";
+const servicios = (await getCollection("servicios")).sort(
+  (a, b) => a.data.orden - b.data.orden || a.id.localeCompare(b.id),
+);
+const negocio = (await getEntry("negocio", "principal"))!.data;
+if (servicios.filter(({ data }) => data.destacado).length > 1)
+  console.warn(
+    "[Servicios] Hay más de un servicio destacado; se resaltarán todos.",
+  );
+const grupos = [
+  { id: "el", titulo: "Para él" },
+  { id: "ella", titulo: "Para ella" },
+] as const;
+---
+
+<section id="servicios" aria-labelledby="titulo-servicios">
+  <p class="etiqueta">Servicios y precios</p>
+  <h2 id="titulo-servicios">Elige tu estilo</h2>
+  {grupos.map((grupo) => {
+    const items = servicios.filter(({ data }) => data.grupo === grupo.id);
+    return (
+      items.length > 0 && (
+        <div class="grupo">
+          <h3>{grupo.titulo}</h3>
+          <div class="cuadricula">
+            {items.map(({ data }) => (
+              <TarjetaServicio servicio={data} numero={negocio.whatsapp} />
+            ))}
+          </div>
+        </div>
+      )
+    );
+  })}
+</section>
+<style>
+  section {
+    max-width: 1160px;
+    margin: auto;
+    padding: 4rem 1rem;
+  }
+  .etiqueta {
+    color: var(--color-acento);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  h2 {
+    font-size: clamp(2.6rem, 5vw, 4rem);
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 1rem 0 2rem;
+  }
+  h3 {
+    color: var(--color-apagado);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-family: var(--font-texto);
+    font-size: 0.8rem;
+    margin: 1.5rem 0;
+  }
+  .grupo + .grupo {
+    margin-top: 3rem;
+  }
+  .cuadricula {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+  @media (min-width: 640px) {
+    .cuadricula {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 1024px) {
+    .cuadricula {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+</style>
