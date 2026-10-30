@@ -69,3 +69,9 @@ no se copiaron para mantener ambas ramas nacidas de main. Al integrar ambas,
 el índice debe conservar cabecera/portada/franja, añadir Servicios dentro de main
 tras Franja y mantener BotonWhatsApp. Se espera conflicto del índice al fusionarlas.
 Los datos reales siguen pendientes (P-22); no publicar los marcadores.
+
+## Revisión del Arquitecto (2026-10-30)
+
+**Aceptada.** Reproducido por Claude con Node 22.23.4 sobre la integración de TASK-002 + TASK-003 (rama `web/integracion-002-003`; el único conflicto fue `src/pages/index.astro`): `npm run check` 0 errores / 0 advertencias / lint limpio / build OK, **23/23** pruebas, Prettier limpio. Navegador a 390 y 1280 px: sin desborde horizontal, un solo `<h1>`, 12 enlaces de WhatsApp, ningún control < 44 px. Precio, duración y enlace por servicio salen de `servicios.json`; «desde S/ 90» y «2 h» correctos; grupos vacíos no se muestran.
+
+Observación (no bloquea): el nombre del servicio se ve en peso normal; en la maqueta va en negrita (800) → ajustar en TASK-007.

@@ -14,6 +14,7 @@ Depende de TASK-002 a 005. Sin 3D completo (WebGL) por decisión de arquitectura
 - `prefers-reduced-motion: reduce` desactiva todo movimiento (incluidos franja, latido y video: se muestra el `poster`).
 - Revisión de accesibilidad: foco visible, orden de tabulación, contraste en la paleta elegida, `alt`, etiquetas, `lang`.
 - Presupuesto de `docs/ARCHITECTURE.md`: JS ≤ 30 KB, portada ≤ 500 KB, LCP < 2,5 s.
+- De la revisión de TASK-002/003: menú móvil usable sin JavaScript (por ejemplo, `<details>` o el menú visible por defecto que el script oculta) y nombre del servicio en negrita como en la maqueta.
 
 **No incluye:** librerías de animación (GSAP, Motion, Three.js, Spline).
 

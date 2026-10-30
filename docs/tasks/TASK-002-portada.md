@@ -73,3 +73,13 @@ No se inventa calificación ni se muestra si falta. Franja horizontal sin inclin
 no se incluye etiqueta de atención con cita porque P-03 sigue pendiente.
 Las anclas Servicios/Trabajos/Ubicación esperan sus tareas respectivas.
 El horario y los nueve servicios son ejemplos autorizados, no datos reales.
+
+## Revisión del Arquitecto (2026-10-30)
+
+**Aceptada.** Reproducido por Claude con Node 22.23.4 sobre la integración de TASK-002 + TASK-003 (rama `web/integracion-002-003`; el único conflicto fue `src/pages/index.astro`): `npm run check` 0 errores / 0 advertencias / lint limpio / build OK, **23/23** pruebas, Prettier limpio. Navegador a 390 y 1280 px: sin desborde horizontal, un solo `<h1>`, 12 enlaces de WhatsApp, ningún control < 44 px. Menú móvil: abre con el botón, `aria-expanded` cambia, Escape lo cierra y devuelve el foco. Pendientes de TASK-001 resueltos (Manrope 600–800, `color-scheme` por paleta, moka clara, tests en `check`). Coincide con la maqueta.
+
+Observaciones (no bloquean):
+1. Falta usar `src/assets/logo.*` cuando exista (hoy solo el nombre). Se hace al llegar el logo.
+2. Sin JavaScript, el menú móvil no se puede abrir → TASK-007 (criterio «sin JavaScript todo se ve»).
+3. El botón flotante usa el color de acento en lugar del verde de WhatsApp de la maqueta. Aceptado: combina con la marca.
+4. La franja repite los nombres de todos los servicios; con la lista real conviene revisarla (puede quedar larga).
