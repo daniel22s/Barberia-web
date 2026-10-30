@@ -6,7 +6,7 @@ Crear el proyecto Astro + Tailwind con el archivo de contenido único y los toke
 
 ## Contexto
 
-ADR-0001 (stack) y ADR-0003 (panel de edición) aceptadas. Diseño de referencia: maqueta https://claude.ai/artifact/Hndx8FYZznfbKXcbiQXPWp. Datos reales pendientes: se usan marcadores `[ASÍ]`.
+ADR-0001 (stack) y ADR-0003 (panel de edición) aceptadas. Diseño de referencia: `docs/diseno/maqueta/` (copia de la maqueta privada). Datos reales pendientes: se usan marcadores `[ASÍ]`.
 
 ## Requisitos
 

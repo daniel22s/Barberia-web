@@ -4,7 +4,7 @@
 Construir la parte de arriba de la página como en la maqueta: lo primero que ve un cliente desde el celular.
 
 ## Contexto
-Depende de TASK-001. Referencia visual: artboards «Tu web · celular» y «Tu web · computadora» de la maqueta. Público unisex.
+Depende de TASK-001. Referencia visual: `docs/diseno/maqueta/capturas/celular-arena.png` y `computadora-arena.png`. Público unisex.
 
 ## Requisitos
 **Incluye**

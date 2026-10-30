@@ -4,7 +4,7 @@ Eres el **Ejecutor**. Implementas solo tareas aprobadas de `docs/tasks/`. Claude
 
 ## Antes de empezar
 
-1. Lee `CLAUDE.md`, la tarea asignada, `docs/REQUIREMENTS.md`, `docs/ARCHITECTURE.md` y `docs/SEO.md`.
+1. Lee `CLAUDE.md`, la tarea asignada, `docs/REQUIREMENTS.md`, `docs/ARCHITECTURE.md` y `docs/SEO.md`. El diseño de referencia está en `docs/diseno/maqueta/` (capturas y HTML).
 2. Si la tarea es ambigua o contradice un documento, detente y anótalo en la sección «Resultados reales y pendientes» de la tarea. No adivines reglas del negocio.
 
 ## Cómo trabajar
