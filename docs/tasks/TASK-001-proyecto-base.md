@@ -94,3 +94,16 @@ Pendientes para revisión:
   duraciones y todos los marcadores. Horario pendiente como lista vacía.
 - Lighthouse y revisión visual del diseño completo corresponden a las secciones
   posteriores; la base vacía no valida el diseño ni el SEO final.
+
+## Revisión del Arquitecto (2026-10-30)
+
+**Aceptada.** Reproducido en la sesión de Claude con Node 22.23.4: `npm ci`, `npm run check` (0 errores, 0 advertencias, lint limpio, build de 1 página), `npm test` 7/7, `npm run format:check` limpio. Criterio 2 reproducido: precio `"gratis"` → `InvalidContentEntryDataError … precio: Expected type "number"`. Criterio 3 no se repitió (verificado por Codex con capturas).
+
+Observaciones (no bloquean; se resuelven en las tareas siguientes):
+
+1. **Node 22.23.4 es obligatorio** (lo exige Astro 7.4.4; con 22.22 `astro check` se niega a correr). Cloudflare Pages lee `.nvmrc`; confirmarlo en TASK-008.
+2. **Manrope solo en peso 400.** El diseño usa 600, 700 y 800 → cargarlos en TASK-002.
+3. **`moka` quedó oscura**; en la maqueta es una paleta **clara** (crema con texto moka). `color-scheme: dark` está fijo en `tema.css` → TASK-002: que cada paleta declare su `color-scheme` y rehacer `moka` clara.
+4. Los tonos de `arena` y `botella` difieren un poco de la maqueta (líneas más claras, buen contraste). Aceptado; se ajustan al logo (P-20).
+5. `npm run check` no ejecuta Vitest → TASK-002: sumar `npm test` a `check`.
+6. Nada impide publicar con marcadores o precios en 0 → TASK-008: verificación de prepublicación que falle si quedan `[MARCADORES]`, teléfono `51900000000`, coordenadas `0,0` o precios 0.

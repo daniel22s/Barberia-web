@@ -11,6 +11,8 @@ Depende de TASK-001 a 007 y de que el cliente compre el dominio con su correo (A
 - `public/_headers` de Cloudflare Pages: caché larga para `/_astro/*`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`, CSP que permita solo lo que la web usa.
 - `public/_redirects`: `www` → dominio principal (o al revés, según se decida).
 - `docs/DEPLOYMENT.md`: pasos exactos usados.
+- `scripts/prepublicar.mjs` + `npm run prepublicar` (lo ejecuta el build de producción): falla si en `src/content/` quedan `[MARCADORES]`, el teléfono `51900000000`, coordenadas `0,0`, precios 0 o duraciones de 1 min.
+- Node: confirmar que Cloudflare Pages usa la versión de `.nvmrc` (22.23.4, la exige Astro 7).
 
 **Incluye (desarrollador humano)**
 - Proyecto de Cloudflare Pages conectado al repositorio (`main` = producción; ramas = vista previa), Node 22, comando `npm run build`, carpeta `dist`.

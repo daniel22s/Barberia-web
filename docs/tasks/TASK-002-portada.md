@@ -15,6 +15,8 @@ Depende de TASK-001. Referencia visual: artboards «Tu web · celular» y «Tu w
 - `Franja.astro`: lista de estilos en movimiento continuo (CSS), legible y en pausa con `prefers-reduced-motion`.
 - `BotonWhatsApp.astro`: botón flotante fijo en móvil, 64 px, con `aria-label`, latido suave (CSS) que se apaga con `prefers-reduced-motion`.
 - Todos los enlaces de WhatsApp con `enlaceWhatsApp()`.
+- Pendientes de la revisión de TASK-001: cargar Manrope 600/700/800; cada paleta declara su `color-scheme` y `moka` pasa a ser **clara** como en la maqueta (fondo `#EFE7DB`, texto `#2B211C`, acento `#8A5A44`, sobre-acento `#FBF7F1`; contraste ≥ 4.5:1); `npm run check` también ejecuta `npm test`.
+- Datos de ejemplo sintéticos para ver el diseño: los servicios de la maqueta (Para él: corte clásico S/ 20 · 30 min, fade S/ 25 · 40 min destacado, corte + barba S/ 35 · 60 min, perfilado de barba S/ 15 · 25 min, diseño S/ 10 · 15 min, corte niño S/ 15 · 30 min; Para ella: corte dama S/ 35 · 45 min, brushing S/ 30 · 40 min, color o mechas desde S/ 90 · 120 min) y un horario de ejemplo Lun–Sáb 10:00–20:00, Dom cerrado. Siguen siendo de ejemplo hasta que lleguen los reales (P-22).
 
 **No incluye:** animaciones de aparición al hacer scroll (TASK-007).
 
