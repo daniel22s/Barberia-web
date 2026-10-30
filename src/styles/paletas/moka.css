@@ -1,10 +1,11 @@
 :root {
-  --paleta-fondo: #201713;
-  --paleta-superficie: #32241e;
-  --paleta-linea: #8e7768;
-  --paleta-texto: #fff3e4;
-  --paleta-suave: #e2cdbc;
-  --paleta-apagado: #c2a995;
-  --paleta-acento: #e5b98e;
-  --paleta-sobre-acento: #281a11;
+  --paleta-fondo: #efe7db;
+  --paleta-superficie: #f8f3ec;
+  --paleta-linea: #ddd1c1;
+  --paleta-texto: #2b211c;
+  --paleta-suave: #4a3a32;
+  --paleta-apagado: #6b5a4e;
+  --paleta-acento: #8a5a44;
+  --paleta-sobre-acento: #fbf7f1;
+  color-scheme: light;
 }

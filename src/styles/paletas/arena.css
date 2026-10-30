@@ -1,10 +1,11 @@
 :root {
-  --paleta-fondo: #171513;
-  --paleta-superficie: #25211d;
-  --paleta-linea: #756b60;
-  --paleta-texto: #faf4e9;
-  --paleta-suave: #ddd0bd;
-  --paleta-apagado: #b9aa97;
-  --paleta-acento: #d8b88a;
-  --paleta-sobre-acento: #211a12;
+  --paleta-fondo: #111111;
+  --paleta-superficie: #1b1a18;
+  --paleta-linea: #2e2b27;
+  --paleta-texto: #f2ebdd;
+  --paleta-suave: #d6cbb9;
+  --paleta-apagado: #a9a091;
+  --paleta-acento: #c8a27a;
+  --paleta-sobre-acento: #111111;
+  color-scheme: dark;
 }

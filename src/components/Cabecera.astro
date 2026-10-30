@@ -1,0 +1,120 @@
+---
+import { getEntry } from "astro:content";
+import { enlaceWhatsApp } from "../lib/whatsapp";
+const negocio = (await getEntry("negocio", "principal"))!.data;
+---
+
+<header>
+  <a class="marca" href="#inicio">
+    {negocio.nombre}
+  </a>
+  <button
+    type="button"
+    aria-expanded="false"
+    aria-controls="menu"
+    id="abrir-menu"
+  >
+    Menú <span aria-hidden="true">☰</span>
+  </button>
+  <nav id="menu" aria-label="Principal">
+    <a href="#servicios">Servicios</a>
+    <a href="#trabajos">Trabajos</a>
+    <a href="#ubicacion">Ubicación</a>
+    <a
+      class="reserva"
+      href={enlaceWhatsApp(negocio.whatsapp, negocio.mensajeWhatsapp)}
+    >
+      Reservar por WhatsApp
+    </a>
+  </nav>
+</header>
+<script>
+  const boton = document.querySelector<HTMLButtonElement>("#abrir-menu")!;
+  const menu = document.querySelector<HTMLElement>("#menu")!;
+  function cerrar() {
+    boton.setAttribute("aria-expanded", "false");
+  }
+  boton.addEventListener("click", () =>
+    boton.setAttribute(
+      "aria-expanded",
+      String(boton.getAttribute("aria-expanded") !== "true"),
+    ),
+  );
+  menu.addEventListener("click", (event) => {
+    if ((event.target as HTMLElement).closest("a")) cerrar();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (
+      event.key === "Escape" &&
+      boton.getAttribute("aria-expanded") === "true"
+    ) {
+      cerrar();
+      boton.focus();
+    }
+  });
+</script>
+<style>
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem max(1rem, calc((100% - 1160px) / 2));
+    border-bottom: 1px solid var(--color-linea);
+    position: relative;
+  }
+  .marca {
+    font: 1.5rem var(--font-titulo);
+    text-transform: uppercase;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  a,
+  button {
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .reserva {
+    border-radius: 99px;
+    padding: 0 1.4rem;
+    background: var(--color-acento);
+    color: var(--color-sobre-acento);
+    font-weight: 800;
+  }
+  button {
+    display: none;
+    border: 1px solid var(--color-apagado);
+    background: var(--color-superficie);
+    color: var(--color-texto);
+    border-radius: 14px;
+    padding: 0 1rem;
+    gap: 0.5rem;
+  }
+  @media (max-width: 767px) {
+    button {
+      display: inline-flex;
+    }
+    nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+      background: var(--color-superficie);
+      z-index: 10;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    button[aria-expanded="true"] + nav {
+      display: flex;
+    }
+    .marca {
+      font-size: 1.2rem;
+    }
+  }
+</style>

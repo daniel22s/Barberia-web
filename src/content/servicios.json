@@ -1,24 +1,101 @@
 [
   {
-    "id": "ejemplo-el",
+    "id": "ejemplo-0",
     "grupo": "el",
-    "nombre": "[SERVICIO PARA ÉL]",
-    "precio": 0,
+    "nombre": "Corte clásico",
+    "precio": 20,
     "precioDesde": false,
-    "duracionMin": 1,
-    "descripcion": "[DESCRIPCIÓN SINTÉTICA: PRECIO Y DURACIÓN POR CONFIRMAR]",
+    "duracionMin": 30,
+    "descripcion": "[DESCRIPCIÓN DEL SERVICIO]",
     "destacado": false,
     "orden": 0
   },
   {
-    "id": "ejemplo-ella",
-    "grupo": "ella",
-    "nombre": "[SERVICIO PARA ELLA]",
-    "precio": 0,
+    "id": "ejemplo-1",
+    "grupo": "el",
+    "nombre": "Fade / degradado",
+    "precio": 25,
     "precioDesde": false,
-    "duracionMin": 1,
-    "descripcion": "[DESCRIPCIÓN SINTÉTICA: PRECIO Y DURACIÓN POR CONFIRMAR]",
-    "destacado": false,
+    "duracionMin": 40,
+    "descripcion": "[DESCRIPCIÓN DEL SERVICIO]",
+    "destacado": true,
     "orden": 1
+  },
+  {
+    "id": "ejemplo-2",
+    "grupo": "el",
+    "nombre": "Corte + barba",
+    "precio": 35,
+    "precioDesde": false,
+    "duracionMin": 60,
+    "descripcion": "[DESCRIPCIÓN DEL SERVICIO]",
+    "destacado": false,
+    "orden": 2
+  },
+  {
+    "id": "ejemplo-3",
+    "grupo": "el",
+    "nombre": "Perfilado de barba",
+    "precio": 15,
+    "precioDesde": false,
+    "duracionMin": 25,
+    "descripcion": "[DESCRIPCIÓN DEL SERVICIO]",
+    "destacado": false,
+    "orden": 3
+  },
+  {
+    "id": "ejemplo-4",
+    "grupo": "el",
+    "nombre": "Diseño / líneas",
+    "precio": 10,
+    "precioDesde": false,
+    "duracionMin": 15,
+    "descripcion": "[DESCRIPCIÓN DEL SERVICIO]",
+    "destacado": false,
+    "orden": 4
+  },
+  {
+    "id": "ejemplo-5",
+    "grupo": "el",
+    "nombre": "Corte niño",
+    "precio": 15,
+    "precioDesde": false,
+    "duracionMin": 30,
+    "descripcion": "[DESCRIPCIÓN DEL SERVICIO]",
+    "destacado": false,
+    "orden": 5
+  },
+  {
+    "id": "ejemplo-6",
+    "grupo": "ella",
+    "nombre": "Corte dama",
+    "precio": 35,
+    "precioDesde": false,
+    "duracionMin": 45,
+    "descripcion": "[DESCRIPCIÓN DEL SERVICIO]",
+    "destacado": false,
+    "orden": 6
+  },
+  {
+    "id": "ejemplo-7",
+    "grupo": "ella",
+    "nombre": "Brushing / peinado",
+    "precio": 30,
+    "precioDesde": false,
+    "duracionMin": 40,
+    "descripcion": "[DESCRIPCIÓN DEL SERVICIO]",
+    "destacado": false,
+    "orden": 7
+  },
+  {
+    "id": "ejemplo-8",
+    "grupo": "ella",
+    "nombre": "Color o mechas",
+    "precio": 90,
+    "precioDesde": true,
+    "duracionMin": 120,
+    "descripcion": "[DESCRIPCIÓN DEL SERVICIO]",
+    "destacado": false,
+    "orden": 8
   }
 ]

@@ -1,0 +1,55 @@
+---
+import { getEntry } from "astro:content";
+import { enlaceWhatsApp } from "../lib/whatsapp";
+const negocio = (await getEntry("negocio", "principal"))!.data;
+---
+
+<a
+  href={enlaceWhatsApp(negocio.whatsapp, negocio.mensajeWhatsapp)}
+  aria-label="Escribir por WhatsApp"
+>
+  <svg
+    width="30"
+    height="30"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    aria-hidden="true"
+  >
+    <path d="M21 11a9 9 0 0 1-13 8L3 21l2-5A9 9 0 1 1 21 11Z" />
+  </svg>
+</a>
+<style>
+  a {
+    position: fixed;
+    right: 1rem;
+    bottom: calc(1rem + env(safe-area-inset-bottom));
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--color-acento);
+    color: var(--color-sobre-acento);
+    box-shadow: 0 6px 24px #0006;
+    z-index: 20;
+    animation: latido 3s ease-in-out infinite;
+  }
+  @keyframes latido {
+    50% {
+      transform: scale(1.06);
+    }
+  }
+  @media (min-width: 768px) {
+    a {
+      display: none;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    a {
+      animation: none;
+    }
+  }
+</style>

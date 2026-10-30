@@ -11,7 +11,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "lint": "eslint . --max-warnings 0",
-    "check": "astro check && npm run lint && npm run build",
+    "check": "astro check && npm run lint && npm run build && npm test",
     "test": "vitest run",
     "format:check": "prettier --check src package.json astro.config.mjs eslint.config.js tsconfig.json .prettierrc"
   },

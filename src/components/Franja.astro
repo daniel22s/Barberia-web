@@ -1,0 +1,62 @@
+---
+import { getCollection } from "astro:content";
+const estilos = (await getCollection("servicios")).sort(
+  (a, b) => a.data.orden - b.data.orden,
+);
+---
+
+<div class="franja" aria-label="Nuestros estilos">
+  <div class="cinta">
+    {[false, true].map((copia) => (
+      <ul aria-hidden={copia ? "true" : undefined}>
+        {estilos.map(({ data }) => (
+          <li>
+            {data.nombre}
+            <span aria-hidden="true"> ✦ </span>
+          </li>
+        ))}
+      </ul>
+    ))}
+  </div>
+</div>
+<style>
+  .franja {
+    overflow: hidden;
+    background: var(--color-acento);
+    color: var(--color-sobre-acento);
+    padding: 1rem 0;
+  }
+  .cinta {
+    display: flex;
+    width: max-content;
+    animation: deslizar 40s linear infinite;
+  }
+  ul {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0 1rem;
+    margin: 0;
+    list-style: none;
+    white-space: nowrap;
+    font: 1.5rem var(--font-titulo);
+    text-transform: uppercase;
+  }
+  @keyframes deslizar {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cinta {
+      animation: none;
+      width: auto;
+    }
+    ul {
+      flex-wrap: wrap;
+      white-space: normal;
+    }
+    ul[aria-hidden] {
+      display: none;
+    }
+  }
+</style>

@@ -1,13 +1,17 @@
 # TASK-002 — Cabecera, portada, franja y botón flotante
 
 ## Objetivo
+
 Construir la parte de arriba de la página como en la maqueta: lo primero que ve un cliente desde el celular.
 
 ## Contexto
+
 Depende de TASK-001. Referencia visual: `docs/diseno/maqueta/capturas/celular-arena.png` y `computadora-arena.png`. Público unisex.
 
 ## Requisitos
+
 **Incluye**
+
 - `Cabecera.astro`: logo (archivo en `src/assets/logo.*`, o el nombre en tipografía si aún no llega), nombre, menú con anclas (Servicios, Trabajos, Ubicación) y botón «Reservar por WhatsApp». En móvil, menú desplegable accesible (botón con `aria-expanded`, cierre con Escape).
 - `Portada.astro`: etiqueta «Hair studio unisex en {distrito}, {provincia}», `<h1>` grande, párrafo, botón WhatsApp y botón «Ver servicios y precios», datos rápidos (días y hora de apertura desde `horario`; calificación solo si existe en `negocio`), medio principal:
   - foto (`<Image>` de Astro, `loading="eager"`, `fetchpriority="high"`), o
@@ -21,23 +25,51 @@ Depende de TASK-001. Referencia visual: `docs/diseno/maqueta/capturas/celular-ar
 **No incluye:** animaciones de aparición al hacer scroll (TASK-007).
 
 ## Archivos afectados
+
 `src/components/Cabecera.astro`, `Portada.astro`, `Franja.astro`, `BotonWhatsApp.astro`, `src/pages/index.astro`.
 
 ## Restricciones
+
 - Sin librerías nuevas. JavaScript solo para el menú móvil (< 2 KB).
 - Controles ≥ 48 px de alto en móvil. Contraste ≥ 4.5:1 en las tres paletas recomendadas.
 
 ## Criterios de aceptación
+
 1. Se ve como la maqueta a 360, 390, 768 y 1280 px, sin desborde horizontal.
 2. El botón de WhatsApp abre el número y mensaje de `negocio.json`.
 3. Con «reducir movimiento» activado, nada se mueve.
 4. El menú móvil se usa solo con teclado.
 
 ## Pruebas requeridas
+
 `npm run check`; capturas a 390 y 1280 px adjuntas en el PR; prueba manual de teclado y de «reducir movimiento» (DevTools → Rendering) anotada.
 
 ## Documentación a actualizar
+
 Ninguna, salvo desvíos de la maqueta (anotarlos aquí).
 
 ## Resultados reales y pendientes
-_(Codex)_
+
+Implementado desde `origin/main` (0125f35), sin nuevas dependencias.
+
+- Componentes de cabecera, portada, franja y botón flotante; contenido de ejemplo,
+  Manrope 600/700/800, paletas de la maqueta y `check` con Vitest.
+- `npm run check`: tipos 0 errores/advertencias/hints, lint, build y 7 tests pasan.
+- Chromium: 360, 375, 390, 768 y 1280 px sin desborde; teclado abre menú,
+  Tab llega al primer enlace y Escape cierra y devuelve foco. Emulación de
+  movimiento reducido: cero animaciones en ejecución.
+- Capturas revisadas: [390 px](../diseno/resultados/task-002/390.png),
+  [1280 px](../diseno/resultados/task-002/1280.png).
+- Lighthouse móvil: Performance 100, Accessibility 100, Best Practices 96,
+  SEO 100. Informe de esta ejecución: `/tmp/lh002.json`.
+- Contrastes calculados WCAG: mínimo 7.31 arena, 7.24 botella, 5.36 moka
+  entre texto/suave/apagado y fondo, texto/superficie, sobre-acento/acento.
+- Menú: script de origen inferior a 2 KB. Sin librerías adicionales.
+
+Pendientes/desvíos: logo y foto reales pendientes; se usa nombre y SVG sintético
+optimizado con Image. Vídeo opcional soportado con límite de 2 MB en configuración,
+pero no probado con material real. Provincia y teléfono siguen pendientes.
+No se inventa calificación ni se muestra si falta. Franja horizontal sin inclinación;
+no se incluye etiqueta de atención con cita porque P-03 sigue pendiente.
+Las anclas Servicios/Trabajos/Ubicación esperan sus tareas respectivas.
+El horario y los nueve servicios son ejemplos autorizados, no datos reales.
