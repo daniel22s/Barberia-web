@@ -28,6 +28,7 @@ const negocio = defineCollection({
       lng: z.number().min(-180).max(180),
     }),
     mapsUrl: urlPendiente,
+    resenasUrl: z.url().regex(/^https?:\/\//).optional(),
     whatsapp: z
       .string()
       .regex(/^51\d{9}$/, "Usa 51 seguido de nueve dígitos, sin separadores."),
@@ -74,6 +75,7 @@ const galeria = defineCollection({
       imagen: image(),
       alt: texto,
       categoria: z.enum(["el", "ella", "local"]),
+      par: z.object({ id: texto, tipo: z.enum(["antes", "despues"]) }).optional(),
     }),
 });
 

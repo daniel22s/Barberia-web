@@ -1,0 +1,50 @@
+---
+import { Picture } from "astro:assets";
+import { getCollection, getEntry } from "astro:content";
+const fotos = await getCollection("galeria");
+const negocio = (await getEntry("negocio", "principal"))!.data;
+const tiktok = /^https?:\/\//.test(negocio.redes.tiktok) ? negocio.redes.tiktok : undefined;
+---
+
+<section id="trabajos" aria-labelledby="titulo-trabajos">
+  <p class="etiqueta">Nuestro trabajo</p>
+  <h2 id="titulo-trabajos">Resultados reales</h2>
+  <div class="mosaico">
+    {fotos.map(({ data }) => (
+      <figure>
+        <Picture
+          src={data.imagen}
+          formats={["avif", "webp"]}
+          fallbackFormat="webp"
+          widths={[360, 640, 960, 1280].filter((ancho) => ancho <= data.imagen.width)}
+          sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
+          width={Math.min(data.imagen.width, 1280)}
+          height={Math.round(data.imagen.height * Math.min(data.imagen.width, 1280) / data.imagen.width)}
+          quality={55}
+          alt={data.alt}
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+    ))}
+    <div class="tiktok">
+      <span aria-hidden="true">↗</span>
+      {tiktok ? <a href={tiktok} target="_blank" rel="noopener noreferrer">Más en TikTok</a> : <p>Más en TikTok<br /><span class="pendiente">[ENLACE DE TIKTOK PENDIENTE]</span></p>}
+    </div>
+  </div>
+</section>
+<style>
+  section { max-width: 1160px; padding: 4rem 1rem; margin: auto; }
+  .etiqueta { color: var(--color-acento); text-transform: uppercase; font-size: .75rem; font-weight: 700; letter-spacing: .2em; }
+  h2 { font-size: clamp(2.6rem, 5vw, 4rem); font-weight: 400; text-transform: uppercase; margin: 1rem 0 2rem; }
+  .mosaico { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+  figure { margin: 0; overflow: hidden; border-radius: 24px; background: var(--color-superficie); aspect-ratio: 4 / 5; }
+  figure :global(picture) { display: block; height: 100%; }
+  figure :global(img) { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .tiktok { display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 240px; padding: 1rem; text-align: center; border: 1px solid var(--color-linea); border-radius: 24px; background: var(--color-superficie); }
+  .tiktok > span { color: var(--color-acento); font-size: 3rem; }
+  .tiktok a { display: inline-flex; align-items: center; min-height: 48px; color: var(--color-acento); font-weight: 700; }
+  .pendiente { color: var(--color-apagado); font-size: .8rem; overflow-wrap: anywhere; }
+  @media (min-width: 640px) { .mosaico { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1024px) { .mosaico { grid-template-columns: repeat(3, minmax(0, 1fr)); } figure:nth-child(5n + 1) { grid-row: span 2; aspect-ratio: auto; min-height: 400px; } }
+</style>
