@@ -85,3 +85,18 @@ continúa vacía; la galería conserva el ejemplo sintético de la base.
 La implementación queda para revisión; la aceptación completa de TASK-004 está
 pendiente de estas pruebas. No se declaran aprobadas verificaciones bloqueadas.
 
+
+## Revisión del Arquitecto (2026-10-31)
+
+**Aceptada con correcciones del Arquitecto** en la misma rama (Codex no pudo compilar por falta de acceso a npm):
+
+1. **El build fallaba** (`exit 1`): la galería pasaba la imagen de ejemplo SVG por `<Picture>` con AVIF/WebP (`UnsupportedImageFormat`). Ahora un SVG se publica tal cual con `<Image>`; las fotos reales siguen con AVIF/WebP.
+2. **La galería no respetaba el orden del archivo**: `getCollection` ordena por `id` (1, 10, 11… 2). Se añadió `ordenarComoArchivo()` en `src/lib/galeria.ts`, usado en la galería y el comparador, para seguir el orden de `galeria.json` (el que edita el panel). Pruebas Vitest nuevas en `src/lib/galeria.test.ts`.
+3. Prettier: 7 archivos sin formato; formateados.
+
+Verificaciones de Claude con Node 22.23.4: `npm ci`, `npm run check` 0 errores / 0 advertencias / lint limpio / build OK, **27/27** pruebas, Prettier limpio. Con **20 fotos sintéticas JPEG de 3000×4000 (≈6,6 MB c/u)** y un par antes/después (no versionadas): build OK en ~65 s; la variante publicada más pesada pesa 188 KB (< 200 KB); **carga inicial a 390 px sin desplazar: 133 KB** (< 500 KB) con 1 imagen; tras recorrer la página, 473 KB y 9 imágenes (carga diferida funcionando); JS emitido como archivo: 0 bytes (el script del comparador va en línea). Comparador: flechas y `End` llevan a 100 y `aria-valuetext` se actualiza. Sin desborde a 390 y 1280 px. Con `resenas.json` vacío no aparece la sección. Lighthouse se mide en TASK-007.
+
+Observaciones (no bloquean):
+- `scripts/comprobar-task004.mjs` usa `stripTypeScriptTypes` (experimental en Node 22) y no corre en `npm run check`; las pruebas útiles ya están en Vitest. Puede eliminarse en TASK-007.
+- Las fotos del par antes/después también aparecen en la galería (decisión de Codex, aceptada).
+- Filtro Todos/Él/Ella no implementado (era opcional).

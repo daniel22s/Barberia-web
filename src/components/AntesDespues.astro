@@ -1,8 +1,14 @@
 ---
 import { Picture } from "astro:assets";
 import { getCollection } from "astro:content";
-import { obtenerPares } from "../lib/galeria";
-const pares = obtenerPares(await getCollection("galeria"));
+import { obtenerPares, ordenarComoArchivo } from "../lib/galeria";
+import lista from "../content/galeria.json";
+const pares = obtenerPares(
+  ordenarComoArchivo(
+    await getCollection("galeria"),
+    lista.map(({ id }) => id),
+  ),
+);
 ---
 
 {pares.length > 0 && (
@@ -12,43 +18,156 @@ const pares = obtenerPares(await getCollection("galeria"));
       <div class="comparador">
         <div class="fotos" style="--posicion: 50%">
           <div class="foto">
-            <Picture src={despues.data.imagen} formats={["avif", "webp"]} fallbackFormat="webp" widths={[360, 640, 960, 1280].filter((ancho) => ancho <= despues.data.imagen.width)} sizes="(min-width: 1280px) 1160px, 100vw" width={Math.min(despues.data.imagen.width, 1280)} height={Math.round(despues.data.imagen.height * Math.min(despues.data.imagen.width, 1280) / despues.data.imagen.width)} quality={55} loading="lazy" decoding="async" alt={despues.data.alt} />
+            <Picture
+              src={despues.data.imagen}
+              formats={["avif", "webp"]}
+              fallbackFormat="webp"
+              widths={[360, 640, 960, 1280].filter(
+                (ancho) => ancho <= despues.data.imagen.width,
+              )}
+              sizes="(min-width: 1280px) 1160px, 100vw"
+              width={Math.min(despues.data.imagen.width, 1280)}
+              height={Math.round(
+                (despues.data.imagen.height *
+                  Math.min(despues.data.imagen.width, 1280)) /
+                  despues.data.imagen.width,
+              )}
+              quality={55}
+              loading="lazy"
+              decoding="async"
+              alt={despues.data.alt}
+            />
           </div>
           <div class="foto antes">
-            <Picture src={antes.data.imagen} formats={["avif", "webp"]} fallbackFormat="webp" widths={[360, 640, 960, 1280].filter((ancho) => ancho <= antes.data.imagen.width)} sizes="(min-width: 1280px) 1160px, 100vw" width={Math.min(antes.data.imagen.width, 1280)} height={Math.round(antes.data.imagen.height * Math.min(antes.data.imagen.width, 1280) / antes.data.imagen.width)} quality={55} loading="lazy" decoding="async" alt={antes.data.alt} />
+            <Picture
+              src={antes.data.imagen}
+              formats={["avif", "webp"]}
+              fallbackFormat="webp"
+              widths={[360, 640, 960, 1280].filter(
+                (ancho) => ancho <= antes.data.imagen.width,
+              )}
+              sizes="(min-width: 1280px) 1160px, 100vw"
+              width={Math.min(antes.data.imagen.width, 1280)}
+              height={Math.round(
+                (antes.data.imagen.height *
+                  Math.min(antes.data.imagen.width, 1280)) /
+                  antes.data.imagen.width,
+              )}
+              quality={55}
+              loading="lazy"
+              decoding="async"
+              alt={antes.data.alt}
+            />
           </div>
-          <span class="rotulo inicio">Antes</span><span class="rotulo final">Después</span>
+          <span class="rotulo inicio">Antes</span>
+          <span class="rotulo final">Después</span>
           <span class="division" aria-hidden="true"></span>
         </div>
-        <label for={`comparacion-${indice}`}>Comparar antes y después · {indice + 1}</label>
-        <input id={`comparacion-${indice}`} type="range" min="0" max="100" value="50" step="1" aria-valuetext="50% de la imagen anterior visible" />
+        <label for={`comparacion-${indice}`}>
+          Comparar antes y después · {indice + 1}
+        </label>
+        <input
+          id={`comparacion-${indice}`}
+          type="range"
+          min="0"
+          max="100"
+          value="50"
+          step="1"
+          aria-valuetext="50% de la imagen anterior visible"
+        />
       </div>
     ))}
   </section>
 )}
 <script>
-  document.querySelectorAll<HTMLElement>(".comparador").forEach((comparador) => {
-    const control = comparador.querySelector<HTMLInputElement>('input[type="range"]')!;
-    const fotos = comparador.querySelector<HTMLElement>(".fotos")!;
-    control.addEventListener("input", () => {
-      fotos.style.setProperty("--posicion", `${control.value}%`);
-      control.setAttribute("aria-valuetext", `${control.value}% de la imagen anterior visible`);
+  document
+    .querySelectorAll<HTMLElement>(".comparador")
+    .forEach((comparador) => {
+      const control = comparador.querySelector<HTMLInputElement>(
+        'input[type="range"]',
+      )!;
+      const fotos = comparador.querySelector<HTMLElement>(".fotos")!;
+      control.addEventListener("input", () => {
+        fotos.style.setProperty("--posicion", `${control.value}%`);
+        control.setAttribute(
+          "aria-valuetext",
+          `${control.value}% de la imagen anterior visible`,
+        );
+      });
     });
-  });
 </script>
 <style>
-  section { max-width: 1160px; margin: auto; padding: 4rem 1rem; }
-  h2 { font-size: clamp(2.3rem, 4vw, 3.5rem); font-weight: 400; text-transform: uppercase; }
-  .comparador { margin: 2rem 0; }
-  .fotos { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 24px; background: var(--color-superficie); }
-  .foto { position: absolute; inset: 0; }
-  .foto :global(picture), .foto :global(img) { display: block; width: 100%; height: 100%; }
-  .foto :global(img) { object-fit: cover; }
-  .antes { clip-path: inset(0 calc(100% - var(--posicion)) 0 0); }
-  .division { position: absolute; left: var(--posicion); top: 0; bottom: 0; width: 2px; background: var(--color-texto); }
-  .rotulo { position: absolute; top: 1rem; background: var(--color-fondo); color: var(--color-texto); padding: .4rem .8rem; border-radius: 99px; }
-  .inicio { left: 1rem; } .final { right: 1rem; }
-  label { display: block; margin-top: 1rem; font-weight: 700; }
-  input { display: block; width: 100%; min-height: 48px; accent-color: var(--color-acento); }
-  input:focus-visible { outline: 3px solid var(--color-acento); outline-offset: 4px; }
+  section {
+    max-width: 1160px;
+    margin: auto;
+    padding: 4rem 1rem;
+  }
+  h2 {
+    font-size: clamp(2.3rem, 4vw, 3.5rem);
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  .comparador {
+    margin: 2rem 0;
+  }
+  .fotos {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 24px;
+    background: var(--color-superficie);
+  }
+  .foto {
+    position: absolute;
+    inset: 0;
+  }
+  .foto :global(picture),
+  .foto :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .foto :global(img) {
+    object-fit: cover;
+  }
+  .antes {
+    clip-path: inset(0 calc(100% - var(--posicion)) 0 0);
+  }
+  .division {
+    position: absolute;
+    left: var(--posicion);
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--color-texto);
+  }
+  .rotulo {
+    position: absolute;
+    top: 1rem;
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    padding: 0.4rem 0.8rem;
+    border-radius: 99px;
+  }
+  .inicio {
+    left: 1rem;
+  }
+  .final {
+    right: 1rem;
+  }
+  label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 700;
+  }
+  input {
+    display: block;
+    width: 100%;
+    min-height: 48px;
+    accent-color: var(--color-acento);
+  }
+  input:focus-visible {
+    outline: 3px solid var(--color-acento);
+    outline-offset: 4px;
+  }
 </style>

@@ -10,13 +10,15 @@ if (existsSync(video) && statSync(video).size > 2_000_000)
 
 export default defineConfig({
   output: "static",
-  integrations: [{
-    name: "presupuesto-imagenes",
-    hooks: {
-      "astro:build:done": async ({ dir }) => {
-        await verificarImagenes(fileURLToPath(dir));
+  integrations: [
+    {
+      name: "presupuesto-imagenes",
+      hooks: {
+        "astro:build:done": async ({ dir }) => {
+          await verificarImagenes(fileURLToPath(dir));
+        },
       },
     },
-  }],
+  ],
   vite: { plugins: [tailwindcss()] },
 });

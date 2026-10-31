@@ -1,19 +1,66 @@
 <section id="como-reservar" aria-labelledby="titulo-reserva">
   <h2 id="titulo-reserva">Reserva en 3 pasos</h2>
   <ol>
-    <li><span aria-hidden="true">01</span><h3>Elige tu servicio</h3><p>Revisa los precios y la duración de los servicios.</p><a href="#servicios">Ver servicios →</a></li>
-    <li><span aria-hidden="true">02</span><h3>Escríbenos por WhatsApp</h3><p>Usa el botón del servicio que elegiste para enviarnos tu mensaje.</p></li>
-    <li><span aria-hidden="true">03</span><h3>Llega y luce</h3><p>Te confirmamos la hora y te esperamos.</p></li>
+    <li>
+      <span aria-hidden="true">01</span>
+      <h3>Elige tu servicio</h3>
+      <p>Revisa los precios y la duración de los servicios.</p>
+      <a href="#servicios">Ver servicios →</a>
+    </li>
+    <li>
+      <span aria-hidden="true">02</span>
+      <h3>Escríbenos por WhatsApp</h3>
+      <p>Usa el botón del servicio que elegiste para enviarnos tu mensaje.</p>
+    </li>
+    <li>
+      <span aria-hidden="true">03</span>
+      <h3>Llega y luce</h3>
+      <p>Te confirmamos la hora y te esperamos.</p>
+    </li>
   </ol>
 </section>
 <style>
-  section { max-width: 1160px; margin: auto; padding: 4rem 1rem; }
-  h2 { font-size: clamp(2.3rem, 4vw, 3.5rem); text-transform: uppercase; font-weight: 400; margin: 0 0 2rem; }
-  ol { display: grid; gap: 2rem; padding: 0; list-style: none; }
-  li { min-width: 0; }
-  li > span { font: 4rem/1 var(--font-titulo); color: var(--color-acento); }
-  h3 { font: 700 1.2rem var(--font-texto); }
-  p { color: var(--color-apagado); line-height: 1.6; }
-  a { display: inline-flex; align-items: center; min-height: 48px; color: var(--color-acento); font-weight: 700; }
-  @media (min-width: 768px) { ol { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  section {
+    max-width: 1160px;
+    margin: auto;
+    padding: 4rem 1rem;
+  }
+  h2 {
+    font-size: clamp(2.3rem, 4vw, 3.5rem);
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 0 0 2rem;
+  }
+  ol {
+    display: grid;
+    gap: 2rem;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    min-width: 0;
+  }
+  li > span {
+    font: 4rem/1 var(--font-titulo);
+    color: var(--color-acento);
+  }
+  h3 {
+    font: 700 1.2rem var(--font-texto);
+  }
+  p {
+    color: var(--color-apagado);
+    line-height: 1.6;
+  }
+  a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    color: var(--color-acento);
+    font-weight: 700;
+  }
+  @media (min-width: 768px) {
+    ol {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
 </style>

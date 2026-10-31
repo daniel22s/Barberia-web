@@ -10,23 +10,74 @@ const negocio = (await getEntry("negocio", "principal"))!.data;
     <div class="resenas">
       {resenas.map(({ data }) => (
         <figure>
-          <p class="estrellas" aria-label={`${data.estrellas} de 5 estrellas`}><span aria-hidden="true">{"★".repeat(data.estrellas)}{"☆".repeat(5 - data.estrellas)}</span></p>
-          <blockquote><p>{data.texto}</p></blockquote>
+          <p class="estrellas" aria-label={`${data.estrellas} de 5 estrellas`}>
+            <span aria-hidden="true">
+              {"★".repeat(data.estrellas)}
+              {"☆".repeat(5 - data.estrellas)}
+            </span>
+          </p>
+          <blockquote>
+            <p>{data.texto}</p>
+          </blockquote>
           <figcaption>{data.autor}</figcaption>
         </figure>
       ))}
     </div>
-    {negocio.resenasUrl && <a href={negocio.resenasUrl} target="_blank" rel="noopener noreferrer">Ver reseñas en Google ↗</a>}
+    {negocio.resenasUrl && (
+      <a href={negocio.resenasUrl} target="_blank" rel="noopener noreferrer">
+        Ver reseñas en Google ↗
+      </a>
+    )}
   </section>
 )}
 <style>
-  section { max-width: 1160px; margin: auto; padding: 4rem 1rem; }
-  h2 { font-size: clamp(2.3rem, 4vw, 3.5rem); font-weight: 400; text-transform: uppercase; }
-  .resenas { display: grid; gap: 1.5rem; }
-  figure { margin: 0; padding: 1.5rem; border: 1px solid var(--color-linea); border-radius: 24px; background: var(--color-superficie); min-width: 0; }
-  .estrellas { color: var(--color-acento); letter-spacing: .15em; }
-  blockquote { margin: 1rem 0; color: var(--color-suave); line-height: 1.6; overflow-wrap: anywhere; }
-  figcaption { font-weight: 700; overflow-wrap: anywhere; }
-  a { display: inline-flex; align-items: center; min-height: 48px; margin-top: 1rem; color: var(--color-acento); font-weight: 700; }
-  @media (min-width: 768px) { .resenas { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  section {
+    max-width: 1160px;
+    margin: auto;
+    padding: 4rem 1rem;
+  }
+  h2 {
+    font-size: clamp(2.3rem, 4vw, 3.5rem);
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  .resenas {
+    display: grid;
+    gap: 1.5rem;
+  }
+  figure {
+    margin: 0;
+    padding: 1.5rem;
+    border: 1px solid var(--color-linea);
+    border-radius: 24px;
+    background: var(--color-superficie);
+    min-width: 0;
+  }
+  .estrellas {
+    color: var(--color-acento);
+    letter-spacing: 0.15em;
+  }
+  blockquote {
+    margin: 1rem 0;
+    color: var(--color-suave);
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+  }
+  figcaption {
+    font-weight: 700;
+    overflow-wrap: anywhere;
+  }
+  a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    margin-top: 1rem;
+    color: var(--color-acento);
+    font-weight: 700;
+  }
+  @media (min-width: 768px) {
+    .resenas {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
 </style>
