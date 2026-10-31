@@ -34,3 +34,15 @@ GitHub (ya existe `daniel22s/barberia-web`), Cloudflare, Google Business Profile
 ## No hace falta
 
 Supabase, Docker, bases de datos, Figma (la maqueta ya está en un lienzo de Claude) ni librerías de animación pesadas.
+
+## Trabajo local en VS Code (Claude Code + Codex)
+
+1. Instalar Git, VS Code y Node **22.23.4** con nvm (`nvm install 22.23.4` y `nvm use 22.23.4`; en Windows, nvm-windows).
+2. Clonar: en VS Code, `Ctrl+Shift+P` → «Git: Clone» → `https://github.com/daniel22s/Barberia-web.git`.
+3. En la terminal de VS Code: `npm ci` y luego `npm run dev` → abrir `http://localhost:4321`.
+4. Extensiones: **Claude Code** (Anthropic), **Codex** (OpenAI), Astro, Tailwind CSS IntelliSense, Prettier, ESLint.
+5. Claude Code lee `CLAUDE.md` y Codex lee `AGENTS.md` al abrir la carpeta.
+6. **No trabajar los dos a la vez en la misma carpeta.** Codex usa una carpeta propia por tarea con `git worktree`:
+   `git worktree add ../barberia-task-005 -b web/task-005-ubicacion-pie main`
+   y al terminar (después de fusionar): `git worktree remove ../barberia-task-005`.
+7. Antes de subir una rama: `npm run check` y `npm run format:check` deben pasar.
