@@ -4,6 +4,10 @@ Copia estática de la maqueta aprobada, para que Codex y cualquier desarrollador
 
 **Es referencia de diseño, no código de producción.** Los estilos están en línea para mostrar el aspecto; en la web real se usan componentes de Astro, los tokens de `src/styles/tema.css` y los datos de `src/content/`. Textos, precios y fotos son **de ejemplo** o están entre `[CORCHETES]`.
 
+## Diseño elegido (2026-10-31): paleta `vektra`, negro y dorado
+
+El cliente eligió **negro y dorado**, los colores de su logo. Usa estas como referencia principal: `capturas/computadora-vektra.png`, `capturas/celular-vektra.png`, `capturas/animaciones-vektra.png` (y sus `.html`). El logo de la maqueta es una **recreación provisional** con la fuente Syncopate 700; se reemplaza por el archivo original cuando llegue (P-23). Las demás paletas quedan solo como historial.
+
 ## Capturas (`capturas/`)
 
 | Archivo | Qué muestra |
@@ -19,15 +23,15 @@ Copia estática de la maqueta aprobada, para que Codex y cualquier desarrollador
 
 ## Valores de las paletas
 
-| Token | arena | botella | moka (clara) | lima |
-|---|---|---|---|---|
-| fondo | `#111111` | `#12261F` | `#EFE7DB` | `#0D0D0D` |
-| superficie | `#1B1A18` | `#183129` | `#F8F3EC` | `#171717` |
-| línea | `#2E2B27` | `#254238` | `#DDD1C1` | `#2C2C2C` |
-| texto | `#F2EBDD` | `#F2EBDD` | `#2B211C` | `#F4EFE6` |
-| suave | `#D6CBB9` | `#D2D9CF` | `#4A3A32` | `#CFC8BD` |
-| apagado | `#A9A091` | `#A3B3A9` | `#6B5A4E` | `#A8A29A` |
-| acento | `#C8A27A` | `#C9A45C` | `#8A5A44` | `#A8DD35` |
-| sobre acento | `#111111` | `#111111` | `#FBF7F1` | `#111111` |
+| Token | **vektra (elegida)** | arena | botella | moka (clara) | lima |
+|---|---|---|---|---|---|
+| fondo | `#0B0B0B` | `#111111` | `#12261F` | `#EFE7DB` | `#0D0D0D` |
+| superficie | `#161514` | `#1B1A18` | `#183129` | `#F8F3EC` | `#171717` |
+| línea | `#2A2826` | `#2E2B27` | `#254238` | `#DDD1C1` | `#2C2C2C` |
+| texto | `#F5F1E8` | `#F2EBDD` | `#F2EBDD` | `#2B211C` | `#F4EFE6` |
+| suave | `#D6D0C4` | `#D6CBB9` | `#D2D9CF` | `#4A3A32` | `#CFC8BD` |
+| apagado | `#A39D92` | `#A9A091` | `#A3B3A9` | `#6B5A4E` | `#A8A29A` |
+| acento | `#C9A23A` | `#C8A27A` | `#C9A45C` | `#8A5A44` | `#A8DD35` |
+| sobre acento | `#0B0B0B` | `#111111` | `#111111` | `#FBF7F1` | `#111111` |
 
 Tipografía: titulares **Anton** (mayúsculas), texto **Manrope** 400/600/700/800.

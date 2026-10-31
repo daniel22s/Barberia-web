@@ -33,8 +33,9 @@ Plazo comunicado al cliente: 7 días. Se cumple **solo si** el contenido llega e
 | TASK-007 | Animaciones, accesibilidad y presupuesto de rendimiento |
 | TASK-008 | Publicación en Cloudflare Pages y dominio |
 | TASK-009 | Panel de edición (Pages CMS) para servicios, precios, fotos y horario |
+| TASK-010 | Marca Véktra: paleta negro y dorado y logo (provisional hasta el archivo original) |
 
-Orden: 001 → 002/003 → 004/005 → 009 → 006/007 → 008. Codex completa «Resultados reales y pendientes» en cada archivo.
+Orden: 001 → 002/003 → 010 → 004 → 005 → 009 → 006/007 → 008. Codex completa «Resultados reales y pendientes» en cada archivo.
 
 ## Futuro (no incluido)
 
