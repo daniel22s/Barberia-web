@@ -11,7 +11,7 @@ Depende de TASK-001. Referencia: secciones «Te esperamos», «Tu nuevo look te 
 - `Ubicacion.astro`: dirección y referencia, horario por día desde `horario` (el día de hoy resaltado en hora de Lima; los días cerrados se marcan como «Cerrado»), botones «Cómo llegar» (`mapsUrl`) y «Escribir por WhatsApp».
 - Mapa: **imagen estática** con enlace a Google Maps (no un `iframe` que cargue al abrir la página). Opcional: al tocar «Ver mapa», cargar el `iframe` de Google Maps.
 - `LlamadoFinal.astro`: «Tu nuevo look te espera» + botón de WhatsApp.
-- `Pie.astro`: nombre, redes (solo las que existan en `negocio`), distrito y año actual.
+- `Pie.astro` (**ya existe** desde TASK-010 con el logo: ampliarlo, no crear otro): nombre, redes (solo las que existan en `negocio`), distrito y año actual.
 - `src/pages/404.astro` con enlace al inicio, mismo diseño.
 - `src/lib/horario.ts`: función pura que devuelve el horario agrupado («Lun – Vie 10:00 – 20:00») y el día actual en `America/Lima`, con pruebas.
 

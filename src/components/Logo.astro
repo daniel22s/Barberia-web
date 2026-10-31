@@ -15,21 +15,19 @@ const logo =
 ---
 
 <span class="logo">
-  {
-    logo ? (
-      <Image
-        src={logo}
-        alt={negocio.nombre}
-        width={200}
-        height={Math.round((200 * logo.height) / logo.width)}
-      />
-    ) : (
-      <span class="logo-texto">
-        <span class="nombre">{negocio.logoTexto}</span>
-        <span class="subtexto">{negocio.logoSubtexto}</span>
-      </span>
-    )
-  }
+  {logo ? (
+    <Image
+      src={logo}
+      alt={negocio.nombre}
+      width={200}
+      height={Math.round((200 * logo.height) / logo.width)}
+    />
+  ) : (
+    <span class="logo-texto">
+      <span class="nombre">{negocio.logoTexto}</span>
+      <span class="subtexto">{negocio.logoSubtexto}</span>
+    </span>
+  )}
 </span>
 
 <style>

@@ -81,3 +81,14 @@ Fórmula WCAG de luminancia relativa sRGB, calculada con Python, sin redondear a
 
 No se declara completada la aceptación de TASK-010 hasta ejecutar estas verificaciones.
 
+## Revisión del Arquitecto (2026-10-31)
+
+**Aceptada**, con dos correcciones del Arquitecto en la misma rama, porque Codex no tenía acceso a npm:
+1. `package-lock.json`: la entrada de `@fontsource/syncopate` no tenía `integrity`; se regeneró con npm (sha512 incluido).
+2. Prettier: `Logo.astro` y `Pie.astro` formateados (`format:check` fallaba).
+
+Verificaciones ejecutadas por Claude con Node 22.23.4: `npm ci` (412 paquetes), `npm run check` 0 errores / 0 advertencias / lint limpio / build OK, **23/23** pruebas, Prettier limpio. Navegador a 390 y 1280 px: sin desborde, fondo `rgb(11, 11, 11)`, logotipo en Syncopate cargada (`document.fonts.check` verdadero), se ve como `celular-vektra.png` / `computadora-vektra.png`. **Criterio 2:** con un PNG sintético de 400×100 en `src/assets/logo.png`, la cabecera y el pie muestran la imagen con `alt` «Véktra Hair Studio»; al quitarlo y recompilar vuelve el texto. No se versionó la imagen de prueba. Contrastes de Codex aceptados (mínimo 6.77:1). Lighthouse no se midió aquí (se mide en TASK-007).
+
+Observaciones (no bloquean):
+- `Pie.astro` ya existe con el logo: **TASK-005 debe ampliarlo**, no crear otro pie.
+- La imagen sintética de la portada (`ejemplo.svg`) conserva el color de la paleta arena; se reemplaza con la foto real.
