@@ -20,7 +20,7 @@ P-20 resuelta (2026-10-31): negro y dorado, los colores de su logo y su portada 
 `src/styles/paletas/vektra.css`, `src/styles/tema.css`, `src/components/Logo.astro`, `src/components/Cabecera.astro`, `src/content/negocio.json`, `src/layouts/Base.astro` (fuente), `package.json` y `package-lock.json`.
 
 ## Restricciones
-- El nombre del negocio dentro del logo de texto sale de `negocio.json` (en mayúsculas por CSS no; el texto «VÉKTRA» y «HAIR STUDIO» se derivan del nombre o se definen en el contenido, nunca escritos sueltos en otros componentes).
+- Los textos del logotipo («VÉKTRA» y «HAIR STUDIO») se definen en `negocio.json` (por ejemplo, `logoTexto` y `logoSubtexto`), nunca escritos dentro de los componentes.
 
 ## Criterios de aceptación
 1. La página se ve en negro y dorado como `celular-vektra.png` a 390 px y `computadora-vektra.png` a 1280 px.
