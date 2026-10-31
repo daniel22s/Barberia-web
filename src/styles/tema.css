@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
-/* Paleta activa: cambiar arena por botella o moka en esta línea (P-20). */
+/* Paleta elegida por el cliente (P-20). */
+@import "./paletas/vektra.css";
+/* Alternativas:
 @import "./paletas/arena.css";
-/* Alternativas: @import "./paletas/botella.css"; @import "./paletas/moka.css"; */
+@import "./paletas/botella.css";
+@import "./paletas/moka.css";
+*/
 
 @theme {
   --color-fondo: var(--paleta-fondo);

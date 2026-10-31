@@ -15,6 +15,8 @@ const negocio = defineCollection({
   }),
   schema: z.object({
     nombre: texto,
+    logoTexto: texto,
+    logoSubtexto: texto,
     eslogan: texto,
     descripcion: texto,
     distrito: texto,

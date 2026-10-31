@@ -1,0 +1,11 @@
+:root {
+  --paleta-fondo: #0b0b0b;
+  --paleta-superficie: #161514;
+  --paleta-linea: #2a2826;
+  --paleta-texto: #f5f1e8;
+  --paleta-suave: #d6d0c4;
+  --paleta-apagado: #a39d92;
+  --paleta-acento: #c9a23a;
+  --paleta-sobre-acento: #0b0b0b;
+  color-scheme: dark;
+}

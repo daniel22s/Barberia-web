@@ -1,12 +1,13 @@
 ---
 import { getEntry } from "astro:content";
+import Logo from "./Logo.astro";
 import { enlaceWhatsApp } from "../lib/whatsapp";
 const negocio = (await getEntry("negocio", "principal"))!.data;
 ---
 
 <header>
   <a class="marca" href="#inicio">
-    {negocio.nombre}
+    <Logo />
   </a>
   <button
     type="button"
@@ -63,10 +64,6 @@ const negocio = (await getEntry("negocio", "principal"))!.data;
     border-bottom: 1px solid var(--color-linea);
     position: relative;
   }
-  .marca {
-    font: 1.5rem var(--font-titulo);
-    text-transform: uppercase;
-  }
   nav {
     display: flex;
     align-items: center;
@@ -112,9 +109,6 @@ const negocio = (await getEntry("negocio", "principal"))!.data;
     }
     button[aria-expanded="true"] + nav {
       display: flex;
-    }
-    .marca {
-      font-size: 1.2rem;
     }
   }
 </style>

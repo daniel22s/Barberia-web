@@ -1,5 +1,5 @@
 {
-  "nombre": "Vektra Hair Studio",
+  "nombre": "Véktra Hair Studio",
   "eslogan": "Cortes que hablan por ti",
   "descripcion": "Cortes para él y para ella, color y peinados. Separa tu hora en un mensaje.",
   "distrito": "Mi Perú",
@@ -30,5 +30,7 @@
     "instagram": "[URL DE INSTAGRAM]",
     "facebook": "[URL DE FACEBOOK]"
   },
-  "dominio": "[DOMINIO]"
+  "dominio": "[DOMINIO]",
+  "logoTexto": "VÉKTRA",
+  "logoSubtexto": "HAIR STUDIO"
 }

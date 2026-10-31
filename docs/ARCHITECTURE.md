@@ -41,7 +41,7 @@ El enlace de WhatsApp se arma desde `negocio.json`: `https://wa.me/51<número>?t
 - JavaScript total ≤ 30 KB comprimido.
 - Peso inicial de la portada ≤ 500 KB (foto principal incluida).
 - Fotos de la galería con carga diferida; la foto principal se precarga.
-- Fuentes: 2 familias como máximo, con `font-display: swap`.
+- Fuentes: Anton y Manrope; TASK-010 autoriza Syncopate exclusivamente para el logotipo provisional (latin 700). Todas locales y con `font-display: swap`.
 
 ## Diseño
 
@@ -76,3 +76,18 @@ Zod se importa desde `astro/zod`, API vigente de Astro 7; no necesita dependenci
 adicional. TypeScript es la herramienta requerida por el modo estricto y
 `@astrojs/check`. No se añadieron librerías de aplicación fuera del stack aprobado.
 Las herramientas de auditoría del entorno no son dependencias del proyecto.
+
+## Marca Véktra (TASK-010)
+
+Paleta activa: `src/styles/paletas/vektra.css`, importada por `tema.css`.
+Negro y dorado elegidos en P-20; arena, botella y moka quedan comentadas.
+Única dependencia nueva: `@fontsource/syncopate` 5.3.0 (Apache-2.0), importada
+solo como `latin-700.css` en Base.astro. Es la tercera familia autorizada por
+TASK-010; no se cargan otros pesos ni subconjuntos de Syncopate.
+
+`Logo.astro` descubre `src/assets/logo.svg` o `logo.png` durante la compilación
+(SVG tiene prioridad), usa el pipeline `Image` de Astro con dimensiones y alt
+igual al nombre del negocio. Sin archivo usa `logoTexto` y `logoSubtexto` de
+`negocio.json`, validados en el esquema. Se comparte entre cabecera y pie.
+El pie mínimo solo coloca el logo; las demás piezas del pie siguen en TASK-005.
+Al añadir o quitar el archivo del logo se debe recompilar.
