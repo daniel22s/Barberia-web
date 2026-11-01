@@ -1,0 +1,7 @@
+# Cloudflare Pages. Las direcciones *.pages.dev no se indexan: solo el dominio
+# definitivo debe aparecer en Google. TASK-008 añade caché y cabeceras de seguridad.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex
