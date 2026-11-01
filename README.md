@@ -52,9 +52,9 @@ Las reseñas permanecen vacías hasta disponer de testimonios reales autorizados
 La galería contiene solo una imagen SVG sintética hasta recibir fotos con permiso.
 
 Los textos entre corchetes (`[DOMINIO]`, `[MENSAJE DE RESERVA]`, redes,
-descripciones de servicios, horario provisional) y el teléfono de prueba
-(`51900000000`) son datos sintéticos o pendientes; **no publicar** sin
-reemplazarlos. La dirección y las coordenadas ya son las reales.
+descripciones de servicios, horario provisional) son datos sintéticos o
+pendientes; **no publicar** sin reemplazarlos. El WhatsApp (`51995631618`) ya
+es el real. La dirección y las coordenadas ya son las reales.
 
 Los tokens están en `src/styles/tema.css`. La paleta activa es `vektra`
 (negro y dorado, acento `#C9A23A`); cambiar el import de paleta cambia todos
