@@ -20,15 +20,16 @@ Impacto en precio o plazo: **A** alto · **M** medio · **B** bajo.
 | P-06b | Logo | Es la palabra **VÉKTRA** en blanco, letras anchas, con «HAIR STUDIO» espaciado debajo, sobre negro; portada con «Jassary Cruz» en dorado | Paleta recomendada: **negro y dorado** (P-20) |
 | P-20 | Colores | **Negro y dorado** (paleta `vektra`, 2026-10-31) | TASK-010 |
 | P-18 | Dirección | **Av. Ayacucho, Mz. A10, Lote 20 — 3.er piso, Mi Perú, Callao** (2026-10-31) | `negocio.json`: `direccion`, `referencia` («3.er piso») y `provincia`. Falta el enlace de Maps: P-26 |
+| P-26 | Enlace de Maps | **https://maps.app.goo.gl/xyGVY4HTM2puz4DM8** (2026-10-31): ficha «Barbería Vektra», -11.8547056, -77.1254608 | `negocio.json`: `mapsUrl` y `coordenadas`. La ficha existe en Maps: ver P-27 |
 | P-12 | Fecha | **7 días** (ya se le comunicó) | Plan diario en `ROADMAP.md`, con condiciones |
 
 ## Pendientes
 
+- **P-27** En Google Maps ya hay una ficha «Barbería Vektra» en el local. ¿La creó el cliente (P-04 decía que no tenía Perfil de Google)? Si es suya, hay que reclamarla o verificarla con su correo (P-14) y ponerle el nombre «Véktra Hair Studio»; no conviene crear una segunda ficha. (M)
 - **P-17** El logo dice **«VÉKTRA HAIR STUDIO»** (con tilde en la É). ¿Así se escribe en Google, la web y las redes? (B)
 - **P-23** Logo recibido solo como captura de WhatsApp (baja resolución): falta el **archivo original** (PNG grande, SVG o PDF). (M)
 - **P-24** El perfil de WhatsApp dice «Abierto las 24 horas»: ¿es real o es la configuración por defecto? Hace falta el horario verdadero. (B)
 - **P-25** Fotos: hacen falta los archivos originales (no capturas) y **permiso** de las personas que aparecen; si aparece un menor, permiso de su padre o madre. (M)
-- **P-26** Enlace de Google Maps del local (compartir la ubicación desde Maps o WhatsApp) y, si hay, una referencia cercana (tienda, parque, paradero). Sin el enlace, el botón «Cómo llegar» y el mapa siguen como marcador. (B)
 - **P-22** Lista de servicios de dama con precios (corte, peinado, color, mechas, tratamientos…). (M)
 - **P-03** ¿Atiende solo con cita, o también sin cita? (B)
 - **P-07** ¿Webs o cuentas que le gusten? (B)
