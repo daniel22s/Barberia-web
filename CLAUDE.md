@@ -10,7 +10,7 @@
 - **Dueño y desarrollador humano:** aprueba alcance, decisiones, presupuesto y entregas; habla con el cliente.
 - **Claude — Arquitecto / Tech Lead:** requisitos, arquitectura, ADR, tareas para Codex, revisión de diffs, SEO técnico, accesibilidad y rendimiento.
 - **Codex — Ejecutor:** implementa las tareas aprobadas de `docs/tasks/` siguiendo `AGENTS.md`.
-- Codex no se puede invocar desde la sesión en la nube de Claude: el humano lo ejecuta y Claude revisa el resultado en GitHub.
+- Codex funciona **en local** (extensión de VS Code, desde 2026-10-31): el humano lo ejecuta en un worktree propio por tarea (`../barberia-task-NNN`, ver `docs/TOOLS.md`) y Claude revisa la rama en local. Claude y Codex **no trabajan a la vez en la misma carpeta**; la carpeta principal queda en `main`.
 
 ## Reglas no negociables
 
