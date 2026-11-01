@@ -17,7 +17,9 @@ const grupos = [
 
 <section id="servicios" aria-labelledby="titulo-servicios">
   <p class="etiqueta">Servicios y precios</p>
-  <h2 id="titulo-servicios">Elige tu estilo</h2>
+  <h2 class="aparecer" id="titulo-servicios">
+    Elige tu estilo
+  </h2>
   {grupos.map((grupo) => {
     const items = servicios.filter(({ data }) => data.grupo === grupo.id);
     return (

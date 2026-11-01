@@ -1,0 +1,63 @@
+{
+  "results": [
+    {
+      "width": 375,
+      "menuSinJs": true,
+      "contenidoSinJs": true,
+      "skipLink": true,
+      "menuEscape": true,
+      "entradaUnaVez": true,
+      "inclinacion": "entrada táctil",
+      "reducirMovimientoInicialYDinamico": true,
+      "pausaFranjaSinJs": true,
+      "imagenesConAltYDimensiones": true,
+      "sinDesborde": true,
+      "sinErroresJs": true,
+      "sinPeticionesExternas": true
+    },
+    {
+      "width": 1280,
+      "menuSinJs": true,
+      "contenidoSinJs": true,
+      "skipLink": true,
+      "menuEscape": false,
+      "entradaUnaVez": true,
+      "inclinacion": "hover",
+      "reducirMovimientoInicialYDinamico": true,
+      "pausaFranjaSinJs": true,
+      "imagenesConAltYDimensiones": true,
+      "sinDesborde": true,
+      "sinErroresJs": true,
+      "sinPeticionesExternas": true
+    }
+  ],
+  "sinIntersectionObserver": true,
+  "js": [
+    {
+      "file": "index.html inline 1",
+      "bytes": 227,
+      "gzip": 169
+    },
+    {
+      "file": "index.html inline 2",
+      "bytes": 287,
+      "gzip": 216
+    },
+    {
+      "file": "index.html inline 3",
+      "bytes": 717,
+      "gzip": 488
+    },
+    {
+      "file": "index.html inline 4",
+      "bytes": 232,
+      "gzip": 200
+    },
+    {
+      "file": "index.html inline 5",
+      "bytes": 718,
+      "gzip": 430
+    }
+  ],
+  "gzipTotal": 1503
+}

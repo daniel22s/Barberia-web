@@ -13,7 +13,9 @@ const pares = obtenerPares(
 
 {pares.length > 0 && (
   <section aria-labelledby="titulo-comparacion">
-    <h2 id="titulo-comparacion">Antes y después</h2>
+    <h2 class="aparecer" id="titulo-comparacion">
+      Antes y después
+    </h2>
     {pares.map(({ antes, despues }, indice) => (
       <div class="comparador">
         <div class="fotos" style="--posicion: 50%">

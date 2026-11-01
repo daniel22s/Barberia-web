@@ -17,7 +17,7 @@ import Faq from "../components/Faq.astro";
 
 <Base>
   <Cabecera />
-  <main>
+  <main id="contenido" tabindex="-1">
     <Portada />
     <Franja />
     <Servicios />
@@ -32,3 +32,6 @@ import Faq from "../components/Faq.astro";
   <Pie />
   <BotonWhatsApp />
 </Base>
+<script>
+  import "../scripts/aparecer";
+</script>

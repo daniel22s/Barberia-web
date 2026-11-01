@@ -1,6 +1,6 @@
 ---
 import { getEntry } from "astro:content";
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import type { ImageMetadata } from "astro";
 import { enlaceWhatsApp } from "../lib/whatsapp";
 import { obtenerHorario } from "../lib/horario";
@@ -22,6 +22,9 @@ const videos = import.meta.glob<string>("../assets/portada.mp4", {
   import: "default",
 });
 const video = Object.values(videos)[0];
+const poster = video
+  ? (await getImage({ src: foto, width: 720, height: 720 })).src
+  : undefined;
 ---
 
 <section id="inicio" aria-labelledby="titular">
@@ -39,8 +42,18 @@ const video = Object.values(videos)[0];
       fetchpriority="high"
     />
     {video && (
-      <video muted autoplay loop playsinline poster={foto.src}>
-        <source src={video} type="video/mp4" />
+      <video
+        data-video-portada
+        controls
+        aria-label="Video de nuestros trabajos"
+        muted
+        loop
+        playsinline
+        preload="none"
+        poster={poster}
+        hidden
+      >
+        <source data-src={video} type="video/mp4" />
       </video>
     )}
     <span class="sello">Nuevo look</span>
@@ -49,7 +62,9 @@ const video = Object.values(videos)[0];
     <p class="etiqueta">
       Hair studio unisex en {negocio.distrito}, {negocio.provincia}
     </p>
-    <h1 id="titular">{negocio.eslogan}</h1>
+    <h1 class="aparecer" id="titular">
+      {negocio.eslogan}
+    </h1>
     <p class="descripcion">{negocio.descripcion}</p>
     <div class="acciones">
       <a

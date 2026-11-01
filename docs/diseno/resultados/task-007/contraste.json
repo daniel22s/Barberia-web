@@ -1,0 +1,47 @@
+[
+  {
+    "texto": "texto",
+    "fondo": "fondo",
+    "ratio": 17.46
+  },
+  {
+    "texto": "texto",
+    "fondo": "superficie",
+    "ratio": 16.18
+  },
+  {
+    "texto": "suave",
+    "fondo": "fondo",
+    "ratio": 12.82
+  },
+  {
+    "texto": "suave",
+    "fondo": "superficie",
+    "ratio": 11.88
+  },
+  {
+    "texto": "apagado",
+    "fondo": "fondo",
+    "ratio": 7.31
+  },
+  {
+    "texto": "apagado",
+    "fondo": "superficie",
+    "ratio": 6.77
+  },
+  {
+    "texto": "acento",
+    "fondo": "fondo",
+    "ratio": 8.17
+  },
+  {
+    "texto": "acento",
+    "fondo": "superficie",
+    "ratio": 7.57
+  },
+  {
+    "texto": "sobre-acento",
+    "fondo": "acento",
+    "ratio": 8.17
+  }
+]

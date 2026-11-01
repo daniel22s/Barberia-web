@@ -9,7 +9,14 @@ interface Props {
 const { servicio, numero } = Astro.props;
 ---
 
-<article class:list={["tarjeta", { destacado: servicio.destacado }]}>
+<article
+  class:list={[
+    "tarjeta",
+    "aparecer",
+    "inclinar",
+    { destacado: servicio.destacado },
+  ]}
+>
   {servicio.destacado && <span class="distintivo">El más pedido</span>}
   <div class="titulo">
     <h4>{servicio.nombre}</h4>
@@ -52,6 +59,7 @@ const { servicio, numero } = Astro.props;
   }
   h4 {
     font-family: var(--font-texto);
+    font-weight: 800;
     font-size: 1.1rem;
     margin: 0;
     overflow-wrap: anywhere;
