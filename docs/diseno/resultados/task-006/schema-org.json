@@ -1,0 +1,13 @@
+{
+  "testedAt": "2026-11-01T02:02:42.202Z",
+  "mode": "code-jsonld-only",
+  "url": "https://validator.schema.org/",
+  "types": [
+    "HairSalon",
+    "FAQPage"
+  ],
+  "totalNumErrors": 0,
+  "totalNumWarnings": 0,
+  "faqFixture": true,
+  "note": "HairSalon del contenido local; FAQ sintética no publicada; URLs locales de prueba."
+}

@@ -3,6 +3,7 @@ import { Image, Picture } from "astro:assets";
 import { getCollection, getEntry } from "astro:content";
 import lista from "../content/galeria.json";
 import { ordenarComoArchivo } from "../lib/galeria";
+import { altConDistrito } from "../lib/seo";
 const fotos = ordenarComoArchivo(
   await getCollection("galeria"),
   lista.map(({ id }) => id),
@@ -17,12 +18,16 @@ const tiktok = /^https?:\/\//.test(negocio.redes.tiktok ?? "")
   <p class="etiqueta">Nuestro trabajo</p>
   <h2 id="titulo-trabajos">Resultados reales</h2>
   <div class="mosaico">
-    {fotos.map(({ data }) => (
+    {fotos.map(({ data }, indice) => (
       <figure>
         {data.imagen.format === "svg" ? (
           <Image
             src={data.imagen}
-            alt={data.alt}
+            alt={
+              indice === 0
+                ? altConDistrito(data.alt, negocio.distrito)
+                : data.alt
+            }
             loading="lazy"
             decoding="async"
           />
@@ -41,7 +46,11 @@ const tiktok = /^https?:\/\//.test(negocio.redes.tiktok ?? "")
                 data.imagen.width,
             )}
             quality={55}
-            alt={data.alt}
+            alt={
+              indice === 0
+                ? altConDistrito(data.alt, negocio.distrito)
+                : data.alt
+            }
             loading="lazy"
             decoding="async"
           />

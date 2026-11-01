@@ -1,5 +1,7 @@
 ---
-import { getEntry } from "astro:content";
+import { getEntry, getCollection } from "astro:content";
+import { crearHairSalon, crearFaq, serializarJsonLd } from "../lib/jsonld";
+import { metaDescripcion } from "../lib/seo";
 import "@fontsource/anton/latin-400.css";
 import "@fontsource/syncopate/latin-700.css";
 import "@fontsource/manrope/latin-400.css";
@@ -10,6 +12,32 @@ import "../styles/tema.css";
 
 const negocio = await getEntry("negocio", "principal");
 if (!negocio) throw new Error("Falta el contenido principal del negocio.");
+interface Props {
+  titulo?: string;
+  noindex?: boolean;
+}
+const { titulo, noindex = false } = Astro.props;
+const datos = negocio.data;
+const title = titulo
+  ? `${titulo} | ${datos.nombre}`
+  : `Barbería y peluquería unisex en ${datos.distrito}, ${datos.provincia} | ${datos.nombre}`;
+const descripcion = metaDescripcion(
+  `${datos.descripcion} En ${datos.distrito}, ${datos.provincia}.`,
+);
+const canonical = Astro.site
+  ? new URL(Astro.url.pathname, Astro.site).href
+  : undefined;
+const imagen = Astro.site ? new URL("og.jpg", Astro.site).href : undefined;
+const inicio = Astro.url.pathname === "/";
+const servicios = inicio
+  ? (await getCollection("servicios")).map(({ data }) => data)
+  : [];
+const faq = inicio
+  ? crearFaq((await getCollection("faq")).map(({ data }) => data))
+  : undefined;
+const salon = inicio
+  ? crearHairSalon(datos, servicios, Astro.site?.href, imagen)
+  : undefined;
 ---
 
 <!doctype html>
@@ -17,8 +45,43 @@ if (!negocio) throw new Error("Falta el contenido principal del negocio.");
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{negocio.data.nombre}</title>
-    <meta name="description" content={negocio.data.descripcion} />
+    <title>{title}</title>
+    <meta name="description" content={descripcion} />
+    <meta name="theme-color" content="#0B0B0B" />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    {canonical && !noindex && <link rel="canonical" href={canonical} />}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    {Astro.site && <link rel="sitemap" href="/sitemap-index.xml" />}
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_PE" />
+    <meta property="og:site_name" content={datos.nombre} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={descripcion} />
+    {canonical && !noindex && <meta property="og:url" content={canonical} />}
+    <meta property="og:image" content={imagen ?? "/og.jpg"} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta
+      property="og:image:alt"
+      content={`${datos.nombre} · ${datos.distrito}`}
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={descripcion} />
+    <meta name="twitter:image" content={imagen ?? "/og.jpg"} />
+    <meta
+      name="twitter:image:alt"
+      content={`${datos.nombre} · ${datos.distrito}`}
+    />
+    {salon && (
+      <script type="application/ld+json" set:html={serializarJsonLd(salon)} />
+    )}
+    {faq && (
+      <script type="application/ld+json" set:html={serializarJsonLd(faq)} />
+    )}
   </head>
   <body>
     <slot />

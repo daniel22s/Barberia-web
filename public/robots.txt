@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# La compilación añade Sitemap cuando negocio.dominio o SITE_URL está configurado.

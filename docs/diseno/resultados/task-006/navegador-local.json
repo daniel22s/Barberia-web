@@ -1,0 +1,26 @@
+[
+  {
+    "width": 375,
+    "metaTitle": true,
+    "canonicalWithoutQuery": true,
+    "oneH1": true,
+    "jsonld": true,
+    "noUnconfirmedFaqHoursOrRating": true,
+    "iconsAndSocialImage": true,
+    "noindex404": true,
+    "noHorizontalOverflow": true,
+    "noExternalRequests": true
+  },
+  {
+    "width": 1280,
+    "metaTitle": true,
+    "canonicalWithoutQuery": true,
+    "oneH1": true,
+    "jsonld": true,
+    "noUnconfirmedFaqHoursOrRating": true,
+    "iconsAndSocialImage": true,
+    "noindex404": true,
+    "noHorizontalOverflow": true,
+    "noExternalRequests": true
+  }
+]
