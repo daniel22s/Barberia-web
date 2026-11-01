@@ -63,7 +63,7 @@ const servicios = defineCollection({
   schema: z.object({
     grupo: z.enum(["el", "ella"]),
     nombre: texto,
-    precio: z.number().nonnegative(),
+    precio: z.number().min(1, "El precio mínimo es S/ 1."),
     precioDesde: z.boolean(),
     duracionMin: z.number().int().positive(),
     descripcion: texto,

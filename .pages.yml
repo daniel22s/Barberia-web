@@ -1,0 +1,185 @@
+# Pages CMS: solo el desarrollador edita estos contenidos (ADR-0003).
+# Astro resuelve las imágenes desde src/content/galeria.json.
+media:
+  input: src/assets/galeria
+  output: ../assets/galeria
+  extensions: [jpg, jpeg, png, webp, avif, svg]
+  rename: safe
+
+# Conserva nombre, dirección, redes y demás claves ajenas al formulario de negocio.
+# Las listas JSON completas se reemplazan; los arrays no se fusionan por índice.
+settings:
+  content:
+    merge: true
+
+components:
+  textoObligatorio:
+    type: string
+    required: true
+    pattern:
+      regex: '\S'
+      message: Escribe un texto; no puede quedar vacío ni contener solo espacios.
+  hora:
+    type: string
+    pattern:
+      regex: '^$|^([01]\d|2[0-3]):[0-5]\d$'
+      message: Usa HH:MM en formato de 24 horas, por ejemplo 09:30.
+    description: Obligatoria si el día está abierto. Déjala vacía si está cerrado.
+
+content:
+  - name: servicios
+    label: Servicios y precios
+    type: file
+    path: src/content/servicios.json
+    format: json
+    list: true
+    fields:
+      # file() necesita id también en las entradas nuevas; no usar uuid con los id existentes.
+      - name: id
+        label: Identificador único
+        component: textoObligatorio
+        description: Usa un identificador distinto para cada servicio y consérvalo al editar.
+      - name: grupo
+        label: Para quién
+        type: select
+        required: true
+        options:
+          values:
+            - name: el
+              label: Para él
+            - name: ella
+              label: Para ella
+      - name: nombre
+        label: Nombre
+        component: textoObligatorio
+      - name: precio
+        label: Precio (S/)
+        type: number
+        required: true
+        options:
+          min: 1
+          step: any
+      - name: precioDesde
+        label: Mostrar «desde»
+        type: boolean
+        required: true
+        default: false
+      - name: duracionMin
+        label: Duración en minutos
+        type: number
+        required: true
+        options:
+          min: 1
+          step: 1
+      - name: descripcion
+        label: Descripción
+        type: text
+        required: true
+        pattern:
+          regex: '\S'
+          message: Escribe una descripción; no puede contener solo espacios.
+      - name: destacado
+        label: Destacado
+        type: boolean
+        required: true
+        default: false
+      - name: orden
+        label: Orden de presentación
+        type: number
+        required: true
+        options:
+          min: 0
+          step: 1
+
+  - name: galeria
+    label: Fotos y comparaciones
+    type: file
+    path: src/content/galeria.json
+    format: json
+    list: true
+    fields:
+      - name: id
+        label: Identificador único
+        component: textoObligatorio
+        description: Distinto para cada foto, incluso si pertenece a un par antes/después.
+      - name: imagen
+        label: Foto
+        type: image
+        required: true
+        description: Sube una imagen autorizada y sin ubicación GPS. Astro la optimiza al compilar.
+      - name: alt
+        label: Descripción accesible de la foto
+        component: textoObligatorio
+        description: Describe el corte, peinado o espacio que aparece en la imagen.
+      - name: categoria
+        label: Categoría
+        type: select
+        required: true
+        options:
+          values:
+            - name: el
+              label: Para él
+            - name: ella
+              label: Para ella
+            - name: local
+              label: Local
+      - name: par
+        label: Comparación antes/después (opcional)
+        type: object
+        description: Deja ambos campos vacíos para una foto suelta. Un par usa el mismo identificador en dos fotos, una de cada tipo.
+        fields:
+          - name: id
+            label: Identificador del par
+            component: textoObligatorio
+          - name: tipo
+            label: Tipo de foto
+            type: select
+            required: true
+            options:
+              values:
+                - name: antes
+                  label: Antes
+                - name: despues
+                  label: Después
+
+  - name: negocio
+    label: Horario y mensaje de WhatsApp
+    type: file
+    path: src/content/negocio.json
+    format: json
+    fields:
+      - name: horario
+        label: Horario (hora de Lima)
+        type: object
+        required: true
+        list:
+          collapsible:
+            collapsed: false
+            summary: "{dia}"
+        description: Conserva Lun–Sáb y Dom, o reemplázalos por días individuales. No repitas un día ni solapes rangos. Confirma las horas reales antes de publicarlas.
+        fields:
+          - name: dia
+            label: Día o rango de días
+            type: string
+            required: true
+            pattern:
+              regex: "^(Lun|Mar|Mié|Jue|Vie|Sáb|Dom)([–-](Lun|Mar|Mié|Jue|Vie|Sáb|Dom))?$"
+              message: Usa Lun, Mar, Mié, Jue, Vie, Sáb o Dom; para un rango, Lun–Vie.
+          - name: cerrado
+            label: Cerrado
+            type: boolean
+            required: true
+            default: false
+          - name: apertura
+            label: Apertura
+            component: hora
+          - name: cierre
+            label: Cierre
+            component: hora
+      - name: mensajeWhatsapp
+        label: Mensaje de reserva por WhatsApp
+        type: text
+        required: true
+        pattern:
+          regex: '\S'
+          message: Escribe el mensaje que se abrirá al pulsar un botón de WhatsApp.

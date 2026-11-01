@@ -1,0 +1,68 @@
+{
+  "overBudgetNoiseFixture": {
+    "buildRejected": true,
+    "observedVariantBytes": 678324
+  },
+  "original": {
+    "bytes": 5076913,
+    "gps": true
+  },
+  "variants": [
+    {
+      "file": "task009-prueba-gps.fyKhz2_Y_1oThDQ.avif",
+      "bytes": 952,
+      "gps": false
+    },
+    {
+      "file": "task009-prueba-gps.fyKhz2_Y_1oXLwY.webp",
+      "bytes": 6928,
+      "gps": false
+    },
+    {
+      "file": "task009-prueba-gps.fyKhz2_Y_1yOtkt.webp",
+      "bytes": 13738,
+      "gps": false
+    },
+    {
+      "file": "task009-prueba-gps.fyKhz2_Y_NB2xs.avif",
+      "bytes": 4630,
+      "gps": false
+    },
+    {
+      "file": "task009-prueba-gps.fyKhz2_Y_Z1E7VWY.avif",
+      "bytes": 15263,
+      "gps": false
+    },
+    {
+      "file": "task009-prueba-gps.fyKhz2_Y_Z2l4955.webp",
+      "bytes": 1078,
+      "gps": false
+    },
+    {
+      "file": "task009-prueba-gps.fyKhz2_Y_ZLwShA.avif",
+      "bytes": 1880,
+      "gps": false
+    },
+    {
+      "file": "task009-prueba-gps.fyKhz2_Y_xFNMp.webp",
+      "bytes": 2996,
+      "gps": false
+    }
+  ],
+  "precio vacío": {
+    "exitCode": 1,
+    "clearFieldError": true
+  },
+  "alt vacío": {
+    "exitCode": 1,
+    "clearFieldError": true
+  },
+  "horario abierto sin horas": {
+    "exitCode": 1,
+    "clearFieldError": true
+  },
+  "duración decimal": {
+    "exitCode": 1,
+    "clearFieldError": true
+  }
+}
