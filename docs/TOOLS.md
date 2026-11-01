@@ -42,7 +42,8 @@ Supabase, Docker, bases de datos, Figma (la maqueta ya está en un lienzo de Cla
 3. En la terminal de VS Code: `npm ci` y luego `npm run dev` → abrir `http://localhost:4321`.
 4. Extensiones: **Claude Code** (Anthropic), **Codex** (OpenAI), Astro, Tailwind CSS IntelliSense, Prettier, ESLint.
 5. Claude Code lee `CLAUDE.md` y Codex lee `AGENTS.md` al abrir la carpeta.
-6. **No trabajar los dos a la vez en la misma carpeta.** Codex usa una carpeta propia por tarea con `git worktree`:
-   `git worktree add ../barberia-task-005 -b web/task-005-ubicacion-pie main`
-   y al terminar (después de fusionar): `git worktree remove ../barberia-task-005`.
+6. **Una tarea a la vez, en una rama, en la carpeta principal.** Claude y Codex no trabajan a la vez.
+   Codex empieza con `git switch -c web/task-NNN-descripcion main` (con `main` limpio y al día), hace commit
+   en la rama y no hace merge ni push: Claude revisa la rama en local y hace el merge con aprobación del dueño.
+   Solo para trabajar dos tareas en paralelo se usa una carpeta aparte con `git worktree add ../barberia-task-NNN -b <rama> main`.
 7. Antes de subir una rama: `npm run check` y `npm run format:check` deben pasar.
