@@ -156,3 +156,26 @@ Entorno: `source ~/.nvm/nvm.sh; nvm use 22.23.4`, **Node 22.23.4 / npm 10.9.9**.
 
 La rama queda para revisión local del Arquitecto; implementación y pruebas locales
 realizadas, aceptación publicada pendiente de los puntos anteriores.
+
+## Revisión del Arquitecto (2026-10-31)
+
+**Aceptada en local**, sin correcciones de código. Los criterios que necesitan una URL pública se cierran en TASK-008.
+
+Verificaciones ejecutadas por Claude con Node 22.23.4: `npm ci` (418 paquetes; el lockfile solo añade `@astrojs/sitemap` y sus dependencias), `astro check` 0 errores / 0 advertencias / 0 hints, lint limpio, build de 2 páginas, **44/44** pruebas, Prettier limpio. HTML compilado: título «Barbería y peluquería unisex en Mi Perú, Callao | Véktra Hair Studio», descripción de 95 caracteres, `HairSalon` con dirección, coordenadas reales y precios en PEN, sin horario (sigue `horarioNota`) y sin `aggregateRating`. Imagen social `og.jpg` revisada: logotipo, distrito y descripción legibles. Revisión del código: JSON-LD serializado de forma segura, marcadores omitidos, FAQ vacía no se muestra, 404 con `noindex`.
+
+**Decisión sobre el criterio 1:** Google ya no muestra FAQ como resultado enriquecido (informe de Codex). Basta con que `FAQPage` sea válido en schema.org; en la prueba de Google solo se exige `HairSalon`.
+
+Estado de los criterios:
+1. Prueba de Google: **pendiente** con la URL pública (en modo código pidió iniciar sesión).
+2. schema.org: **aprobado** (0 errores, 0 advertencias, 2026-10-31, por Codex); repetir con el contenido real.
+3. Tarjeta de WhatsApp: **pendiente** con la URL pública.
+4. Lighthouse SEO 100 en móvil: **aprobado** en local (100/100/100/100, por Codex; no repetido aquí).
+
+**Bloqueos antes de publicar (TASK-008):**
+- **Teléfono:** `negocio.whatsapp` es el número de ejemplo `51900000000`, y el JSON-LD lo publica como `telephone`. No publicar hasta tener el número real (también lo usan los botones de WhatsApp).
+- **Dominio (P-14):** sin dominio no hay canonical, sitemap ni URLs absolutas de `og:image`, que WhatsApp necesita para mostrar la tarjeta.
+- **Fuentes de `og.jpg`:** se dibuja con la fuente `sans-serif` del sistema. Comprobar en la vista previa de Cloudflare que el texto se ve bien, o subir un diseño propio en `src/assets/og.png`.
+
+Observaciones (no bloquean):
+- `streetAddress` no incluye «3.er piso» (`referencia`); se puede añadir si se quiere más precisión.
+- El `alt` de la primera foto de la galería y el de la portada añaden «· Mi Perú»; revisar que suene natural con las fotos reales.
