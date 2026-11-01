@@ -1,0 +1,60 @@
+{
+  "lighthouseVersion": "13.6.0",
+  "url": "http://127.0.0.1:4337/",
+  "mode": "mobile, simulated throttling, fresh headless Chromium profile per run",
+  "runs": [
+    {
+      "run": 1,
+      "date": "2026-11-01T03:45:12.578Z",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 1203.7784,
+      "cls": 0.01992718627118969,
+      "transferBytes": 131470,
+      "tbtMs": 0
+    },
+    {
+      "run": 2,
+      "date": "2026-11-01T03:45:23.753Z",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 1203.2458,
+      "cls": 0.01992718627118969,
+      "transferBytes": 131470,
+      "tbtMs": 0
+    },
+    {
+      "run": 3,
+      "date": "2026-11-01T03:45:34.944Z",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcpMs": 1203.8601,
+      "cls": 0.01992718627118969,
+      "transferBytes": 131470,
+      "tbtMs": 0
+    }
+  ],
+  "median": {
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "lcpMs": 1203.7784,
+    "cls": 0.01992718627118969,
+    "transferBytes": 131470
+  }
+}

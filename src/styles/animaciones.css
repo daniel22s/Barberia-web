@@ -1,0 +1,99 @@
+/* El HTML es visible por defecto. Solo con JS y observador (clase `con-aparicion`
+   en <html>) se ocultan los elementos aún no vistos, para que no parpadeen. */
+@media (prefers-reduced-motion: no-preference) {
+  .con-aparicion .aparecer:not(.aparecido, :focus-within) {
+    opacity: 0;
+  }
+  /* La portada ya está en pantalla al cargar: ocultarla retrasaría el LCP. */
+  .con-aparicion #inicio .aparecer:not(.aparecido) {
+    opacity: 1;
+  }
+  .aparecer.aparecido {
+    animation: aparecer 600ms ease-out;
+  }
+  a,
+  button {
+    transition: transform 160ms ease;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    a:not(.saltar-contenido):hover,
+    button:hover {
+      transform: translateY(-2px);
+    }
+    .inclinar {
+      transition: transform 220ms ease;
+    }
+    .inclinar:hover {
+      transform: perspective(700px) rotateX(3deg) rotateY(-4deg);
+    }
+  }
+  @media (hover: none), (pointer: coarse) {
+    .inclinar.aparecido {
+      animation-name: aparecer-inclinada;
+      animation-duration: 750ms;
+    }
+  }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes aparecer-inclinada {
+  from {
+    opacity: 0;
+    transform: perspective(700px) translateY(20px) rotateX(3deg) rotateY(-4deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* El foco nunca espera a una animación para ser visible. */
+.aparecer:focus-within {
+  animation: none;
+}
+
+.saltar-contenido {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+}
+.saltar-contenido:focus {
+  width: auto;
+  height: auto;
+  padding: 1rem;
+  clip-path: none;
+}
+:where(a, button, input, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-acento);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  [data-video-portada] {
+    display: none;
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "fixture": "MP4 sintético 64×64, 1,2 s, eliminado al terminar",
+  "fixtureBytes": 56993,
+  "results": [
+    {
+      "mode": "normal",
+      "videoRequests": 1,
+      "passed": true
+    },
+    {
+      "mode": "reduce",
+      "videoRequests": 0,
+      "passed": true
+    },
+    {
+      "mode": "nojs",
+      "videoRequests": 0,
+      "passed": true
+    }
+  ],
+  "posterPipeline": true
+}

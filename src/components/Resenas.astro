@@ -6,10 +6,12 @@ const negocio = (await getEntry("negocio", "principal"))!.data;
 
 {resenas.length > 0 && (
   <section id="resenas" aria-labelledby="titulo-resenas">
-    <h2 id="titulo-resenas">Lo que dicen</h2>
+    <h2 class="aparecer" id="titulo-resenas">
+      Lo que dicen
+    </h2>
     <div class="resenas">
       {resenas.map(({ data }) => (
-        <figure>
+        <figure class="aparecer">
           <p class="estrellas" aria-label={`${data.estrellas} de 5 estrellas`}>
             <span aria-hidden="true">
               {"★".repeat(data.estrellas)}

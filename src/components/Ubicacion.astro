@@ -14,7 +14,9 @@ const mapsUrl = /^https?:\/\//.test(negocio.mapsUrl)
 <section id="ubicacion" aria-labelledby="titulo-ubicacion">
   <div class="datos">
     <p class="etiqueta">Ubicación y horario</p>
-    <h2 id="titulo-ubicacion">Te esperamos</h2>
+    <h2 class="aparecer" id="titulo-ubicacion">
+      Te esperamos
+    </h2>
     <address>
       {negocio.direccion}
       <br />
@@ -56,7 +58,7 @@ const mapsUrl = /^https?:\/\//.test(negocio.mapsUrl)
       </a>
     </div>
   </div>
-  <figure>
+  <figure class="aparecer">
     {mapsUrl ? (
       <a class="mapa" href={mapsUrl} target="_blank" rel="noopener noreferrer">
         <Image

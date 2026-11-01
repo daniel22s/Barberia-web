@@ -16,10 +16,12 @@ const tiktok = /^https?:\/\//.test(negocio.redes.tiktok ?? "")
 
 <section id="trabajos" aria-labelledby="titulo-trabajos">
   <p class="etiqueta">Nuestro trabajo</p>
-  <h2 id="titulo-trabajos">Resultados reales</h2>
+  <h2 class="aparecer" id="titulo-trabajos">
+    Resultados reales
+  </h2>
   <div class="mosaico">
     {fotos.map(({ data }, indice) => (
-      <figure>
+      <figure class="aparecer">
         {data.imagen.format === "svg" ? (
           <Image
             src={data.imagen}

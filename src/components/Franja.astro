@@ -6,6 +6,10 @@ const estilos = (await getCollection("servicios")).sort(
 ---
 
 <div class="franja" aria-label="Nuestros estilos">
+  <label class="pausa">
+    <input type="checkbox" />
+    Pausar franja
+  </label>
   <div class="cinta">
     {[false, true].map((copia) => (
       <ul aria-hidden={copia ? "true" : undefined}>
@@ -25,6 +29,29 @@ const estilos = (await getCollection("servicios")).sort(
     background: var(--color-acento);
     color: var(--color-sobre-acento);
     padding: 1rem 0;
+  }
+  .pausa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    width: fit-content;
+    margin: 0 auto 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  input {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--color-sobre-acento);
+  }
+  input:focus-visible {
+    outline-color: var(--color-sobre-acento);
+  }
+  .franja:has(input:checked) .cinta {
+    animation-play-state: paused;
   }
   .cinta {
     display: flex;
@@ -47,6 +74,9 @@ const estilos = (await getCollection("servicios")).sort(
     }
   }
   @media (prefers-reduced-motion: reduce) {
+    .pausa {
+      display: none;
+    }
     .cinta {
       animation: none;
       width: auto;
