@@ -9,7 +9,7 @@ Impacto en precio o plazo: **A** alto · **M** medio · **B** bajo.
 | P-09 | Opción A o B | **Opción A** (completa) | `COSTS.md` |
 | P-10 | ¿Edita él mismo? | **Sí: precios y fotos** | Panel de edición: [ADR-0003](DECISIONS/ADR-0003-edicion-cliente.md); suma horas y precio |
 | P-08 | ¿Fotos? | **Tiene muchas** | Elegir las mejores 15–20 para empezar |
-| P-04 | ¿Perfil de Google? | **No tiene** | Crearlo **ya**: la verificación puede tardar más de 7 días |
+| P-04 | ¿Perfil de Google? | **No tiene** | Corregido por P-27: la ficha ya existe |
 | P-01 | Nombre | **Vektra «Hair Studio»** | Ver P-17 |
 | P-02 | Ubicación | **Mi Perú** | Ver P-18 |
 | P-13 | Dominio | **`.com`** | `vektrahairstudio.com` estaba libre el 2026-10-29 (consulta RDAP); comprarlo pronto |
@@ -21,11 +21,12 @@ Impacto en precio o plazo: **A** alto · **M** medio · **B** bajo.
 | P-20 | Colores | **Negro y dorado** (paleta `vektra`, 2026-10-31) | TASK-010 |
 | P-18 | Dirección | **Av. Ayacucho, Mz. A10, Lote 20 — 3.er piso, Mi Perú, Callao** (2026-10-31) | `negocio.json`: `direccion`, `referencia` («3.er piso») y `provincia`. Falta el enlace de Maps: P-26 |
 | P-26 | Enlace de Maps | **https://maps.app.goo.gl/xyGVY4HTM2puz4DM8** (2026-10-31): ficha «Barbería Vektra», -11.8547056, -77.1254608 | `negocio.json`: `mapsUrl` y `coordenadas`. La ficha existe en Maps: ver P-27 |
+| P-27 | ¿La ficha «Barbería Vektra» de Maps es suya? | **Sí, es su empresa** (2026-10-31) | No se crea un perfil nuevo: se administra o reclama esa ficha (P-28). P-04 queda corregida |
 | P-12 | Fecha | **7 días** (ya se le comunicó) | Plan diario en `ROADMAP.md`, con condiciones |
 
 ## Pendientes
 
-- **P-27** En Google Maps ya hay una ficha «Barbería Vektra» en el local. ¿La creó el cliente (P-04 decía que no tenía Perfil de Google)? Si es suya, hay que reclamarla o verificarla con su correo (P-14) y ponerle el nombre «Véktra Hair Studio»; no conviene crear una segunda ficha. (M)
+- **P-28** ¿El cliente puede **administrar** la ficha «Barbería Vektra» (la creó con su cuenta de Google y le llegan avisos), o la creó otra persona o Google? Si la administra: agregar al desarrollador como administrador. Si no: reclamarla desde Maps con el correo del negocio (P-14). En los dos casos, nombre «Véktra Hair Studio» (P-17). (M, bloquea SEO local)
 - **P-17** El logo dice **«VÉKTRA HAIR STUDIO»** (con tilde en la É). ¿Así se escribe en Google, la web y las redes? (B)
 - **P-23** Logo recibido solo como captura de WhatsApp (baja resolución): falta el **archivo original** (PNG grande, SVG o PDF). (M)
 - **P-24** El perfil de WhatsApp dice «Abierto las 24 horas»: ¿es real o es la configuración por defecto? Hace falta el horario verdadero. (B)

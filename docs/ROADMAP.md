@@ -8,7 +8,7 @@ Plazo comunicado al cliente: 7 días. Se cumple **solo si** el contenido llega e
 |---|---|---|---|
 | **0 (hoy)** | Aprobar alcance, precio y stack; elegir colores | Respuestas de `QUESTIONS.md`; 50 % inicial | Alcance cerrado |
 | **1** | Maqueta con logo, colores y fotos reales; TASK-001 (proyecto base) | **Logo, 15–20 fotos, servicios y precios, horario, dirección, WhatsApp, redes**; correo del negocio | Maqueta final aprobada (ronda 1) |
-| **1** | Comprar el dominio; crear el Perfil de Empresa de Google y pedir la verificación | El cliente, con guía | Verificación en curso |
+| **1** | Comprar el dominio; tomar el control de la ficha de Google ya existente («Barbería Vektra», P-27 y P-28), verificarla y corregir el nombre | El cliente, con guía | Verificación en curso |
 | **2** | TASK-002 y TASK-003 | — | Portada y servicios en vista previa |
 | **3** | TASK-004 y TASK-005 | — | Web completa en vista previa |
 | **4** | TASK-009 (panel de edición) | — | Cambiar un precio y subir una foto desde el celular |

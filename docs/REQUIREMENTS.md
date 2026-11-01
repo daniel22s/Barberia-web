@@ -10,7 +10,7 @@ Etiquetas: **[C]** confirmado · **[S]** suposición · **[P]** propuesta · **[
 - **[C]** Contacto y reservas por WhatsApp.
 - **[S]** La mayoría de visitas llegarán desde el celular, vía TikTok, Instagram, Google Maps o un enlace compartido por WhatsApp.
 - **[S]** Un solo local y un solo barbero por ahora.
-- **[C]** Negocio: **Vektra «Hair Studio»**, en **Mi Perú** (Callao, por confirmar). Dominio **`.com`**. Atiende a **hombres y mujeres**. Tiene logo y muchas fotos. No tiene Perfil de Empresa de Google.
+- **[C]** Negocio: **Vektra «Hair Studio»**, en **Mi Perú** (Callao, por confirmar). Dominio **`.com`**. Atiende a **hombres y mujeres**. Tiene logo y muchas fotos. Ya tiene una ficha en Google Maps, «Barbería Vektra» (P-27, 2026-10-31): falta confirmar quién la administra (P-28).
 - **[C]** Opción A de `COSTS.md`.
 - **[C]** Precios y fotos se editan con un panel (ADR-0003, aceptada); **lo usa el desarrollador** a pedido del cliente. Precio cerrado: **S/ 1,400**.
 - **[C]** Plazo comunicado al cliente: **7 días** (condiciones en `ROADMAP.md`).
