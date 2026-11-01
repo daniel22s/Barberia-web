@@ -19,6 +19,7 @@ Impacto en precio o plazo: **A** alto · **M** medio · **B** bajo.
 | P-10b | ¿Quién usa el panel? | **El desarrollador**; el cliente pide los cambios | ADR-0003 aceptada con ese cambio; P-21 (GitHub del cliente) ya no aplica |
 | P-06b | Logo | Es la palabra **VÉKTRA** en blanco, letras anchas, con «HAIR STUDIO» espaciado debajo, sobre negro; portada con «Jassary Cruz» en dorado | Paleta recomendada: **negro y dorado** (P-20) |
 | P-20 | Colores | **Negro y dorado** (paleta `vektra`, 2026-10-31) | TASK-010 |
+| P-18 | Dirección | **Av. Ayacucho, Mz. A10, Lote 20 — 3.er piso, Mi Perú, Callao** (2026-10-31) | `negocio.json`: `direccion`, `referencia` («3.er piso») y `provincia`. Falta el enlace de Maps: P-26 |
 | P-12 | Fecha | **7 días** (ya se le comunicó) | Plan diario en `ROADMAP.md`, con condiciones |
 
 ## Pendientes
@@ -27,7 +28,7 @@ Impacto en precio o plazo: **A** alto · **M** medio · **B** bajo.
 - **P-23** Logo recibido solo como captura de WhatsApp (baja resolución): falta el **archivo original** (PNG grande, SVG o PDF). (M)
 - **P-24** El perfil de WhatsApp dice «Abierto las 24 horas»: ¿es real o es la configuración por defecto? Hace falta el horario verdadero. (B)
 - **P-25** Fotos: hacen falta los archivos originales (no capturas) y **permiso** de las personas que aparecen; si aparece un menor, permiso de su padre o madre. (M)
-- **P-18** ¿Distrito de Mi Perú, Callao? ¿Dirección y referencia exactas? (B)
+- **P-26** Enlace de Google Maps del local (compartir la ubicación desde Maps o WhatsApp) y, si hay, una referencia cercana (tienda, parque, paradero). Sin el enlace, el botón «Cómo llegar» y el mapa siguen como marcador. (B)
 - **P-22** Lista de servicios de dama con precios (corte, peinado, color, mechas, tratamientos…). (M)
 - **P-03** ¿Atiende solo con cita, o también sin cita? (B)
 - **P-07** ¿Webs o cuentas que le gusten? (B)

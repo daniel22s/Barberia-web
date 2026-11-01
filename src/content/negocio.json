@@ -3,9 +3,9 @@
   "eslogan": "Cortes que hablan por ti",
   "descripcion": "Cortes para él y para ella, color y peinados. Separa tu hora en un mensaje.",
   "distrito": "Mi Perú",
-  "provincia": "[PROVINCIA]",
-  "direccion": "[DIRECCIÓN]",
-  "referencia": "[REFERENCIA]",
+  "provincia": "Callao",
+  "direccion": "Av. Ayacucho, Mz. A10, Lote 20",
+  "referencia": "3.er piso",
   "coordenadas": {
     "lat": 0,
     "lng": 0
