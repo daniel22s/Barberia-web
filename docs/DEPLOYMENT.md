@@ -2,13 +2,13 @@
 
 ## Cuentas (todas a nombre del cliente)
 
-| Cuenta | Para qué | Quién la crea |
-|---|---|---|
-| Correo del negocio (Gmail) | Dueño de todas las demás cuentas | Cliente |
-| Cloudflare | Hosting (Pages), dominio y analítica | Cliente; el desarrollador entra como miembro |
-| GitHub | Código fuente | Repositorio transferible al cliente al terminar **[D]** |
-| Google Business Profile | Mapa y reseñas | Cliente, con guía |
-| Google Search Console | Seguimiento de búsquedas | Cliente; el desarrollador como usuario |
+| Cuenta                     | Para qué                             | Quién la crea                                           |
+| -------------------------- | ------------------------------------ | ------------------------------------------------------- |
+| Correo del negocio (Gmail) | Dueño de todas las demás cuentas     | Cliente                                                 |
+| Cloudflare                 | Hosting (Pages), dominio y analítica | Cliente; el desarrollador entra como miembro            |
+| GitHub                     | Código fuente                        | Repositorio transferible al cliente al terminar **[D]** |
+| Google Business Profile    | Mapa y reseñas                       | Cliente, con guía                                       |
+| Google Search Console      | Seguimiento de búsquedas             | Cliente; el desarrollador como usuario                  |
 
 ## Flujo
 
@@ -131,6 +131,19 @@ del enlace; el teléfono sigue siendo un dato gestionado fuera del panel.
 4. Esperar al build de reversión y verificar que la vista previa muestra el precio
    o la foto anterior. Una subida de medios y la entrada de galería pueden ser
    commits separados: quitar primero la referencia antes de borrar la imagen.
+
+### Publicación provisional en la cuenta del desarrollador (2026-11-01)
+
+Decisión del dueño: publicar **de momento** en una cuenta de Cloudflare propia
+para enseñar la web al cliente, y pasarla después a la cuenta del cliente
+(ADR-0002 y TASK-008 siguen vigentes). Cloudflare no transfiere proyectos de
+Pages entre cuentas: en la cuenta del cliente se crea un proyecto nuevo
+conectado al mismo repositorio y se borra el provisional.
+
+- `public/_headers` envía `X-Robots-Tag: noindex` en `*.pages.dev`, para que
+  Google no indexe la copia provisional con datos de relleno.
+- Sin dominio propio: no hay canonical ni sitemap hasta configurar
+  `negocio.dominio` o `SITE_URL`.
 
 La configuración prevista de Cloudflare debe usar Node **22.23.4**, `npm run build`
 y salida `dist`; habilitar vistas previas de la rama elegida. Un build fallido no
