@@ -2,7 +2,7 @@
 
 Página web de catálogo de **Vektra Hair Studio** (Mi Perú, Callao): servicios y precios, trabajos, reseñas, ubicación, horario y botón de WhatsApp. Diseño moderno, pensada primero para el celular y para aparecer en las búsquedas locales de Google.
 
-**Estado:** base técnica de TASK-001 implementada para revisión. Stack aprobado en [ADR-0001](docs/DECISIONS/ADR-0001-stack.md). Las secciones se construyen en las tareas siguientes.
+**Estado (2026-10-31):** en `main` están TASK-001 a TASK-006, TASK-009 (panel con Pages CMS) y TASK-010 (marca Vektra, negro y dorado). Sigue TASK-007 (animaciones y calidad) y después TASK-008 (publicación). Stack aprobado en [ADR-0001](docs/DECISIONS/ADR-0001-stack.md). El estado detallado y los bloqueos antes de publicar están en [CLAUDE.md](CLAUDE.md).
 
 **Maqueta visual:** https://claude.ai/artifact/Hndx8FYZznfbKXcbiQXPWp (privada; se comparte desde su menú _Share_).
 
@@ -49,15 +49,14 @@ El contenido reside en `src/content/*.json`, con validación en
 `src/content.config.ts`. Las listas usan identificadores `id` estables;
 `negocio.json` es un objeto único y se consulta con el ID `principal`.
 Las reseñas permanecen vacías hasta disponer de testimonios reales autorizados.
-La galería contiene solo una imagen SVG sintética, fuera de la página por ahora.
+La galería contiene solo una imagen SVG sintética hasta recibir fotos con permiso.
 
-Los marcadores `[ASÍ]`, el teléfono de prueba, las coordenadas `0, 0`,
-los precios `0` y las duraciones `1` son datos sintéticos; **no publicar**
-sin reemplazarlos. El horario vacío significa pendiente, no cerrado.
-No se ha contrastado el contenido con la maqueta privada.
+Los textos entre corchetes (`[DOMINIO]`, `[MENSAJE DE RESERVA]`, redes,
+descripciones de servicios, horario provisional) y el teléfono de prueba
+(`51900000000`) son datos sintéticos o pendientes; **no publicar** sin
+reemplazarlos. La dirección y las coordenadas ya son las reales.
 
-Los tokens están en `src/styles/tema.css`. Cambiar `arena` por `botella` o `moka`
-en su import de paleta cambia todos los tokens de color. Anton y Manrope se sirven
-localmente con `font-display: swap`. La portada queda vacía deliberadamente,
-como pide TASK-001; todavía no representa el diseño final ni permite medir
-Lighthouse con contenido visible.
+Los tokens están en `src/styles/tema.css`. La paleta activa es `vektra`
+(negro y dorado, acento `#C9A23A`); cambiar el import de paleta cambia todos
+los tokens de color. Anton y Manrope se sirven localmente con
+`font-display: swap`.
