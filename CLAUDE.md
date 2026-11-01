@@ -10,7 +10,7 @@
 - **Dueño y desarrollador humano:** aprueba alcance, decisiones, presupuesto y entregas; habla con el cliente.
 - **Claude — Arquitecto / Tech Lead:** requisitos, arquitectura, ADR, tareas para Codex, revisión de diffs, SEO técnico, accesibilidad y rendimiento.
 - **Codex — Ejecutor:** implementa las tareas aprobadas de `docs/tasks/` siguiendo `AGENTS.md`.
-- Codex funciona **en local** (extensión de VS Code, desde 2026-10-31): el humano lo ejecuta en un worktree propio por tarea (`../barberia-task-NNN`, ver `docs/TOOLS.md`) y Claude revisa la rama en local. Claude y Codex **no trabajan a la vez en la misma carpeta**; la carpeta principal queda en `main`.
+- Codex funciona **en local** (extensión de VS Code, desde 2026-10-31): el humano lo ejecuta en la carpeta principal, en una rama por tarea (`git switch -c web/task-NNN-… main`) y **una tarea a la vez**; Claude revisa la rama en local. Claude y Codex **no trabajan a la vez** en la carpeta.
 
 ## Reglas no negociables
 
@@ -34,3 +34,4 @@
 - 2026-10-31: TASK-002 y TASK-003 aceptadas y en `main`. Logo visto (captura): **VÉKTRA / HAIR STUDIO** blanco sobre negro. **P-20: negro y dorado** (paleta `vektra`, acento `#C9A23A`); maqueta de Claude y copia en `docs/diseno/maqueta/` actualizadas. **TASK-010** (marca) redactada. Faltan logo original, fotos originales con permiso y horario real (P-23 a P-25).
 - 2026-10-31: **TASK-010, TASK-004 y TASK-005 aceptadas y en `main`** (en TASK-005, el Arquitecto movió el mapa a `src/assets`). **P-18 respondida:** Av. Ayacucho, Mz. A10, Lote 20, 3.er piso, Mi Perú, Callao (en `negocio.json`). Falta el enlace de Google Maps (P-26): sin él, «Cómo llegar» y el mapa siguen como marcador. Siguen: TASK-009 → 006/007 → 008. Push: el remoto HTTPS no tiene credenciales en esta máquina; usar SSH (`git@github.com:daniel22s/Barberia-web.git`).
 - 2026-10-31: **TASK-009 aceptada en local** (`.pages.yml` y guía en `DEPLOYMENT.md`). Decisión del Arquitecto: **precio mínimo S/ 1** en el panel y en Zod, porque Pages CMS 2.1.8 convierte un precio vacío en 0. Criterios 1, 2 y 4 (celular, foto de 4 MB publicada, reversión) **pendientes hasta conectar Pages CMS y Cloudflare (TASK-008)**.
+- 2026-10-31: Flujo simplificado: Codex trabaja en la carpeta principal, en una rama por tarea y una tarea a la vez (sin worktrees); Claude revisa la rama en local. **TASK-006 (SEO) aceptada en local**: Lighthouse 100/100/100/100, schema.org sin errores. Antes de publicar faltan el **teléfono real** (el JSON-LD publicaría `51900000000`), el **dominio** (canonical, sitemap y tarjeta de WhatsApp) y la prueba de Google con la URL pública. Sigue: TASK-007.

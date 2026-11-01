@@ -1,0 +1,8 @@
+{
+  "testedAt": "2026-11-01T02:02:42.206Z",
+  "url": "https://search.google.com/test/rich-results",
+  "mode": "code-jsonld-only",
+  "result": "Something went wrong / Log in and try again",
+  "passed": false,
+  "publicPreviewTested": false
+}

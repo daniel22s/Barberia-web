@@ -40,31 +40,13 @@ export function obtenerHorario(
   entradas: readonly EntradaHorario[],
   fecha: Date,
 ) {
-  const porDia = new Map<number, string>();
-  for (const entrada of entradas) {
-    const extremos = entrada.dia.split(/\s*[–—-]\s*/);
-    if (extremos.length > 2)
-      throw new Error(`Rango de horario inválido: ${entrada.dia}`);
-    const inicio = indiceDia(extremos[0]!);
-    const fin = extremos[1] ? indiceDia(extremos[1]) : inicio;
-    if (fin < inicio)
-      throw new Error(`Rango de horario invertido: ${entrada.dia}`);
-    const horas = entrada.cerrado
+  const horarioDiario = expandirHorario(entradas).map((entrada) => ({
+    indice: entrada.indice,
+    dia: entrada.dia,
+    horas: entrada.cerrado
       ? "Cerrado"
-      : `${entrada.apertura} – ${entrada.cierre}`;
-    for (let indice = inicio; indice <= fin; indice++) {
-      if (porDia.has(indice))
-        throw new Error(`Día de horario duplicado: ${dias[indice]}`);
-      porDia.set(indice, horas);
-    }
-  }
-  const horarioDiario = [...porDia]
-    .sort(([a], [b]) => a - b)
-    .map(([indice, horas]) => ({
-      indice,
-      dia: dias[indice]!,
-      horas,
-    }));
+      : `${entrada.apertura} – ${entrada.cierre}`,
+  }));
   const grupos: { inicio: number; fin: number; horas: string }[] = [];
   for (const dia of horarioDiario) {
     const anterior = grupos.at(-1);
@@ -86,4 +68,30 @@ export function obtenerHorario(
         `${inicio === fin ? dias[inicio] : `${dias[inicio]} – ${dias[fin]}`} ${horas}`,
     ),
   };
+}
+
+/** Datos diarios compartidos por la sección visible y los datos estructurados. */
+export function expandirHorario(entradas: readonly EntradaHorario[]) {
+  const porDia = new Map<number, EntradaHorario>();
+  for (const entrada of entradas) {
+    const extremos = entrada.dia.split(/\s*[–—-]\s*/);
+    if (extremos.length > 2)
+      throw new Error(`Rango de horario inválido: ${entrada.dia}`);
+    const inicio = indiceDia(extremos[0]!);
+    const fin = extremos[1] ? indiceDia(extremos[1]) : inicio;
+    if (fin < inicio)
+      throw new Error(`Rango de horario invertido: ${entrada.dia}`);
+    for (let indice = inicio; indice <= fin; indice++) {
+      if (porDia.has(indice))
+        throw new Error(`Día de horario duplicado: ${dias[indice]}`);
+      porDia.set(indice, entrada);
+    }
+  }
+  return [...porDia]
+    .sort(([a], [b]) => a - b)
+    .map(([indice, entrada]) => ({
+      ...entrada,
+      indice,
+      dia: dias[indice]!,
+    }));
 }

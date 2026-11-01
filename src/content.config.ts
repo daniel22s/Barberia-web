@@ -19,6 +19,7 @@ const negocio = defineCollection({
     logoSubtexto: texto,
     eslogan: texto,
     descripcion: texto,
+    portadaAlt: texto.optional(),
     distrito: texto,
     provincia: texto,
     direccion: texto,

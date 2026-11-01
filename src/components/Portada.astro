@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 import { enlaceWhatsApp } from "../lib/whatsapp";
 import { obtenerHorario } from "../lib/horario";
+import { textoConfirmado, altConDistrito } from "../lib/seo";
 import ejemplo from "../assets/galeria/ejemplo.svg";
 const negocio = (await getEntry("negocio", "principal"))!.data;
 const fotos = import.meta.glob<{ default: ImageMetadata }>(
@@ -11,6 +12,10 @@ const fotos = import.meta.glob<{ default: ImageMetadata }>(
   { eager: true },
 );
 const foto = Object.values(fotos)[0]?.default ?? ejemplo;
+if (foto !== ejemplo && !textoConfirmado(negocio.portadaAlt))
+  throw new Error(
+    "Completa negocio.portadaAlt con una descripción real de la foto principal.",
+  );
 const videos = import.meta.glob<string>("../assets/portada.mp4", {
   eager: true,
   query: "?url",
@@ -23,7 +28,11 @@ const video = Object.values(videos)[0];
   <div class="medio">
     <Image
       src={foto}
-      alt={foto === ejemplo ? "[FOTO PRINCIPAL PENDIENTE]" : negocio.eslogan}
+      alt={
+        foto === ejemplo
+          ? "[FOTO PRINCIPAL PENDIENTE]"
+          : altConDistrito(negocio.portadaAlt!, negocio.distrito)
+      }
       width={720}
       height={720}
       loading="eager"

@@ -1,4 +1,8 @@
 node_modules/
+public/og.jpg
+public/favicon.svg
+public/favicon-32.png
+public/apple-touch-icon.png
 dist/
 .astro/
 .env
