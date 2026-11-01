@@ -13,6 +13,7 @@
   "mapsUrl": "[URL DE GOOGLE MAPS]",
   "whatsapp": "51900000000",
   "mensajeWhatsapp": "[MENSAJE DE RESERVA]",
+  "horarioNota": "[HORARIO REAL PENDIENTE DE CONFIRMAR]",
   "horario": [
     {
       "dia": "Lun–Sáb",

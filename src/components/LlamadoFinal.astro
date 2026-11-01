@@ -1,0 +1,58 @@
+---
+import { getEntry } from "astro:content";
+import { enlaceWhatsApp } from "../lib/whatsapp";
+const negocio = (await getEntry("negocio", "principal"))!.data;
+---
+
+<section id="reservar" aria-labelledby="titulo-final">
+  <div>
+    <h2 id="titulo-final">
+      Tu nuevo look
+      <br />
+      te espera
+    </h2>
+    <p>Escríbenos para coordinar tu próxima visita.</p>
+    <a href={enlaceWhatsApp(negocio.whatsapp, negocio.mensajeWhatsapp)}>
+      Escribir por WhatsApp
+    </a>
+  </div>
+</section>
+<style>
+  section {
+    max-width: 1160px;
+    margin: auto;
+    padding: 1rem 1rem 4rem;
+  }
+  section > div {
+    background: var(--color-acento);
+    color: var(--color-sobre-acento);
+    border-radius: 32px;
+    padding: clamp(2rem, 5vw, 4.5rem) 1.25rem;
+    text-align: center;
+  }
+  h2 {
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    line-height: 1;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 0;
+  }
+  p {
+    line-height: 1.6;
+    margin: 1.5rem auto;
+  }
+  a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 56px;
+    padding: 1rem 1.5rem;
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    border-radius: 99px;
+    font-weight: 800;
+  }
+  a:focus-visible {
+    outline-color: var(--color-sobre-acento);
+  }
+</style>

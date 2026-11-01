@@ -8,7 +8,7 @@ const fotos = ordenarComoArchivo(
   lista.map(({ id }) => id),
 );
 const negocio = (await getEntry("negocio", "principal"))!.data;
-const tiktok = /^https?:\/\//.test(negocio.redes.tiktok)
+const tiktok = /^https?:\/\//.test(negocio.redes.tiktok ?? "")
   ? negocio.redes.tiktok
   : undefined;
 ---

@@ -1,23 +1,81 @@
 ---
 import Logo from "./Logo.astro";
+import { getEntry } from "astro:content";
+const negocio = (await getEntry("negocio", "principal"))!.data;
+const etiquetas = {
+  tiktok: "TikTok",
+  instagram: "Instagram",
+  facebook: "Facebook",
+};
+const redes = Object.entries(negocio.redes).filter(
+  ([, url]) => url && /^https?:\/\//.test(url),
+);
+const anio = new Intl.DateTimeFormat("es-PE", {
+  timeZone: "America/Lima",
+  year: "numeric",
+}).format(new Date());
 ---
 
-<footer>
-  <a href="#inicio" class="marca">
+<footer id="redes">
+  <a href="/" class="marca" title="Volver al inicio">
     <Logo />
   </a>
+  {redes.length > 0 && (
+    <nav aria-label="Redes sociales">
+      {redes.map(([red, url]) => (
+        <a href={url} target="_blank" rel="noopener noreferrer">
+          {etiquetas[red as keyof typeof etiquetas]} ↗
+        </a>
+      ))}
+    </nav>
+  )}
+  <p>
+    © <span data-anio>{anio}</span> {negocio.nombre} · {negocio.distrito}
+  </p>
 </footer>
+<script>
+  const actualizarAnio = () => {
+    const anio = new Intl.DateTimeFormat("es-PE", {
+      timeZone: "America/Lima",
+      year: "numeric",
+    }).format(new Date());
+    document.querySelectorAll("[data-anio]").forEach((elemento) => {
+      elemento.textContent = anio;
+    });
+  };
+  actualizarAnio();
+  document.addEventListener("visibilitychange", actualizarAnio);
+</script>
 
 <style>
   footer {
     display: flex;
-    justify-content: center;
-    padding: 2rem 1rem 6rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 2rem max(1rem, calc((100% - 1160px) / 2)) 6rem;
     border-top: 1px solid var(--color-linea);
   }
-  .marca {
+  a {
     display: inline-flex;
     align-items: center;
     min-height: 48px;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  nav a {
+    border: 1px solid var(--color-linea);
+    border-radius: 99px;
+    padding: 0 1rem;
+    font-weight: 700;
+  }
+  p {
+    color: var(--color-apagado);
+    font-size: 0.85rem;
+    overflow-wrap: anywhere;
   }
 </style>

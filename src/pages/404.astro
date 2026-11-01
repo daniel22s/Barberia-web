@@ -1,0 +1,66 @@
+---
+import Base from "../layouts/Base.astro";
+import Logo from "../components/Logo.astro";
+import Pie from "../components/Pie.astro";
+---
+
+<Base>
+  <header>
+    <a href="/" title="Volver al inicio">
+      <Logo />
+    </a>
+  </header>
+  <main>
+    <p class="codigo">404</p>
+    <h1>Este look no está por aquí</h1>
+    <p>No encontramos la página que buscas.</p>
+    <a class="inicio" href="/">
+      Volver al inicio
+    </a>
+  </main>
+  <Pie />
+</Base>
+<style>
+  header {
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid var(--color-linea);
+  }
+  header a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+  }
+  main {
+    max-width: 760px;
+    margin: auto;
+    padding: 4rem 1rem;
+    text-align: center;
+  }
+  .codigo {
+    color: var(--color-acento);
+    font: clamp(5rem, 15vw, 10rem)/1 var(--font-titulo);
+    margin: 0;
+  }
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  p {
+    color: var(--color-apagado);
+    line-height: 1.6;
+  }
+  .inicio {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 99px;
+    background: var(--color-acento);
+    color: var(--color-sobre-acento);
+    font-weight: 800;
+  }
+</style>

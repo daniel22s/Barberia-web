@@ -1,0 +1,238 @@
+---
+import { getEntry } from "astro:content";
+import { Image } from "astro:assets";
+import mapa from "../../public/mapa.webp";
+import { enlaceWhatsApp } from "../lib/whatsapp";
+import { obtenerHorario } from "../lib/horario";
+const negocio = (await getEntry("negocio", "principal"))!.data;
+const horario = obtenerHorario(negocio.horario, new Date());
+const mapsUrl = /^https?:\/\//.test(negocio.mapsUrl)
+  ? negocio.mapsUrl
+  : undefined;
+---
+
+<section id="ubicacion" aria-labelledby="titulo-ubicacion">
+  <div class="datos">
+    <p class="etiqueta">Ubicación y horario</p>
+    <h2 id="titulo-ubicacion">Te esperamos</h2>
+    <address>
+      {negocio.direccion}
+      <br />
+      <span>{negocio.referencia}</span>
+      <br />
+      {negocio.distrito}
+    </address>
+    <p class="zona">Horario · hora de Lima</p>
+    {negocio.horarioNota && <p class="nota">{negocio.horarioNota}</p>}
+    <dl>
+      {horario.dias.map((dia) => (
+        <div data-dia={dia.indice}>
+          <dt>
+            {dia.dia}
+            <span class="hoy" hidden>
+              {" "}
+              · Hoy
+            </span>
+          </dt>
+          <dd>{dia.horas}</dd>
+        </div>
+      ))}
+    </dl>
+    <div class="acciones">
+      {mapsUrl ? (
+        <a
+          class="primario"
+          href={mapsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Cómo llegar ↗
+        </a>
+      ) : (
+        <p class="nota">{negocio.mapsUrl}</p>
+      )}
+      <a href={enlaceWhatsApp(negocio.whatsapp, negocio.mensajeWhatsapp)}>
+        Escribir por WhatsApp
+      </a>
+    </div>
+  </div>
+  <figure>
+    {mapsUrl ? (
+      <a class="mapa" href={mapsUrl} target="_blank" rel="noopener noreferrer">
+        <Image
+          src={mapa}
+          format="webp"
+          alt="[MAPA DEL LOCAL PENDIENTE]"
+          width="960"
+          height="960"
+          loading="lazy"
+          decoding="async"
+        />
+        <span>Ver en Google Maps ↗</span>
+      </a>
+    ) : (
+      <div class="mapa">
+        <Image
+          src={mapa}
+          format="webp"
+          alt="[MAPA DEL LOCAL PENDIENTE]"
+          width="960"
+          height="960"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    )}
+    <figcaption>[MAPA DEL LOCAL PENDIENTE]</figcaption>
+  </figure>
+</section>
+<script>
+  import { diaActualEnLima } from "../lib/horario";
+  function actualizarDia() {
+    const hoy = diaActualEnLima(new Date());
+    document
+      .querySelectorAll<HTMLElement>("#ubicacion [data-dia]")
+      .forEach((fila) => {
+        const actual = Number(fila.dataset.dia) === hoy;
+        fila.classList.toggle("actual", actual);
+        if (actual) fila.setAttribute("aria-current", "date");
+        else fila.removeAttribute("aria-current");
+        fila.querySelector<HTMLElement>(".hoy")!.hidden = !actual;
+      });
+  }
+  actualizarDia();
+  window.setInterval(actualizarDia, 30_000);
+  document.addEventListener("visibilitychange", actualizarDia);
+</script>
+<style>
+  section {
+    max-width: 1160px;
+    margin: auto;
+    padding: 3rem 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 1.5rem;
+  }
+  .datos {
+    min-width: 0;
+    background: var(--color-superficie);
+    border: 1px solid var(--color-linea);
+    border-radius: 32px;
+    padding: clamp(1.25rem, 3vw, 2.5rem);
+  }
+  .etiqueta {
+    color: var(--color-acento);
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  h2 {
+    font-size: clamp(2.3rem, 4vw, 3.5rem);
+    line-height: 1.1;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin: 1rem 0 1.5rem;
+  }
+  address {
+    font-style: normal;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+  }
+  address span,
+  .zona,
+  .nota,
+  figcaption {
+    color: var(--color-apagado);
+  }
+  .zona {
+    margin: 1.5rem 0 0.5rem;
+  }
+  .nota {
+    font-size: 0.8rem;
+    overflow-wrap: anywhere;
+  }
+  dl {
+    margin: 0 0 1.5rem;
+  }
+  dl > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-linea);
+  }
+  dd {
+    margin: 0;
+    font-weight: 700;
+  }
+  .actual {
+    color: var(--color-acento);
+  }
+  .hoy {
+    font-size: 0.8rem;
+  }
+  .acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .acciones a {
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.25rem;
+    border-radius: 99px;
+    border: 1px solid var(--color-texto);
+    font-weight: 800;
+    text-align: center;
+  }
+  .acciones .primario {
+    background: var(--color-acento);
+    border-color: var(--color-acento);
+    color: var(--color-sobre-acento);
+  }
+  figure {
+    min-width: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--color-superficie);
+    border: 1px solid var(--color-linea);
+    border-radius: 32px;
+    overflow: hidden;
+  }
+  .mapa {
+    position: relative;
+    display: block;
+  }
+  .mapa img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .mapa span {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    padding: 1rem;
+    text-align: center;
+    background: var(--color-acento);
+    color: var(--color-sobre-acento);
+    border-radius: 99px;
+    font-weight: 800;
+  }
+  figcaption {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.85rem;
+  }
+  @media (max-width: 767px) {
+    section {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

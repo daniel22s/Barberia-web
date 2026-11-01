@@ -1,0 +1,16 @@
+<!-- Ilustración original de TASK-005, CC0. No representa calles ni coordenadas reales. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="960" viewBox="0 0 960 960">
+  <defs>
+    <pattern id="cuadricula" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M80 0H0V80" fill="none" stroke="#2A2826" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <path fill="#161514" d="M0 0h960v960H0z"/>
+  <path fill="url(#cuadricula)" d="M0 0h960v960H0z"/>
+  <circle cx="480" cy="480" r="110" fill="#C9A23A" opacity=".15"/>
+  <circle cx="480" cy="480" r="80" fill="#C9A23A"/>
+  <g transform="translate(440 432) scale(4)" fill="none" stroke="#0B0B0B" stroke-width="1.8" stroke-linejoin="round">
+    <path d="M18 8c0 6-8 13-8 13S2 14 2 8a8 8 0 1 1 16 0Z"/>
+    <circle cx="10" cy="8" r="2.5"/>
+  </g>
+</svg>

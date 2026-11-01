@@ -1,0 +1,40 @@
+{
+  "lighthouseVersion": "13.6.0",
+  "fetchTime": "2026-11-01T00:22:46.919Z",
+  "requestedUrl": "http://127.0.0.1:4321/",
+  "finalDisplayedUrl": "http://127.0.0.1:4321/",
+  "formFactor": "mobile",
+  "throttlingMethod": "simulate",
+  "categories": {
+    "performance": {
+      "title": "Performance",
+      "score": 1
+    },
+    "accessibility": {
+      "title": "Accessibility",
+      "score": 1
+    },
+    "best-practices": {
+      "title": "Best Practices",
+      "score": 0.96
+    },
+    "seo": {
+      "title": "SEO",
+      "score": 1
+    }
+  },
+  "runWarnings": [],
+  "consoleErrors": [
+    {
+      "source": "network",
+      "description": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "sourceLocation": {
+        "type": "source-location",
+        "url": "http://127.0.0.1:4321/favicon.ico",
+        "urlProvider": "network",
+        "line": 0,
+        "column": 0
+      }
+    }
+  ]
+}
