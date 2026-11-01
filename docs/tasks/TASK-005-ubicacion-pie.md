@@ -126,3 +126,16 @@ La imagen provisional no pretende representar la geografía del local.
 Favicon y demás trabajo SEO de TASK-006/TASK-007 quedan fuera de este alcance.
 La aceptación comercial y la revisión del Arquitecto siguen pendientes; las
 mediciones anteriores corresponden al contenido provisional de esta rama.
+
+## Revisión del Arquitecto (2026-10-31)
+
+**Aceptada**, con una corrección del Arquitecto en la misma rama:
+1. `public/mapa.webp` → `src/assets/mapa.webp`. Se importaba desde `public/`, así que la compilación publicaba una copia sin usar en `dist/mapa.webp` además de la optimizada por `Image`. Ahora solo sale `_astro/mapa.*.webp`.
+
+Verificaciones ejecutadas por Claude con Node 22.23.4 (antes y después de la corrección): `npm ci` (412 paquetes), `astro check` 0 errores / 0 advertencias / 0 hints, lint limpio, build de 2 páginas, **32/32** pruebas, Prettier limpio. **Criterio 2:** el HTML compilado no tiene `iframe` ni recursos externos; los únicos enlaces externos son de `wa.me`, y solo se abren cuando la persona los toca. **Criterio 1:** cubierto por las pruebas de `horario.ts`; la portada y la ubicación usan la misma función `obtenerHorario`. La prueba con navegador que hizo Codex se aceptó por su informe y las capturas (375 px revisada: coincide con la maqueta). La 404 y Lighthouse no se repitieron aquí; Lighthouse se mide en TASK-007.
+
+Observaciones (no bloquean):
+- El `alt` del mapa y su `figcaption` repiten el mismo marcador; al recibir el mapa real (P-26), el `alt` debe describir la ubicación y el `figcaption` puede quitarse.
+- Dirección real (P-18) cargada en `negocio.json` durante la revisión: Av. Ayacucho, Mz. A10, Lote 20; referencia «3.er piso»; Mi Perú, Callao.
+- Falta `favicon.ico`: lo resuelve TASK-006.
+- El aviso de colección `resenas` vacía sigue apareciendo hasta que haya reseñas reales con permiso.
