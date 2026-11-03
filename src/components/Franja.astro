@@ -6,9 +6,13 @@ const estilos = (await getCollection("servicios")).sort(
 ---
 
 <div class="franja" aria-label="Nuestros estilos">
-  <label class="pausa">
-    <input type="checkbox" />
-    Pausar franja
+  <label class="control-movimiento" title="Pausar o reanudar animaciones">
+    <input
+      id="pausar-animaciones"
+      type="checkbox"
+      aria-label="Pausar animaciones"
+    />
+    <span aria-hidden="true">Ⅱ</span>
   </label>
   <div class="cinta">
     {[false, true].map((copia) => (
@@ -25,38 +29,49 @@ const estilos = (await getCollection("servicios")).sort(
 </div>
 <style>
   .franja {
+    position: relative;
     overflow: hidden;
     background: var(--color-acento);
     color: var(--color-sobre-acento);
     padding: 1rem 0;
   }
-  .pausa {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    min-height: 48px;
-    width: fit-content;
-    margin: 0 auto 0.5rem;
-    font-size: 0.85rem;
-    font-weight: 700;
+  .control-movimiento {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 48px;
+    display: grid;
+    place-items: center;
+    background: var(--color-acento);
+    box-shadow: -12px 0 16px var(--color-acento);
     cursor: pointer;
   }
-  input {
-    width: 20px;
-    height: 20px;
-    accent-color: var(--color-sobre-acento);
+  .control-movimiento input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
   }
-  input:focus-visible {
-    outline-color: var(--color-sobre-acento);
+  .control-movimiento:focus-within {
+    outline: 3px solid var(--color-sobre-acento);
+    outline-offset: -5px;
   }
-  .franja:has(input:checked) .cinta {
-    animation-play-state: paused;
+  .control-movimiento:has(input:checked) span {
+    font-size: 0;
+  }
+  .control-movimiento:has(input:checked) span::after {
+    content: "▶";
+    font-size: 1rem;
   }
   .cinta {
     display: flex;
     width: max-content;
-    animation: deslizar 40s linear infinite;
+    animation: deslizar 32s linear infinite;
   }
   ul {
     display: flex;
@@ -74,7 +89,7 @@ const estilos = (await getCollection("servicios")).sort(
     }
   }
   @media (prefers-reduced-motion: reduce) {
-    .pausa {
+    .control-movimiento {
       display: none;
     }
     .cinta {

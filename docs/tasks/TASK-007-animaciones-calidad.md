@@ -46,6 +46,25 @@ Depende de TASK-002 a 005. Sin 3D completo (WebGL) por decisión de arquitectura
 
 ## Resultados reales y pendientes
 
+### Nueva solicitud del dueño (2026-11-02): pendiente de definición por el Arquitecto
+
+- Solicita animaciones más originales, mejores tarjetas, efectos 3D si son posibles
+  y retirar la opción visible «Pausar franja».
+- La tarea aprobada permite inclinación 3D ligera con CSS, pero excluye WebGL y
+  librerías de animación. La arquitectura deja el 3D completo como extra opcional.
+  Falta una tarea aprobada que concrete el rediseño; si se elige WebGL o nuevas
+  dependencias, también hace falta una ADR aprobada.
+- Retirar el control de pausa contradice el comportamiento aceptado en esta tarea.
+  El Arquitecto debe definir el reemplazo: control compacto accesible o franja
+  con animación de entrada que termine y quede estática.
+- Propuesta para concretar la siguiente tarea: portada con profundidad por capas,
+  entradas escalonadas, tarjetas con perspectiva y respuesta al puntero, detalles
+  dorados y galería con transiciones; CSS y JavaScript mínimo, respetando reducción
+  de movimiento y los presupuestos existentes.
+- Revisión documental y del código actual realizada. No se modificó código de la
+  web ni se ejecutaron lint, tipos, build, Lighthouse o revisión visual, pues la
+  implementación se detiene ante estas contradicciones según AGENTS.md.
+
 Implementación local de Codex, **2026-10-31, hora de Lima**. Rama
 `web/task-007-animaciones-calidad`, creada desde `main` (`b65afbe`), con el
 árbol inicialmente limpio. Pendiente de revisión del Arquitecto.

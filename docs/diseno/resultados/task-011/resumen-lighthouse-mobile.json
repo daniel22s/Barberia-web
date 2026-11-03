@@ -1,0 +1,50 @@
+{
+  "version": "Franja continua y poste decorativo 3D, correcci\u00f3n del 2026-11-02",
+  "ejecuciones": [
+    {
+      "ejecucion": 1,
+      "fecha": "2026-11-03T02:38:58.113Z",
+      "puntuaciones": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "LCP_ms": 1203.22,
+      "CLS": 0.002517752949273751,
+      "transferencia_bytes": 136944
+    },
+    {
+      "ejecucion": 2,
+      "fecha": "2026-11-03T02:39:10.795Z",
+      "puntuaciones": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "LCP_ms": 1204.85,
+      "CLS": 0.002517752949273751,
+      "transferencia_bytes": 136944
+    },
+    {
+      "ejecucion": 3,
+      "fecha": "2026-11-03T02:39:23.524Z",
+      "puntuaciones": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "LCP_ms": 1204.5319999999997,
+      "CLS": 0.002517752949273751,
+      "transferencia_bytes": 136944
+    }
+  ],
+  "mediana": {
+    "performance": 100,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100
+  }
+}

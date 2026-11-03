@@ -1,0 +1,31 @@
+[
+  {
+    "width": 375,
+    "overflow": false,
+    "pause": false,
+    "ribbon": [
+      "running"
+    ],
+    "hidden": 0,
+    "paused": 0,
+    "reduced": 0,
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "overflow": false,
+    "pause": false,
+    "ribbon": [
+      "running"
+    ],
+    "hidden": 0,
+    "paused": 0,
+    "tilt": "matrix3d(0.996245, -0.00533284, 0.0864118, -9.60131e-05, 0, 0.998101, 0.0615971, -6.84412e-05, -0.0865762, -0.0613658, 0.994353, -0.00110484, 0, -5.98861, -0.369582, 1.00041)",
+    "reduced": 0,
+    "errors": []
+  },
+  {
+    "withoutJS": true,
+    "hidden": 0
+  }
+]

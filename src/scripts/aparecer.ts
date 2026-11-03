@@ -48,3 +48,30 @@ function actualizarMovimiento() {
 
 actualizarMovimiento();
 movimientoReducido.addEventListener("change", actualizarMovimiento);
+
+// Solo se calcula perspectiva con ratón; sin bucles de animación permanentes.
+const punteroFino = window.matchMedia("(hover: hover) and (pointer: fine)");
+for (const tarjeta of document.querySelectorAll<HTMLElement>(".inclinar")) {
+  const limpiar = () => {
+    tarjeta.style.removeProperty("--giro-x");
+    tarjeta.style.removeProperty("--giro-y");
+  };
+  tarjeta.addEventListener("pointermove", (evento) => {
+    if (movimientoReducido.matches || !punteroFino.matches) return;
+    const caja = tarjeta.getBoundingClientRect();
+    const x = Math.max(
+      -0.5,
+      Math.min(0.5, (evento.clientX - caja.left) / caja.width - 0.5),
+    );
+    const y = Math.max(
+      -0.5,
+      Math.min(0.5, (evento.clientY - caja.top) / caja.height - 0.5),
+    );
+    tarjeta.style.setProperty("--giro-x", `${-y * 10}deg`);
+    tarjeta.style.setProperty("--giro-y", `${x * 12}deg`);
+  });
+  tarjeta.addEventListener("pointerleave", limpiar);
+  tarjeta.addEventListener("pointercancel", limpiar);
+  movimientoReducido.addEventListener("change", limpiar);
+  punteroFino.addEventListener("change", limpiar);
+}

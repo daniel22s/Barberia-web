@@ -9,7 +9,8 @@
     opacity: 1;
   }
   .aparecer.aparecido {
-    animation: aparecer 600ms ease-out;
+    animation: aparecer 700ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+    animation-delay: var(--demora, 0ms);
   }
   a,
   button {
@@ -24,7 +25,8 @@
       transition: transform 220ms ease;
     }
     .inclinar:hover {
-      transform: perspective(700px) rotateX(3deg) rotateY(-4deg);
+      transform: perspective(900px) rotateX(var(--giro-x, 3deg))
+        rotateY(var(--giro-y, -4deg)) translateY(-6px);
     }
   }
   @media (hover: none), (pointer: coarse) {
@@ -48,7 +50,8 @@
 @keyframes aparecer-inclinada {
   from {
     opacity: 0;
-    transform: perspective(700px) translateY(20px) rotateX(3deg) rotateY(-4deg);
+    transform: perspective(700px) translateY(50px) rotateX(18deg)
+      rotateY(-16deg);
   }
   to {
     opacity: 1;
@@ -95,5 +98,62 @@
   }
   [data-video-portada] {
     display: none;
+  }
+}
+
+/* Escalonado corto: el contenido nunca espera más de 140 ms. */
+.cuadricula > :nth-child(3n + 2) {
+  --demora: 70ms;
+}
+.cuadricula > :nth-child(3n + 3) {
+  --demora: 140ms;
+}
+@media (prefers-reduced-motion: no-preference) {
+  #inicio .texto > :not(h1) {
+    animation: aparecer 800ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  #inicio .acciones {
+    animation-delay: 100ms;
+  }
+  #inicio .medio {
+    animation: revelar-portada 1000ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+@keyframes revelar-portada {
+  from {
+    opacity: 0;
+    transform: perspective(1100px) rotateY(-9deg) translateY(24px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Control nativo: funciona también sin JavaScript y no cambia el diseño. */
+html:has(#pausar-animaciones:checked) *,
+html:has(#pausar-animaciones:checked) *::before,
+html:has(#pausar-animaciones:checked) *::after {
+  animation-play-state: paused !important;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .inclinar {
+    transform-style: preserve-3d;
+  }
+  .inclinar .titulo {
+    transform: perspective(900px) translateZ(16px);
+  }
+  .inclinar .pie {
+    transform: perspective(900px) translateZ(8px);
+  }
+  @media (hover: none), (pointer: coarse) {
+    .inclinar.aparecido {
+      animation: aparecer-inclinada 950ms cubic-bezier(0.16, 1, 0.3, 1)
+        backwards;
+      animation-delay: var(--demora, 0ms);
+    }
+    .inclinar:active {
+      transform: perspective(700px) rotateX(7deg) rotateY(-8deg);
+    }
   }
 }
