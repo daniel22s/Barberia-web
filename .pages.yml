@@ -40,15 +40,17 @@ content:
         component: textoObligatorio
         description: Usa un identificador distinto para cada servicio y consérvalo al editar.
       - name: grupo
-        label: Para quién
+        label: Categoría
         type: select
         required: true
         options:
           values:
-            - name: el
-              label: Para él
-            - name: ella
-              label: Para ella
+            - name: cortes
+              label: Cortes Véktra
+            - name: facial
+              label: Cuidado facial
+            - name: color
+              label: Color y química
       - name: nombre
         label: Nombre
         component: textoObligatorio
@@ -65,9 +67,9 @@ content:
         required: true
         default: false
       - name: duracionMin
-        label: Duración en minutos
+        label: Duración en minutos (opcional)
         type: number
-        required: true
+        required: false
         options:
           min: 1
           step: 1

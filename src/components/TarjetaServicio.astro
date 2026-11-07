@@ -26,7 +26,9 @@ const { servicio, numero } = Astro.props;
   </div>
   <p class="descripcion">{servicio.descripcion}</p>
   <div class="pie">
-    <span>{formatearDuracion(servicio.duracionMin)}</span>
+    <span>
+      {servicio.duracionMin && formatearDuracion(servicio.duracionMin)}
+    </span>
     <a
       href={enlaceWhatsApp(
         numero,

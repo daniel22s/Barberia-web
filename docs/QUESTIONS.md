@@ -31,10 +31,19 @@ Impacto en precio o plazo: **A** alto · **M** medio · **B** bajo.
 - **P-23** Logo recibido solo como captura de WhatsApp (baja resolución): falta el **archivo original** (PNG grande, SVG o PDF). (M)
 - **P-24** El perfil de WhatsApp dice «Abierto las 24 horas»: ¿es real o es la configuración por defecto? Hace falta el horario verdadero. (B)
 - **P-25** Fotos: hacen falta los archivos originales (no capturas) y **permiso** de las personas que aparecen; si aparece un menor, permiso de su padre o madre. (M)
-- **P-22** Lista de servicios de dama con precios (corte, peinado, color, mechas, tratamientos…). (M)
 - **P-03** ¿Atiende solo con cita, o también sin cita? (B)
 - **P-07** ¿Webs o cuentas que le gusten? (B)
 - **P-11** ¿Solo español? (M)
 - **P-14** Correo del negocio para crear las cuentas a su nombre. (B, bloquea dominio y Google)
 - **P-15** Pago 50/50 y garantía de 30 días: ¿de acuerdo? (Contractual)
 - **P-16** ¿Le interesa el sistema de reservas más adelante? (B)
+
+## Respondidas el 2026-11-07
+
+- **P-22** Servicios y precios reales: 9 servicios (Véktra Basic S/ 30, Véktra Experience S/ 40, Véktra Face Care S/ 65, Face Care S/ 40, Ondulación desde S/ 110, Alisado desde S/ 90, Color S/ 200, Baño de color S/ 50, Camuflaje de canas S/ 50). Agrupados en **Cortes Véktra / Cuidado facial / Color y química** (ya no «Para él / Para ella»).
+
+## Nuevas pendientes
+
+- **P-27** Duración aproximada de cada servicio. Mientras no llegue, la web no muestra duración. (B)
+- **P-28** ¿Cuál es «el más pedido»? Hoy ninguno se resalta, para no inventarlo. (B)
+- **P-29** Descripción corta de Baño de color y de Camuflaje de canas (hoy repiten el nombre). (B)
