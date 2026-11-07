@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { Picture } from "astro:assets";
 import { enlaceWhatsApp } from "../lib/whatsapp";
 import { formatearPrecio, formatearDuracion } from "../lib/formato";
 interface Props {
@@ -7,6 +8,14 @@ interface Props {
   numero: string;
 }
 const { servicio, numero } = Astro.props;
+// Ícono por categoría mientras el servicio no tenga foto propia.
+const iconos = {
+  cortes:
+    '<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/>',
+  facial:
+    '<path d="M12 3l1.8 4.9L19 9.7l-5.2 1.8L12 16.4l-1.8-4.9L5 9.7l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/>',
+  color: '<path d="M12 2.7 17.7 8.4a8 8 0 1 1-11.3 0z"/>',
+};
 ---
 
 <article
@@ -18,6 +27,35 @@ const { servicio, numero } = Astro.props;
   ]}
 >
   {servicio.destacado && <span class="distintivo">El más pedido</span>}
+  {servicio.imagen ? (
+    <div class="foto">
+      <Picture
+        src={servicio.imagen}
+        formats={["avif", "webp"]}
+        fallbackFormat="webp"
+        widths={[360, 640].filter((ancho) => ancho <= servicio.imagen!.width)}
+        sizes="(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw"
+        quality={55}
+        alt={`Referencia: ${servicio.nombre}`}
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  ) : (
+    <span class="icono" aria-hidden="true">
+      <svg
+        viewBox="0 0 24 24"
+        width="26"
+        height="26"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        set:html={iconos[servicio.grupo]}
+      />
+    </span>
+  )}
   <div class="titulo">
     <h4>{servicio.nombre}</h4>
     <p class="precio">
@@ -112,7 +150,7 @@ const { servicio, numero } = Astro.props;
     gap: 1rem;
     margin-top: auto;
     padding-top: 1rem;
-    border-top: 1px solid currentColor;
+    border-top: 1px solid var(--color-linea);
     font-size: 0.85rem;
   }
   .pie a {
@@ -148,6 +186,46 @@ const { servicio, numero } = Astro.props;
     );
     color: var(--color-sobre-acento);
     border-color: var(--color-acento);
+  }
+  .icono {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 1px solid color-mix(in srgb, var(--color-acento) 45%, transparent);
+    background: color-mix(in srgb, var(--color-acento) 12%, transparent);
+    color: var(--color-acento);
+  }
+  .foto {
+    margin: -1.5rem -1.5rem 0;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 24px 24px 0 0;
+  }
+  .foto :global(picture),
+  .foto :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .destacado .icono {
+    color: inherit;
+    border-color: color-mix(
+      in srgb,
+      var(--color-sobre-acento) 35%,
+      transparent
+    );
+    background: color-mix(in srgb, var(--color-sobre-acento) 10%, transparent);
+  }
+  .destacado .pie {
+    border-top-color: color-mix(
+      in srgb,
+      var(--color-sobre-acento) 30%,
+      transparent
+    );
   }
   .destacado .precio,
   .destacado .descripcion,

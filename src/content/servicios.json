@@ -6,7 +6,7 @@
     "precio": 30,
     "precioDesde": false,
     "descripcion": "Corte de cabello, lavado y styling.",
-    "destacado": false,
+    "destacado": true,
     "orden": 0
   },
   {
@@ -75,7 +75,7 @@
     "nombre": "Baño de color",
     "precio": 50,
     "precioDesde": false,
-    "descripcion": "Baño de color.",
+    "descripcion": "Refresca o intensifica el tono y aporta brillo, sin decolorar.",
     "destacado": false,
     "orden": 7
   },
@@ -85,7 +85,7 @@
     "nombre": "Camuflaje de canas",
     "precio": 50,
     "precioDesde": false,
-    "descripcion": "Camuflaje de canas.",
+    "descripcion": "Disimula las canas con un tono natural, para un acabado discreto.",
     "destacado": false,
     "orden": 8
   }

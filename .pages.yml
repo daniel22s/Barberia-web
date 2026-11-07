@@ -54,6 +54,11 @@ content:
       - name: nombre
         label: Nombre
         component: textoObligatorio
+      - name: imagen
+        label: Foto de referencia (opcional)
+        type: image
+        required: false
+        description: Foto real del servicio, autorizada y sin ubicación GPS. Si se deja vacía, la tarjeta muestra un ícono.
       - name: precio
         label: Precio (S/)
         type: number

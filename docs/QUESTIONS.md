@@ -44,6 +44,7 @@ Impacto en precio o plazo: **A** alto · **M** medio · **B** bajo.
 
 ## Nuevas pendientes
 
-- **P-27** Duración aproximada de cada servicio. Mientras no llegue, la web no muestra duración. (B)
-- **P-28** ¿Cuál es «el más pedido»? Hoy ninguno se resalta, para no inventarlo. (B)
-- **P-29** Descripción corta de Baño de color y de Camuflaje de canas (hoy repiten el nombre). (B)
+- **P-27** Duración: **no se mostrará por ahora** (decisión del dueño, 2026-11-07).
+- **P-28** «El más pedido»: **Véktra Basic** (respondida).
+- **P-29** Descripciones de Baño de color y Camuflaje de canas: **propuestas por el Arquitecto**, falta que el cliente las confirme. (B)
+- **P-30** Fotos de referencia por servicio (una por tarjeta, reales y con permiso). Sin foto, la tarjeta muestra un ícono por categoría. (M)

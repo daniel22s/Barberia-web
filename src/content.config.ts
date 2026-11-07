@@ -61,16 +61,18 @@ const negocio = defineCollection({
 
 const servicios = defineCollection({
   loader: file("src/content/servicios.json"),
-  schema: z.object({
-    grupo: z.enum(["cortes", "facial", "color"]),
-    nombre: texto,
-    precio: z.number().min(1, "El precio mínimo es S/ 1."),
-    precioDesde: z.boolean(),
-    duracionMin: z.number().int().positive().optional(),
-    descripcion: texto,
-    destacado: z.boolean(),
-    orden: z.number().int().nonnegative(),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      imagen: image().optional(),
+      grupo: z.enum(["cortes", "facial", "color"]),
+      nombre: texto,
+      precio: z.number().min(1, "El precio mínimo es S/ 1."),
+      precioDesde: z.boolean(),
+      duracionMin: z.number().int().positive().optional(),
+      descripcion: texto,
+      destacado: z.boolean(),
+      orden: z.number().int().nonnegative(),
+    }),
 });
 
 const galeria = defineCollection({
