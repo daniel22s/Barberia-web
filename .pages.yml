@@ -40,15 +40,17 @@ content:
         component: textoObligatorio
         description: Usa un identificador distinto para cada servicio y consérvalo al editar.
       - name: grupo
-        label: Para quién
+        label: Categoría
         type: select
         required: true
         options:
           values:
-            - name: el
-              label: Para él
-            - name: ella
-              label: Para ella
+            - name: cortes
+              label: Cortes y experiencias
+            - name: textura-color
+              label: Textura y color
+            - name: facial
+              label: Cuidado facial
       - name: nombre
         label: Nombre
         component: textoObligatorio
@@ -64,20 +66,16 @@ content:
         type: boolean
         required: true
         default: false
-      - name: duracionMin
-        label: Duración en minutos
-        type: number
-        required: true
-        options:
-          min: 1
-          step: 1
       - name: descripcion
         label: Descripción
         type: text
+      - name: imagen
+        label: Foto de referencia
+        type: image
         required: true
-        pattern:
-          regex: '\S'
-          message: Escribe una descripción; no puede contener solo espacios.
+      - name: imagenAlt
+        label: Descripción de la imagen
+        component: textoObligatorio
       - name: destacado
         label: Destacado
         type: boolean
@@ -117,10 +115,12 @@ content:
         required: true
         options:
           values:
-            - name: el
-              label: Para él
-            - name: ella
-              label: Para ella
+            - name: cortes
+              label: Cortes y experiencias
+            - name: textura-color
+              label: Textura y color
+            - name: facial
+              label: Cuidado facial
             - name: local
               label: Local
       - name: par

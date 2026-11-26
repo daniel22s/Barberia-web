@@ -1,0 +1,346 @@
+[
+  {
+    "width": 375,
+    "before": {
+      "paused": true,
+      "preload": "none",
+      "autoplay": false
+    },
+    "initialVideoRequests": 0,
+    "playback": {
+      "time": 0.010592,
+      "duration": 37.951995,
+      "paused": false
+    },
+    "videoHiddenWithReducedMotion": true,
+    "overflow": false,
+    "summary": "Lun – Sáb 10:00 – 21:00Dom 11:00 – 18:00",
+    "sunday": "11:00 – 18:00",
+    "weekday": "10:00 – 21:00",
+    "redes": [
+      "https://www.tiktok.com/@vektra.hairstudio",
+      "https://www.instagram.com/vektra.hairstudio/",
+      "https://web.facebook.com/profile.php?id=61582433300575"
+    ],
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "HairSalon",
+      "name": "Véktra Hair Studio",
+      "telephone": "+51995631618",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Ayacucho, Mz. A10, Lote 20",
+        "addressLocality": "Mi Perú",
+        "addressRegion": "Callao",
+        "addressCountry": "PE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -11.8547056,
+        "longitude": -77.1254608
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "https://schema.org/Monday",
+            "https://schema.org/Tuesday",
+            "https://schema.org/Wednesday",
+            "https://schema.org/Thursday",
+            "https://schema.org/Friday",
+            "https://schema.org/Saturday"
+          ],
+          "opens": "10:00",
+          "closes": "21:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "https://schema.org/Sunday"
+          ],
+          "opens": "11:00",
+          "closes": "18:00"
+        }
+      ],
+      "priceRange": "Desde S/ 30",
+      "sameAs": [
+        "https://www.tiktok.com/@vektra.hairstudio",
+        "https://www.instagram.com/vektra.hairstudio/",
+        "https://web.facebook.com/profile.php?id=61582433300575"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios y precios",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": 90,
+              "priceCurrency": "PEN"
+            },
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Alisado",
+              "description": "Según diagnóstico."
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": 50,
+            "priceCurrency": "PEN",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Baño de color"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": 50,
+            "priceCurrency": "PEN",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Camuflaje de canas"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": 200,
+            "priceCurrency": "PEN",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Color",
+              "description": "Platinado o color fantasía."
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": 40,
+            "priceCurrency": "PEN",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Face Care",
+              "description": "Limpieza facial profunda con exfoliación, vaporizador, toalla caliente y mascarilla hidratante."
+            }
+          },
+          {
+            "@type": "Offer",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": 110,
+              "priceCurrency": "PEN"
+            },
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Ondulación",
+              "description": "Ondulación o semiondulación, según diagnóstico."
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": 30,
+            "priceCurrency": "PEN",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "VÉKTRA BASIC",
+              "description": "Corte de cabello, lavado y styling."
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": 40,
+            "priceCurrency": "PEN",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "VÉKTRA EXPERIENCE",
+              "description": "Corte de cabello, asesoramiento personalizado, parche nasal, desinflamante de ojeras, lavado de cabello y styling."
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": 65,
+            "priceCurrency": "PEN",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "VÉKTRA FACE CARE",
+              "description": "Corte de cabello y limpieza facial profunda con exfoliación, vaporizador, toalla caliente y mascarilla hidratante."
+            }
+          }
+        ]
+      }
+    },
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "before": {
+      "paused": true,
+      "preload": "none",
+      "autoplay": false
+    },
+    "initialVideoRequests": 0,
+    "playback": {
+      "time": 0.014887,
+      "duration": 37.951995,
+      "paused": false
+    },
+    "videoHiddenWithReducedMotion": true,
+    "overflow": false,
+    "summary": "Lun – Sáb 10:00 – 21:00Dom 11:00 – 18:00",
+    "sunday": "11:00 – 18:00",
+    "weekday": "10:00 – 21:00",
+    "redes": [
+      "https://www.tiktok.com/@vektra.hairstudio",
+      "https://www.instagram.com/vektra.hairstudio/",
+      "https://web.facebook.com/profile.php?id=61582433300575"
+    ],
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "HairSalon",
+      "name": "Véktra Hair Studio",
+      "telephone": "+51995631618",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Ayacucho, Mz. A10, Lote 20",
+        "addressLocality": "Mi Perú",
+        "addressRegion": "Callao",
+        "addressCountry": "PE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -11.8547056,
+        "longitude": -77.1254608
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "https://schema.org/Monday",
+            "https://schema.org/Tuesday",
+            "https://schema.org/Wednesday",
+            "https://schema.org/Thursday",
+            "https://schema.org/Friday",
+            "https://schema.org/Saturday"
+          ],
+          "opens": "10:00",
+          "closes": "21:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "https://schema.org/Sunday"
+          ],
+          "opens": "11:00",
+          "closes": "18:00"
+        }
+      ],
+      "priceRange": "Desde S/ 30",
+      "sameAs": [
+        "https://www.tiktok.com/@vektra.hairstudio",
+        "https://www.instagram.com/vektra.hairstudio/",
+        "https://web.facebook.com/profile.php?id=61582433300575"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios y precios",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": 90,
+              "priceCurrency": "PEN"
+            },
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Alisado",
+              "description": "Según diagnóstico."
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": 50,
+            "priceCurrency": "PEN",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Baño de color"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": 50,
+            "priceCurrency": "PEN",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Camuflaje de canas"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": 200,
+            "priceCurrency": "PEN",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Color",
+              "description": "Platinado o color fantasía."
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": 40,
+            "priceCurrency": "PEN",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Face Care",
+              "description": "Limpieza facial profunda con exfoliación, vaporizador, toalla caliente y mascarilla hidratante."
+            }
+          },
+          {
+            "@type": "Offer",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": 110,
+              "priceCurrency": "PEN"
+            },
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Ondulación",
+              "description": "Ondulación o semiondulación, según diagnóstico."
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": 30,
+            "priceCurrency": "PEN",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "VÉKTRA BASIC",
+              "description": "Corte de cabello, lavado y styling."
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": 40,
+            "priceCurrency": "PEN",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "VÉKTRA EXPERIENCE",
+              "description": "Corte de cabello, asesoramiento personalizado, parche nasal, desinflamante de ojeras, lavado de cabello y styling."
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": 65,
+            "priceCurrency": "PEN",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "VÉKTRA FACE CARE",
+              "description": "Corte de cabello y limpieza facial profunda con exfoliación, vaporizador, toalla caliente y mascarilla hidratante."
+            }
+          }
+        ]
+      }
+    },
+    "errors": []
+  }
+]

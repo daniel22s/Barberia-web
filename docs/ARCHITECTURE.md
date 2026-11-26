@@ -24,7 +24,7 @@ Decisión formal en [ADR-0001](DECISIONS/ADR-0001-stack.md).
 ```
 src/
   content/negocio.json    ← único lugar con nombre, dirección, teléfono, horario, redes
-  content/servicios.json  ← servicios, precios y duración
+  content/servicios.json  ← servicios, precios, categorías e imágenes de referencia
   assets/galeria/         ← fotos originales, editables desde el panel (Astro genera AVIF/WebP)
   components/             ← una pieza por sección
   layouts/Base.astro      ← <head>: SEO, Open Graph, datos estructurados

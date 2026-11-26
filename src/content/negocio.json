@@ -13,25 +13,28 @@
   "mapsUrl": "https://maps.app.goo.gl/xyGVY4HTM2puz4DM8",
   "whatsapp": "51995631618",
   "mensajeWhatsapp": "[MENSAJE DE RESERVA]",
-  "horarioNota": "[HORARIO REAL PENDIENTE DE CONFIRMAR]",
   "horario": [
     {
       "dia": "Lun–Sáb",
       "cerrado": false,
       "apertura": "10:00",
-      "cierre": "20:00"
+      "cierre": "21:00"
     },
     {
       "dia": "Dom",
-      "cerrado": true
+      "cerrado": false,
+      "apertura": "11:00",
+      "cierre": "18:00"
     }
   ],
   "redes": {
-    "tiktok": "[URL DE TIKTOK]",
-    "instagram": "[URL DE INSTAGRAM]",
-    "facebook": "[URL DE FACEBOOK]"
+    "tiktok": "https://www.tiktok.com/@vektra.hairstudio",
+    "instagram": "https://www.instagram.com/vektra.hairstudio/",
+    "facebook": "https://web.facebook.com/profile.php?id=61582433300575"
   },
   "dominio": "[DOMINIO]",
   "logoTexto": "VÉKTRA",
-  "logoSubtexto": "HAIR STUDIO"
+  "logoSubtexto": "HAIR STUDIO",
+  "portadaAlt": "Presentación de Véktra Hair Studio: una persona con gafas y camiseta negra frente al letrero del salón",
+  "videoPortadaUrl": "https://www.tiktok.com/@vektra.hairstudio/video/7701151190154743047"
 }

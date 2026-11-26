@@ -1,7 +1,8 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { enlaceWhatsApp } from "../lib/whatsapp";
-import { formatearPrecio, formatearDuracion } from "../lib/formato";
+import { Picture } from "astro:assets";
+import { formatearPrecio } from "../lib/formato";
 interface Props {
   servicio: CollectionEntry<"servicios">["data"];
   numero: string;
@@ -17,6 +18,20 @@ const { servicio, numero } = Astro.props;
     { destacado: servicio.destacado },
   ]}
 >
+  <figure>
+    <Picture
+      src={servicio.imagen}
+      alt={servicio.imagenAlt}
+      widths={[360, 640, 960]}
+      sizes="(min-width: 1024px) 340px, (min-width: 640px) 45vw, 90vw"
+      formats={["avif", "webp"]}
+      fallbackFormat="webp"
+      width={640}
+      height={426}
+      loading="lazy"
+    />
+    <figcaption>Imagen de referencia</figcaption>
+  </figure>
   {servicio.destacado && <span class="distintivo">El más pedido</span>}
   <div class="titulo">
     <h4>{servicio.nombre}</h4>
@@ -24,9 +39,8 @@ const { servicio, numero } = Astro.props;
       {formatearPrecio(servicio.precio, servicio.precioDesde)}
     </p>
   </div>
-  <p class="descripcion">{servicio.descripcion}</p>
+  {servicio.descripcion && <p class="descripcion">{servicio.descripcion}</p>}
   <div class="pie">
-    <span>{formatearDuracion(servicio.duracionMin)}</span>
     <a
       href={enlaceWhatsApp(
         numero,
@@ -39,6 +53,22 @@ const { servicio, numero } = Astro.props;
   </div>
 </article>
 <style>
+  figure {
+    margin: 0;
+  }
+  figure :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--color-apagado);
+  }
   .tarjeta {
     position: relative;
     display: flex;
@@ -79,6 +109,7 @@ const { servicio, numero } = Astro.props;
   .titulo {
     display: flex;
     align-items: start;
+    flex-wrap: wrap;
     justify-content: space-between;
     gap: 1rem;
   }
@@ -94,6 +125,7 @@ const { servicio, numero } = Astro.props;
     color: var(--color-acento);
     margin: 0;
     flex-shrink: 0;
+    max-width: 100%;
   }
   .descripcion {
     color: var(--color-apagado);

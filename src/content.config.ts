@@ -20,6 +20,10 @@ const negocio = defineCollection({
     eslogan: texto,
     descripcion: texto,
     portadaAlt: texto.optional(),
+    videoPortadaUrl: z
+      .url()
+      .regex(/^https?:\/\//)
+      .optional(),
     distrito: texto,
     provincia: texto,
     direccion: texto,
@@ -61,16 +65,18 @@ const negocio = defineCollection({
 
 const servicios = defineCollection({
   loader: file("src/content/servicios.json"),
-  schema: z.object({
-    grupo: z.enum(["el", "ella"]),
-    nombre: texto,
-    precio: z.number().min(1, "El precio mínimo es S/ 1."),
-    precioDesde: z.boolean(),
-    duracionMin: z.number().int().positive(),
-    descripcion: texto,
-    destacado: z.boolean(),
-    orden: z.number().int().nonnegative(),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      grupo: z.enum(["cortes", "textura-color", "facial"]),
+      nombre: texto,
+      precio: z.number().min(1, "El precio mínimo es S/ 1."),
+      precioDesde: z.boolean(),
+      descripcion: z.string().trim(),
+      imagen: image(),
+      imagenAlt: texto,
+      destacado: z.boolean(),
+      orden: z.number().int().nonnegative(),
+    }),
 });
 
 const galeria = defineCollection({

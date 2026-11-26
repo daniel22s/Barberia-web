@@ -23,7 +23,7 @@ const videos = import.meta.glob<string>("../assets/portada.mp4", {
 });
 const video = Object.values(videos)[0];
 const poster = video
-  ? (await getImage({ src: foto, width: 720, height: 720 })).src
+  ? (await getImage({ src: foto, width: 405, height: 720, format: "webp" })).src
   : undefined;
 ---
 
@@ -36,33 +36,35 @@ const poster = video
           ? "[FOTO PRINCIPAL PENDIENTE]"
           : altConDistrito(negocio.portadaAlt!, negocio.distrito)
       }
-      width={720}
-      height={720}
+      width={video ? 576 : 720}
+      height={video ? 1024 : 720}
       loading="eager"
       fetchpriority="high"
     />
     {video && (
       <video
-        data-video-portada
+        data-video-presentacion
         controls
-        aria-label="Video de nuestros trabajos"
-        muted
-        loop
+        width={576}
+        height={1024}
+        aria-label={`Presentación de ${negocio.nombre}`}
         playsinline
         preload="none"
         poster={poster}
-        hidden
       >
-        <source data-src={video} type="video/mp4" />
+        <source src={video} type="video/mp4" />
+        Tu navegador no puede reproducir este video.
       </video>
     )}
-    <div class="escultura" aria-hidden="true">
-      <div class="orbita"></div>
-      <div class="poste">
-        <div class="bandas"></div>
+    {!video && (
+      <div class="escultura" aria-hidden="true">
+        <div class="orbita"></div>
+        <div class="poste">
+          <div class="bandas"></div>
+        </div>
+        <div class="base-poste"></div>
       </div>
-      <div class="base-poste"></div>
-    </div>
+    )}
     <span class="sello">Nuevo look</span>
   </div>
   <div class="texto">
@@ -73,6 +75,16 @@ const poster = video
       {negocio.eslogan}
     </h1>
     <p class="descripcion">{negocio.descripcion}</p>
+    {negocio.videoPortadaUrl && (
+      <a
+        class="video-origen"
+        href={negocio.videoPortadaUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Conócenos en TikTok ↗
+      </a>
+    )}
     <div class="acciones">
       <a
         class="primario"
@@ -131,15 +143,28 @@ const poster = video
   }
   .medio img,
   .medio video {
+    display: block;
     width: 100%;
-    height: 100%;
+    height: auto;
     aspect-ratio: 1;
     object-fit: cover;
     border-radius: 24px;
   }
+  .medio:has(video) img,
+  .medio:has(video) video {
+    object-fit: contain;
+    background: var(--color-fondo);
+  }
   .medio video {
     position: absolute;
     inset: 0;
+    height: 100%;
+  }
+  .video-origen {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    color: var(--color-acento);
   }
   .escultura {
     position: absolute;
@@ -308,7 +333,7 @@ const poster = video
     }
   }
   @media (prefers-reduced-motion: reduce) {
-    video {
+    .medio video {
       display: none;
     }
   }

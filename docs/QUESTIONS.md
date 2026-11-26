@@ -28,10 +28,10 @@ Impacto en precio o plazo: **A** alto · **M** medio · **B** bajo.
 
 - **P-28** ¿El cliente puede **administrar** la ficha «Barbería Vektra» (la creó con su cuenta de Google y le llegan avisos), o la creó otra persona o Google? Si la administra: agregar al desarrollador como administrador. Si no: reclamarla desde Maps con el correo del negocio (P-14). En los dos casos, nombre «Véktra Hair Studio» (P-17). (M, bloquea SEO local)
 - **P-17** El logo dice **«VÉKTRA HAIR STUDIO»** (con tilde en la É). ¿Así se escribe en Google, la web y las redes? (B)
-- **P-23** Logo recibido solo como captura de WhatsApp (baja resolución): falta el **archivo original** (PNG grande, SVG o PDF). (M)
-- **P-24** El perfil de WhatsApp dice «Abierto las 24 horas»: ¿es real o es la configuración por defecto? Hace falta el horario verdadero. (B)
+- **P-23 respondida (2026-11-26):** el cliente perdió el original del logo. Se conserva la marca tipográfica provisional existente.
+- **P-24 respondida (2026-11-26):** lunes a sábado de 10:00 a 21:00; domingos de 11:00 a 18:00, hora de Lima. Redes TikTok, Instagram y Facebook recibidas; WhatsApp +51 995 631 618 reconfirmado.
 - **P-25** Fotos: hacen falta los archivos originales (no capturas) y **permiso** de las personas que aparecen; si aparece un menor, permiso de su padre o madre. (M)
-- **P-22** Lista de servicios de dama con precios (corte, peinado, color, mechas, tratamientos…). (M)
+- **P-22 respondida (2026-11-26):** recibidos nueve servicios y precios. El dueño solicita categorías por tratamiento, sin duración y fotos de referencia (TASK-012).
 - **P-03** ¿Atiende solo con cita, o también sin cita? (B)
 - **P-07** ¿Webs o cuentas que le gusten? (B)
 - **P-11** ¿Solo español? (M)

@@ -47,7 +47,7 @@ en 2026](https://developers.google.com/search/updates); que `FAQPage` sea válid
 schema.org no implica que Google lo muestre. El criterio antiguo de TASK-006 se
 registra con esa limitación, sin prometer un resultado enriquecido FAQ.
 
-El horario de ejemplo no se afirma en JSON-LD mientras exista `horarioNota`.
+Horario confirmado el 2026-11-26: Lun–Sáb 10:00–21:00 y Dom 11:00–18:00. Retirada `horarioNota`, se publica también en JSON-LD junto con las tres redes recibidas.
 Las URLs marcadoras/vacías de redes y las descripciones provisionales de servicios
 se omiten; el catálogo conserva los precios del contenido actual. Los precios
 «desde» usan `minPrice`, sin inventar un máximo. Confirmar todos los datos de

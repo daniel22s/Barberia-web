@@ -1,0 +1,22 @@
+[
+  {
+    "width": 375,
+    "overflow": false,
+    "cards": 9,
+    "images": true,
+    "captions": 9,
+    "durations": false,
+    "links": true,
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "overflow": false,
+    "cards": 9,
+    "images": true,
+    "captions": 9,
+    "durations": false,
+    "links": true,
+    "errors": []
+  }
+]

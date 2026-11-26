@@ -23,7 +23,7 @@ Etiquetas: **[C]** confirmado · **[S]** suposición · **[P]** propuesta · **[
 | 1 | Cabecera | Logo, nombre, menú y botón «Reservar por WhatsApp» |
 | 2 | Portada | Titular grande, distrito y ciudad, foto principal, botones de WhatsApp y de servicios, datos rápidos (calificación, días, hora) |
 | 3 | Franja animada | Estilos que trabaja (fade, clásico, barba…) |
-| 4 | Servicios y precios | Tarjetas con nombre, descripción corta, precio y duración; cada una abre WhatsApp con el servicio ya escrito |
+| 4 | Servicios y precios | Tarjetas con nombre, descripción disponible, precio y foto de referencia identificada; cada una abre WhatsApp con el servicio ya escrito |
 | 5 | Cómo reservar | 3 pasos |
 | 6 | Trabajos | Galería de fotos y videos cortos, con enlace a TikTok |
 | 7 | Reseñas | Calificación de Google y 3 reseñas reales (con permiso) |

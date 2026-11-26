@@ -53,9 +53,10 @@ Guía oficial: [inicio de Pages CMS](https://pagescms.org/docs/quick-start/).
 1. Abrir «Servicios y precios» y localizar el servicio por nombre e identificador.
 2. Escribir el precio como número, sin `S/`. Mínimo **S/ 1**; se admiten decimales.
    Un precio vacío o 0 no se puede guardar. `precioDesde` añade «desde» al importe.
-3. La duración es un entero positivo en minutos y el orden es un entero desde
-   cero. Elegir «Para él» o «Para ella». Al crear un servicio, darle un `id` único;
-   al editar, conservarlo. Nombre y descripción no pueden estar en blanco.
+3. El orden es un entero desde cero. Elegir «Cortes y experiencias»,
+   «Textura y color» o «Cuidado facial». No se solicitan ni muestran duraciones. Al crear un servicio, darle un `id` único;
+   al editar, conservarlo. El nombre no puede estar en blanco; la descripción es opcional si el cliente no la entregó.
+   Seleccionar una foto y describirla en el texto alternativo. Las tarjetas indican «Imagen de referencia».
 4. Guardar, anotar el SHA del commit y revisar el build y la vista previa antes de
    fusionar. La lista JSON se guarda completa: coordinar ediciones para evitar
    sobrescribir cambios de otra persona.

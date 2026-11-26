@@ -1,0 +1,12 @@
+{
+  "url": "http://127.0.0.1:4337/",
+  "scores": {
+    "performance": 100,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "agentic-browsing": 100
+  },
+  "fetchTime": "2026-11-26T20:52:05.397Z",
+  "lcp": "1.2\u00a0s"
+}

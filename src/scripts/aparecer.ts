@@ -21,6 +21,12 @@ const observador =
 if (observador) document.documentElement.classList.add("con-aparicion");
 
 function actualizarMovimiento() {
+  if (movimientoReducido.matches) {
+    for (const video of document.querySelectorAll<HTMLVideoElement>(
+      "[data-video-presentacion]",
+    ))
+      video.pause();
+  }
   observador?.disconnect();
   for (const elemento of elementos) {
     if (movimientoReducido.matches) elemento.classList.remove("aparecido");
