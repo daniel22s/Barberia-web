@@ -22,3 +22,9 @@ En ejecución. Dominio propio, acceso al perfil de Google, Search Console y prue
 
 ### Pendientes externos y límites
 El dueño confirma que no tiene dominio propio. Search Console, Bing, gestión de Google Business, prueba del CMS conectado y Android físico siguen sin ejecutarse; requieren cuentas/dispositivo o acciones externas. Las reseñas siguen vacías y ocultas. No se declara atención sin cita ni se compra un dominio. No se promete posicionamiento en Google.
+
+### Publicación y comprobación final
+- A petición explícita del dueño, commit `d6e0bdf` integrado mediante fast-forward y subido a main. Cloudflare completó con éxito la compilación 7e3f3615-db36-4d9d-833c-1c75439a9f13.
+- URL pública https://barberia-web.cruzdani543.workers.dev/ : HTTP 200, ambas publicaciones reales, Maps nuevo y WhatsApp sin marcador. Sitemap HTTP 200; ruta inexistente HTTP 404 personalizada.
+- Chromium sobre URL pública, 375/1280: dos fotos cargadas, sin desbordes ni marcadores, FAQ y enlaces correctos, sin solicitudes externas ni errores CSP. Se ajustó el script de QA para recorrer y esperar cada imagen lazy (la primera medición se adelantó a su carga). Evidencia `navegador-publico.json`.
+- El dueño confirma dominio propio pendiente y solicita opciones/precios: consulta RDAP de Verisign, `vektrahairstudio.com` y `vektrahair.com` sin registro; `vektrastudio.com` registrado. Cloudflare publica tarifa estándar .com USD 11.17 por registro y renovación anual al 2026-11-26 (https://pricing.registrar.cloudflare.com/?q=com). Disponibilidad y precio se confirman al comprar; no se efectuó compra.
