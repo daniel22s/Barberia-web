@@ -47,3 +47,7 @@ Sin Android físico, publicación ni merge. El video contiene texto incrustado; 
 - `src/scripts/aparecer.ts`: el video manual se pausa al activar movimiento reducido, sin iniciar reproducción automática. Una prueba intermedia detectó conflicto de especificidad CSS en esa preferencia; corregido con `.medio video` dentro de la media query. La comprobación final incluye el cambio de preferencia durante reproducción.
 
 Lighthouse móvil final con video manual: performance 100, accessibility 100, best-practices 100, seo 100. LCP 1.2 s. Total size was 276 KiB. Resumen guardado junto a las nuevas capturas.
+
+### Publicación de la rama — 2026-11-26
+- Commit `1851918` subido a `web/task-012-servicios-reales`. Cloudflare Workers Builds ejecutó correctamente `npm run build`, pero falló después en `npx wrangler preview`: faltaba el bloque `previews` de Wrangler (compilación 37342ecd-b859-4d94-9e4c-3fd830c8efb3).
+- Corrección de configuración: `wrangler.jsonc` identifica el Worker existente `barberia-web`, activos estáticos `./dist`, fecha de compatibilidad y `previews: {}`. Sin nuevas dependencias ni cambios de aplicación. Referencia: https://developers.cloudflare.com/workers/previews/configuration/ . Se mantiene la rama sin merge; la vista previa permite revisar antes de integrar.

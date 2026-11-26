@@ -1,0 +1,9 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "barberia-web",
+  "compatibility_date": "2026-11-26",
+  "assets": {
+    "directory": "./dist"
+  },
+  "previews": {}
+}
