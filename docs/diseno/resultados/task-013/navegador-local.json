@@ -1,0 +1,36 @@
+[
+  {
+    "width": 375,
+    "overflow": false,
+    "markers": false,
+    "gallery": 2,
+    "images": true,
+    "originals": [
+      "https://www.tiktok.com/@vektra.hairstudio/video/7700298045476408584",
+      "https://www.instagram.com/reel/DfPyn3nMhx5/"
+    ],
+    "faq": 2,
+    "whatsapp": true,
+    "maps": "https://maps.app.goo.gl/LdE6r4NppvMbeb2r5",
+    "canonical": "https://barberia-web.cruzdani543.workers.dev/",
+    "external": [],
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "overflow": false,
+    "markers": false,
+    "gallery": 2,
+    "images": true,
+    "originals": [
+      "https://www.tiktok.com/@vektra.hairstudio/video/7700298045476408584",
+      "https://www.instagram.com/reel/DfPyn3nMhx5/"
+    ],
+    "faq": 2,
+    "whatsapp": true,
+    "maps": "https://maps.app.goo.gl/LdE6r4NppvMbeb2r5",
+    "canonical": "https://barberia-web.cruzdani543.workers.dev/",
+    "external": [],
+    "errors": []
+  }
+]

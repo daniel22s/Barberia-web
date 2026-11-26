@@ -10,9 +10,9 @@
     "lat": -11.8547056,
     "lng": -77.1254608
   },
-  "mapsUrl": "https://maps.app.goo.gl/xyGVY4HTM2puz4DM8",
+  "mapsUrl": "https://maps.app.goo.gl/LdE6r4NppvMbeb2r5",
   "whatsapp": "51995631618",
-  "mensajeWhatsapp": "[MENSAJE DE RESERVA]",
+  "mensajeWhatsapp": "Hola, vi su web y quiero coordinar una cita. ¿Qué horarios tienen disponibles?",
   "horario": [
     {
       "dia": "Lun–Sáb",
@@ -32,9 +32,10 @@
     "instagram": "https://www.instagram.com/vektra.hairstudio/",
     "facebook": "https://web.facebook.com/profile.php?id=61582433300575"
   },
-  "dominio": "[DOMINIO]",
+  "dominio": "https://barberia-web.cruzdani543.workers.dev",
   "logoTexto": "VÉKTRA",
   "logoSubtexto": "HAIR STUDIO",
   "portadaAlt": "Presentación de Véktra Hair Studio: una persona con gafas y camiseta negra frente al letrero del salón",
-  "videoPortadaUrl": "https://www.tiktok.com/@vektra.hairstudio/video/7701151190154743047"
+  "videoPortadaUrl": "https://www.tiktok.com/@vektra.hairstudio/video/7701151190154743047",
+  "mapaAlt": "Imagen de ubicación del salón cerca del Mercado Mi Perú y la Municipalidad de Mi Perú"
 }

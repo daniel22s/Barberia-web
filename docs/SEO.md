@@ -84,3 +84,6 @@ No se ha publicado esta rama. Resultados, capturas y límites en
 ## Medición
 
 Google Search Console: búsquedas, posición media y clics. Perfil de Google: llamadas, solicitudes de ruta y clics a la web. Primera revisión a las 4–6 semanas de publicar; el SEO local tarda semanas o meses.
+
+## Cierre de contenido — 2026-11-26
+Dos trabajos reales entregados por el dueño, imagen de ubicación y FAQ con datos confirmados. Canonical, Open Graph, robots y sitemap activos para el enlace actual de Workers; sustituirlo al conectar el dominio propio. Alta en Search Console/Bing y gestión del Perfil de Empresa siguen pendientes de las cuentas del cliente.

@@ -3,7 +3,7 @@ import tsPlugin from "@typescript-eslint/eslint-plugin";
 import astro from "eslint-plugin-astro";
 
 export default [
-  { ignores: ["dist/**", ".astro/**"] },
+  { ignores: ["dist/**", ".astro/**", ".wrangler/**"] },
   {
     files: ["**/*.{js,mjs,ts}"],
     languageOptions: { parser: tsParser },

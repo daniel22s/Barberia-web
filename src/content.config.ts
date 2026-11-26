@@ -20,6 +20,7 @@ const negocio = defineCollection({
     eslogan: texto,
     descripcion: texto,
     portadaAlt: texto.optional(),
+    mapaAlt: texto.optional(),
     videoPortadaUrl: z
       .url()
       .regex(/^https?:\/\//)
@@ -86,6 +87,11 @@ const galeria = defineCollection({
       imagen: image(),
       alt: texto,
       categoria: z.enum(["el", "ella", "local"]),
+      publicacionUrl: z
+        .url()
+        .regex(/^https?:\/\//)
+        .optional(),
+      publicacionEtiqueta: texto.optional(),
       par: z
         .object({ id: texto, tipo: z.enum(["antes", "despues"]) })
         .optional(),

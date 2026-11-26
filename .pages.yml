@@ -115,14 +115,18 @@ content:
         required: true
         options:
           values:
-            - name: cortes
-              label: Cortes y experiencias
-            - name: textura-color
-              label: Textura y color
-            - name: facial
-              label: Cuidado facial
+            - name: el
+              label: Para él
+            - name: ella
+              label: Para ella
             - name: local
               label: Local
+      - name: publicacionUrl
+        label: Enlace a la publicación original
+        type: string
+      - name: publicacionEtiqueta
+        label: Texto del enlace
+        type: string
       - name: par
         label: Comparación antes/después (opcional)
         type: object

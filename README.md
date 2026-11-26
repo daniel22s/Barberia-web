@@ -2,7 +2,7 @@
 
 Página web de catálogo de **Vektra Hair Studio** (Mi Perú, Callao): servicios y precios, trabajos, reseñas, ubicación, horario y botón de WhatsApp. Diseño moderno, pensada primero para el celular y para aparecer en las búsquedas locales de Google.
 
-**Estado (2026-10-31):** en `main` están TASK-001 a TASK-006, TASK-009 (panel con Pages CMS) y TASK-010 (marca Vektra, negro y dorado). Sigue TASK-007 (animaciones y calidad) y después TASK-008 (publicación). Stack aprobado en [ADR-0001](docs/DECISIONS/ADR-0001-stack.md). El estado detallado y los bloqueos antes de publicar están en [CLAUDE.md](CLAUDE.md).
+**Estado (2026-11-26):** web publicada en https://barberia-web.cruzdani543.workers.dev/ con servicios y precios confirmados, horario, redes, video de portada, dos trabajos reales y ubicación. Dominio propio y altas en buscadores pendientes de las cuentas del cliente. Resultados y límites en `docs/tasks/TASK-013-detalles-finales.md`.
 
 **Maqueta visual:** https://claude.ai/artifact/Hndx8FYZznfbKXcbiQXPWp (privada; se comparte desde su menú _Share_).
 
@@ -49,12 +49,9 @@ El contenido reside en `src/content/*.json`, con validación en
 `src/content.config.ts`. Las listas usan identificadores `id` estables;
 `negocio.json` es un objeto único y se consulta con el ID `principal`.
 Las reseñas permanecen vacías hasta disponer de testimonios reales autorizados.
-La galería contiene solo una imagen SVG sintética hasta recibir fotos con permiso.
+La galería contiene dos miniaturas de trabajos entregados por el dueño con enlaces a TikTok e Instagram.
 
-Los textos entre corchetes (`[DOMINIO]`, `[MENSAJE DE RESERVA]`, redes,
-descripciones de servicios, horario provisional) son datos sintéticos o
-pendientes; **no publicar** sin reemplazarlos. El WhatsApp (`51995631618`) ya
-es el real. La dirección y las coordenadas ya son las reales.
+`npm run prepublicar` comprueba que el contenido no conserva marcadores ni datos de ejemplo; se ejecuta antes de compilar. El dominio configurado es el enlace provisional de Workers: al comprar el dominio propio, actualizar `negocio.dominio` y verificar redirecciones y buscadores.
 
 Los tokens están en `src/styles/tema.css`. La paleta activa es `vektra`
 (negro y dorado, acento `#C9A23A`); cambiar el import de paleta cambia todos

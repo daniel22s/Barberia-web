@@ -1,8 +1,18 @@
 [
   {
-    "id": "ejemplo",
-    "imagen": "../assets/galeria/ejemplo.svg",
-    "alt": "[IMAGEN SINTÉTICA DE EJEMPLO; REEMPLAZAR POR FOTO AUTORIZADA]",
-    "categoria": "local"
+    "id": "trabajo-tiktok",
+    "imagen": "../assets/galeria/trabajo-tiktok.webp",
+    "alt": "Detalle de un corte de cabello con máquina en el lateral",
+    "categoria": "el",
+    "publicacionUrl": "https://www.tiktok.com/@vektra.hairstudio/video/7700298045476408584",
+    "publicacionEtiqueta": "Ver el trabajo en TikTok"
+  },
+  {
+    "id": "trabajo-instagram",
+    "imagen": "../assets/galeria/trabajo-instagram.webp",
+    "alt": "Preparación de un corte de cabello largo en el salón",
+    "categoria": "ella",
+    "publicacionUrl": "https://www.instagram.com/reel/DfPyn3nMhx5/",
+    "publicacionEtiqueta": "Ver el trabajo en Instagram"
   }
 ]

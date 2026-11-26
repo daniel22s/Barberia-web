@@ -161,3 +161,6 @@ de 4 MB y registrar tamaño y ausencia de GPS de sus variantes publicadas;
 comprobar que el precio vacío no se guarda como cero; revertir el cambio y
 verificar la versión anterior. Las pruebas locales no aprueban estos criterios
 de extremo a extremo.
+
+## Hosting actual y cierre de contenido — 2026-11-26
+El proyecto existente está conectado a Cloudflare Workers Static Assets, no a un proyecto Pages. `wrangler.jsonc` sirve `dist`, usa `404-page` y permite previews de ramas. `npm run build` valida contenido y genera las firmas CSP exactas de los scripts inline en `dist/_headers`. No editar manualmente ese archivo generado. URL actual: https://barberia-web.cruzdani543.workers.dev/ . Cambiar `negocio.dominio` al conectar un dominio propio y repetir canonical, sitemap y redirecciones. No declarar realizadas las pruebas del CMS conectado ni el alta de Search Console hasta ejecutarlas.

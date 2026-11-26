@@ -64,9 +64,9 @@ const mapsUrl = /^https?:\/\//.test(negocio.mapsUrl)
         <Image
           src={mapa}
           format="webp"
-          alt="[MAPA DEL LOCAL PENDIENTE]"
-          width="960"
-          height="960"
+          alt={negocio.mapaAlt ?? `Ubicación de ${negocio.nombre}`}
+          width={mapa.width}
+          height={mapa.height}
           loading="lazy"
           decoding="async"
         />
@@ -77,15 +77,17 @@ const mapsUrl = /^https?:\/\//.test(negocio.mapsUrl)
         <Image
           src={mapa}
           format="webp"
-          alt="[MAPA DEL LOCAL PENDIENTE]"
-          width="960"
-          height="960"
+          alt={negocio.mapaAlt ?? `Ubicación de ${negocio.nombre}`}
+          width={mapa.width}
+          height={mapa.height}
           loading="lazy"
           decoding="async"
         />
       </div>
     )}
-    <figcaption>[MAPA DEL LOCAL PENDIENTE]</figcaption>
+    <figcaption>
+      {negocio.direccion} · {negocio.referencia}
+    </figcaption>
   </figure>
 </section>
 <script>

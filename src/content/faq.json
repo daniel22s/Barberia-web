@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "id": "reservar",
+    "pregunta": "¿Cómo puedo reservar?",
+    "respuesta": "Elige un servicio y pulsa «Pedir este» para escribirnos por WhatsApp. Te confirmaremos la hora antes de tu visita."
+  },
+  {
+    "id": "diagnostico",
+    "pregunta": "¿De qué depende el precio de la ondulación y el alisado?",
+    "respuesta": "Estos servicios tienen un precio desde el importe indicado en la web. El precio final se determina según diagnóstico."
+  }
+]

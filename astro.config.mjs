@@ -5,6 +5,7 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { fileURLToPath } from "node:url";
 import { verificarImagenes } from "./scripts/verificar-imagenes.mjs";
+import { completarCSP } from "./scripts/cabeceras.mjs";
 import { generarRecursosSEO } from "./scripts/recursos-seo.mjs";
 import { urlSitio } from "./src/lib/seo.ts";
 
@@ -45,6 +46,7 @@ export default defineConfig({
       hooks: {
         "astro:build:done": async ({ dir }) => {
           await verificarImagenes(fileURLToPath(dir));
+          await completarCSP(fileURLToPath(dir));
         },
       },
     },
