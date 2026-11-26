@@ -22,41 +22,43 @@ const tiktok = /^https?:\/\//.test(negocio.redes.tiktok ?? "")
   <div class="mosaico">
     {fotos.map(({ data }, indice) => (
       <figure class="aparecer">
-        {data.imagen.format === "svg" ? (
-          <Image
-            src={data.imagen}
-            alt={
-              indice === 0
-                ? altConDistrito(data.alt, negocio.distrito)
-                : data.alt
-            }
-            loading="lazy"
-            decoding="async"
-          />
-        ) : (
-          <Picture
-            src={data.imagen}
-            formats={["avif", "webp"]}
-            fallbackFormat="webp"
-            widths={[360, 640, 960, 1280].filter(
-              (ancho) => ancho <= data.imagen.width,
-            )}
-            sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
-            width={Math.min(data.imagen.width, 1280)}
-            height={Math.round(
-              (data.imagen.height * Math.min(data.imagen.width, 1280)) /
-                data.imagen.width,
-            )}
-            quality={55}
-            alt={
-              indice === 0
-                ? altConDistrito(data.alt, negocio.distrito)
-                : data.alt
-            }
-            loading="lazy"
-            decoding="async"
-          />
-        )}
+        <div class="miniatura">
+          {data.imagen.format === "svg" ? (
+            <Image
+              src={data.imagen}
+              alt={
+                indice === 0
+                  ? altConDistrito(data.alt, negocio.distrito)
+                  : data.alt
+              }
+              loading="lazy"
+              decoding="async"
+            />
+          ) : (
+            <Picture
+              src={data.imagen}
+              formats={["avif", "webp"]}
+              fallbackFormat="webp"
+              widths={[360, 640, 960, 1280].filter(
+                (ancho) => ancho <= data.imagen.width,
+              )}
+              sizes="(min-width: 1160px) 556px, (min-width: 640px) 48vw, 92vw"
+              width={Math.min(data.imagen.width, 1280)}
+              height={Math.round(
+                (data.imagen.height * Math.min(data.imagen.width, 1280)) /
+                  data.imagen.width,
+              )}
+              quality={55}
+              alt={
+                indice === 0
+                  ? altConDistrito(data.alt, negocio.distrito)
+                  : data.alt
+              }
+              loading="lazy"
+              decoding="async"
+            />
+          )}
+        </div>
         {data.publicacionUrl && (
           <figcaption>
             <a
@@ -109,6 +111,8 @@ const tiktok = /^https?:\/\//.test(negocio.redes.tiktok ?? "")
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 1rem;
+    max-width: 760px;
+    margin-inline: auto;
   }
   figure {
     margin: 0;
@@ -118,15 +122,27 @@ const tiktok = /^https?:\/\//.test(negocio.redes.tiktok ?? "")
     display: flex;
     flex-direction: column;
   }
-  figure :global(picture) {
-    display: block;
-    aspect-ratio: 4 / 5;
+  .miniatura {
+    position: relative;
+    height: clamp(320px, 36vw, 360px);
+    overflow: hidden;
+    flex: none;
   }
-  figure :global(img) {
+  .miniatura :global(picture) {
+    display: block;
+    height: 100%;
+  }
+  .miniatura :global(img) {
+    position: absolute;
+    inset: 0;
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 25%;
+  }
+  figure:first-child .miniatura :global(img) {
+    object-position: center top;
   }
   figcaption {
     padding: 0.75rem 1rem;
@@ -139,20 +155,14 @@ const tiktok = /^https?:\/\//.test(negocio.redes.tiktok ?? "")
     color: var(--color-acento);
   }
   .tiktok {
+    grid-column: 1 / -1;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    min-height: 240px;
-    padding: 1rem;
-    text-align: center;
-    border: 1px solid var(--color-linea);
-    border-radius: 24px;
-    background: var(--color-superficie);
+    justify-content: flex-start;
+    gap: 0.5rem;
   }
   .tiktok > span {
     color: var(--color-acento);
-    font-size: 3rem;
   }
   .tiktok a {
     display: inline-flex;
@@ -169,11 +179,6 @@ const tiktok = /^https?:\/\//.test(negocio.redes.tiktok ?? "")
   @media (min-width: 640px) {
     .mosaico {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-  @media (min-width: 1024px) {
-    .mosaico {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 </style>

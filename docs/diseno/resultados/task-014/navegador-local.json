@@ -1,0 +1,48 @@
+[
+  {
+    "width": 375,
+    "overflow": false,
+    "frames": [
+      320,
+      320
+    ],
+    "cards": [
+      {
+        "height": 392,
+        "top": 172,
+        "left": 16
+      },
+      {
+        "height": 392,
+        "top": 580,
+        "left": 16
+      }
+    ],
+    "links": true,
+    "footerHeight": 48,
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "overflow": false,
+    "frames": [
+      360,
+      360
+    ],
+    "cards": [
+      {
+        "height": 432,
+        "top": 270,
+        "left": 260
+      },
+      {
+        "height": 432,
+        "top": 270,
+        "left": 648
+      }
+    ],
+    "links": true,
+    "footerHeight": 48,
+    "errors": []
+  }
+]
