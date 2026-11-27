@@ -1,0 +1,211 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import { formatearPrecio } from "../lib/formato";
+import { enlaceWhatsApp } from "../lib/whatsapp";
+
+const servicios = (await getCollection("servicios")).sort(
+  (a, b) => a.data.orden - b.data.orden || a.id.localeCompare(b.id),
+);
+const negocio = (await getEntry("negocio", "principal"))!.data;
+const enlaceGeneral = enlaceWhatsApp(negocio.whatsapp, negocio.mensajeWhatsapp);
+---
+
+{servicios.length > 0 && (
+  <section id="selector-servicios" aria-labelledby="titulo-selector">
+    <h2 id="titulo-selector">Solicita tu cita</h2>
+    <form hidden data-selector data-numero={negocio.whatsapp}>
+      <fieldset>
+        <legend>Elige uno o varios servicios</legend>
+        <div class="opciones">
+          {servicios.map(({ data }) => (
+            <label class="opcion">
+              <input
+                type="checkbox"
+                name="servicio"
+                value={data.nombre}
+                data-precio={data.precio}
+                data-desde={String(data.precioDesde)}
+              />
+              <span>{data.nombre}</span>
+              <span>{formatearPrecio(data.precio, data.precioDesde)}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+      <div class="preferencias">
+        <label>
+          Día preferido (opcional)
+          <input type="date" name="dia" autocomplete="off" />
+        </label>
+        <label>
+          Turno preferido (opcional)
+          <select name="turno">
+            <option value="">Cualquier turno</option>
+            <option>Mañana</option>
+            <option>Tarde</option>
+            <option>Noche</option>
+          </select>
+        </label>
+      </div>
+      <p aria-live="polite">
+        Total estimado: <output>S/ 0</output>
+      </p>
+      <p>
+        Confirmaremos la disponibilidad, la hora y el precio final por WhatsApp.
+      </p>
+      <button type="submit" disabled>
+        Solicitar por WhatsApp
+      </button>
+    </form>
+    <noscript>
+      <a href={enlaceGeneral}>Solicitar por WhatsApp</a>
+    </noscript>
+  </section>
+)}
+
+<script>
+  import { formatearPrecio } from "../lib/formato";
+  import { enlaceWhatsApp } from "../lib/whatsapp";
+
+  const formulario = document.querySelector<HTMLFormElement>("[data-selector]");
+  if (formulario) {
+    const total = formulario.querySelector("output")!;
+    const enviar = formulario.querySelector("button")!;
+    const dia = formulario.querySelector<HTMLInputElement>('[name="dia"]')!;
+    const turno =
+      formulario.querySelector<HTMLSelectElement>('[name="turno"]')!;
+    const formatoDia = new Intl.DateTimeFormat("es-PE", {
+      dateStyle: "full",
+      timeZone: "UTC",
+    });
+
+    function actualizarDiaMinimo() {
+      dia.min = new Intl.DateTimeFormat("sv-SE", {
+        timeZone: "America/Lima",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      }).format(new Date());
+    }
+
+    function seleccionados() {
+      return Array.from(
+        formulario!.querySelectorAll<HTMLInputElement>(
+          '[name="servicio"]:checked',
+        ),
+      );
+    }
+
+    function actualizarTotal() {
+      const servicios = seleccionados();
+      const centimos = servicios.reduce(
+        (suma, servicio) =>
+          suma + Math.round(Number(servicio.dataset.precio) * 100),
+        0,
+      );
+      total.value = formatearPrecio(
+        centimos / 100,
+        servicios.some((servicio) => servicio.dataset.desde === "true"),
+      );
+      enviar.disabled = servicios.length === 0;
+    }
+
+    formulario.addEventListener("change", actualizarTotal);
+    formulario.addEventListener("submit", (evento) => {
+      evento.preventDefault();
+      actualizarDiaMinimo();
+      const servicios = seleccionados();
+      if (!servicios.length || !formulario.reportValidity()) return;
+
+      const mensaje = [
+        "Hola, quisiera solicitar una cita para:",
+        ...servicios.map((servicio) => `• ${servicio.value}`),
+        `Total estimado: ${total.value}`,
+        dia.valueAsDate &&
+          `Día preferido: ${formatoDia.format(dia.valueAsDate)}`,
+        turno.value && `Turno preferido: ${turno.value}`,
+        "¿Me confirman la disponibilidad?",
+      ]
+        .filter(Boolean)
+        .join("\n");
+
+      window.location.assign(
+        enlaceWhatsApp(formulario.dataset.numero!, mensaje),
+      );
+    });
+
+    actualizarDiaMinimo();
+    actualizarTotal();
+    window.addEventListener("pageshow", actualizarTotal);
+    formulario.hidden = false;
+  }
+</script>
+
+<style>
+  section {
+    width: min(100% - 2rem, 72.5rem);
+    margin-inline: auto;
+    padding-block: 3rem;
+  }
+  h2 {
+    font: 400 clamp(2.3rem, 4vw, 3.5rem) var(--font-titulo);
+    text-transform: uppercase;
+  }
+  fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-inline-size: 0;
+  }
+  legend {
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+  }
+  .opciones,
+  .preferencias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    gap: 0.75rem;
+  }
+  .preferencias {
+    margin-top: 1.25rem;
+  }
+  .preferencias label {
+    display: grid;
+    gap: 0.35rem;
+  }
+  .opcion {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+  }
+  .opcion,
+  .preferencias input,
+  .preferencias select {
+    min-height: 48px;
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--color-acento);
+    border-radius: 0.75rem;
+  }
+  input[type="checkbox"] {
+    inline-size: 1rem;
+    block-size: 1rem;
+    appearance: auto;
+    accent-color: var(--color-acento);
+  }
+  button {
+    min-height: 48px;
+    padding-inline: 1rem;
+    border-radius: 1rem;
+    font-weight: 700;
+    background: var(--color-acento);
+    color: var(--color-fondo);
+    cursor: pointer;
+  }
+  button:disabled {
+    opacity: 0.65;
+    cursor: default;
+  }
+</style>
