@@ -53,7 +53,7 @@ La galería contiene dos miniaturas de trabajos entregados por el dueño con enl
 
 `npm run prepublicar` comprueba que el contenido no conserva marcadores ni datos de ejemplo; se ejecuta antes de compilar. El dominio configurado es el enlace provisional de Workers: al comprar el dominio propio, actualizar `negocio.dominio` y verificar redirecciones y buscadores.
 
-Los tokens están en `src/styles/tema.css`. La paleta activa es `vektra`
-(negro y dorado, acento `#C9A23A`); cambiar el import de paleta cambia todos
+Los tokens están en `src/styles/tema.css`. La paleta activa es `microcemento`
+(gris cálido y grafito, acento salvia `#435346`); cambiar el import de paleta cambia todos
 los tokens de color. Anton y Manrope se sirven localmente con
 `font-display: swap`.

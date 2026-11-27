@@ -1,0 +1,12 @@
+:root {
+  --paleta-fondo: #dfdcd6;
+  --paleta-superficie: #edeae5;
+  --paleta-linea: #a5aaa2;
+  --paleta-texto: #232522;
+  --paleta-suave: #434a42;
+  --paleta-apagado: #555d53;
+  --paleta-acento: #435346;
+  --paleta-sobre-acento: #f4f2eb;
+  --radio-boton: 16px;
+  color-scheme: light;
+}

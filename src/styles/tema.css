@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 /* Paleta elegida por el cliente (P-20). */
-@import "./paletas/vektra.css";
+@import "./paletas/microcemento.css";
 /* Alternativas:
+@import "./paletas/vektra.css";
 @import "./paletas/arena.css";
 @import "./paletas/botella.css";
 @import "./paletas/moka.css";

@@ -91,3 +91,6 @@ igual al nombre del negocio. Sin archivo usa `logoTexto` y `logoSubtexto` de
 `negocio.json`, validados en el esquema. Se comparte entre cabecera y pie.
 El pie mínimo solo coloca el logo; las demás piezas del pie siguen en TASK-005.
 Al añadir o quitar el archivo del logo se debe recompilar.
+
+## Paleta microcemento — TASK-015 (2026-11-27)
+Selección explícita del dueño: `microcemento.css` sustituye a `vektra.css` como import activo, sin cambios de stack ni fuentes. Modo claro; fondo #dfdcd6, superficie #edeae5, texto #232522 y acento salvia #435346 para mantener contraste. Botones de 16 px. El generador de recursos SEO resuelve el import activo en tema.css y lee fondo/texto/acento de esa paleta, sin duplicar colores de marca.

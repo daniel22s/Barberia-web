@@ -18,7 +18,7 @@ Impacto en precio o plazo: **A** alto · **M** medio · **B** bajo.
 | P-19 | ¿Hombres o también mujeres? | **Hombres y mujeres** (unisex) | Servicios de dama, textos y búsquedas «peluquería» y «salón» además de «barbería»; colores no solo masculinos |
 | P-10b | ¿Quién usa el panel? | **El desarrollador**; el cliente pide los cambios | ADR-0003 aceptada con ese cambio; P-21 (GitHub del cliente) ya no aplica |
 | P-06b | Logo | Es la palabra **VÉKTRA** en blanco, letras anchas, con «HAIR STUDIO» espaciado debajo, sobre negro; portada con «Jassary Cruz» en dorado | Paleta recomendada: **negro y dorado** (P-20) |
-| P-20 | Colores | **Negro y dorado** (paleta `vektra`, 2026-10-31) | TASK-010 |
+| P-20 | Colores | **Microcemento** (gris cálido, grafito y salvia, 2026-11-27), reemplaza negro y dorado | TASK-015 |
 | P-18 | Dirección | **Av. Ayacucho, Mz. A10, Lote 20 — 3.er piso, Mi Perú, Callao** (2026-10-31) | `negocio.json`: `direccion`, `referencia` («3.er piso») y `provincia`. Falta el enlace de Maps: P-26 |
 | P-26 | Enlace de Maps | **https://maps.app.goo.gl/xyGVY4HTM2puz4DM8** (2026-10-31): ficha «Barbería Vektra», -11.8547056, -77.1254608 | `negocio.json`: `mapsUrl` y `coordenadas`. La ficha existe en Maps: ver P-27 |
 | P-27 | ¿La ficha «Barbería Vektra» de Maps es suya? | **Sí, es su empresa** (2026-10-31) | No se crea un perfil nuevo: se administra o reclama esa ficha (P-28). P-04 queda corregida |

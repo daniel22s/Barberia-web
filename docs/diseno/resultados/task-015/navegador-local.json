@@ -1,0 +1,24 @@
+[
+  {
+    "width": 375,
+    "overflow": false,
+    "background": "rgb(223, 220, 214)",
+    "scheme": "light",
+    "radius": "16px",
+    "cards": 9,
+    "gallery": 2,
+    "images": true,
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "overflow": false,
+    "background": "rgb(223, 220, 214)",
+    "scheme": "light",
+    "radius": "16px",
+    "cards": 9,
+    "gallery": 2,
+    "images": true,
+    "errors": []
+  }
+]
