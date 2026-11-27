@@ -1,5 +1,6 @@
 ---
 import { getCollection, getEntry } from "astro:content";
+import { gruposServicios } from "../lib/grupos-servicios";
 import TarjetaServicio from "./TarjetaServicio.astro";
 const servicios = (await getCollection("servicios")).sort(
   (a, b) => a.data.orden - b.data.orden || a.id.localeCompare(b.id),
@@ -9,11 +10,6 @@ if (servicios.filter(({ data }) => data.destacado).length > 1)
   console.warn(
     "[Servicios] Hay más de un servicio destacado; se resaltarán todos.",
   );
-const grupos = [
-  { id: "cortes", titulo: "Cortes y experiencias" },
-  { id: "textura-color", titulo: "Textura y color" },
-  { id: "facial", titulo: "Cuidado facial" },
-] as const;
 ---
 
 <section id="servicios" aria-labelledby="titulo-servicios">
@@ -21,7 +17,7 @@ const grupos = [
   <h2 class="aparecer" id="titulo-servicios">
     Elige tu estilo
   </h2>
-  {grupos.map((grupo) => {
+  {gruposServicios.map((grupo) => {
     const items = servicios.filter(({ data }) => data.grupo === grupo.id);
     return (
       items.length > 0 && (

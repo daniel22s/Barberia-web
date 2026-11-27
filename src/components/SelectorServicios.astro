@@ -1,5 +1,6 @@
 ---
 import { getCollection, getEntry } from "astro:content";
+import { gruposServicios } from "../lib/grupos-servicios";
 import { formatearPrecio } from "../lib/formato";
 import { enlaceWhatsApp } from "../lib/whatsapp";
 
@@ -14,48 +15,73 @@ const enlaceGeneral = enlaceWhatsApp(negocio.whatsapp, negocio.mensajeWhatsapp);
   <section id="selector-servicios" aria-labelledby="titulo-selector">
     <h2 id="titulo-selector">Solicita tu cita</h2>
     <form hidden data-selector data-numero={negocio.whatsapp}>
-      <fieldset>
-        <legend>Elige uno o varios servicios</legend>
-        <div class="opciones">
-          {servicios.map(({ data }) => (
-            <label class="opcion">
-              <input
-                type="checkbox"
-                name="servicio"
-                value={data.nombre}
-                data-precio={data.precio}
-                data-desde={String(data.precioDesde)}
-              />
-              <span>{data.nombre}</span>
-              <span>{formatearPrecio(data.precio, data.precioDesde)}</span>
-            </label>
-          ))}
-        </div>
-      </fieldset>
-      <div class="preferencias">
-        <label>
-          Día preferido (opcional)
-          <input type="date" name="dia" autocomplete="off" />
-        </label>
-        <label>
-          Turno preferido (opcional)
-          <select name="turno">
-            <option value="">Cualquier turno</option>
-            <option>Mañana</option>
-            <option>Tarde</option>
-            <option>Noche</option>
-          </select>
-        </label>
+      <p class="instruccion">Elige uno o varios servicios.</p>
+      <div class="grupos">
+        {gruposServicios.map(({ id, titulo }) => {
+          const opciones = servicios.filter(({ data }) => data.grupo === id);
+          return (
+            opciones.length > 0 && (
+              <fieldset>
+                <legend>{titulo}</legend>
+                <div class="opciones">
+                  {opciones.map(({ data }) => (
+                    <label class="opcion">
+                      <input
+                        type="checkbox"
+                        name="servicio"
+                        value={data.nombre}
+                        data-precio={data.precio}
+                        data-desde={String(data.precioDesde)}
+                      />
+                      <span>{data.nombre}</span>
+                      <span class="precio">
+                        {formatearPrecio(data.precio, data.precioDesde)}
+                      </span>
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+            )
+          );
+        })}
       </div>
-      <p aria-live="polite">
-        Total estimado: <output>S/ 0</output>
-      </p>
-      <p>
+      <div class="seleccion" data-seleccion hidden>
+        <h3>Tu selección</h3>
+        <ul></ul>
+      </div>
+      <details>
+        <summary>Añadir día y turno preferidos (opcional)</summary>
+        <div class="preferencias">
+          <label>
+            Día preferido
+            <input type="date" name="dia" autocomplete="off" />
+          </label>
+          <label>
+            Turno preferido
+            <select name="turno">
+              <option value="">Cualquier turno</option>
+              <option>Mañana</option>
+              <option>Tarde</option>
+              <option>Noche</option>
+            </select>
+          </label>
+        </div>
+      </details>
+      <p class="nota">
         Confirmaremos la disponibilidad, la hora y el precio final por WhatsApp.
       </p>
-      <button type="submit" disabled>
-        Solicitar por WhatsApp
-      </button>
+      <div class="resumen">
+        <div>
+          <p class="etiqueta-total" id="etiqueta-total">
+            Total estimado
+          </p>
+          <output aria-labelledby="etiqueta-total">S/ 0</output>
+          <p class="cantidad" data-cantidad hidden></p>
+        </div>
+        <button type="submit" disabled>
+          Solicitar por WhatsApp
+        </button>
+      </div>
     </form>
     <noscript>
       <a href={enlaceGeneral}>Solicitar por WhatsApp</a>
@@ -69,6 +95,11 @@ const enlaceGeneral = enlaceWhatsApp(negocio.whatsapp, negocio.mensajeWhatsapp);
 
   const formulario = document.querySelector<HTMLFormElement>("[data-selector]");
   if (formulario) {
+    const preferencias = formulario.querySelector("details")!;
+    const seleccion =
+      formulario.querySelector<HTMLElement>("[data-seleccion]")!;
+    const lista = seleccion.querySelector("ul")!;
+    const cantidad = formulario.querySelector<HTMLElement>("[data-cantidad]")!;
     const total = formulario.querySelector("output")!;
     const enviar = formulario.querySelector("button")!;
     const dia = formulario.querySelector<HTMLInputElement>('[name="dia"]')!;
@@ -96,21 +127,41 @@ const enlaceGeneral = enlaceWhatsApp(negocio.whatsapp, negocio.mensajeWhatsapp);
       );
     }
 
-    function actualizarTotal() {
+    function actualizarSeleccion() {
       const servicios = seleccionados();
       const centimos = servicios.reduce(
         (suma, servicio) =>
           suma + Math.round(Number(servicio.dataset.precio) * 100),
         0,
       );
-      total.value = formatearPrecio(
+      const importe = formatearPrecio(
         centimos / 100,
         servicios.some((servicio) => servicio.dataset.desde === "true"),
       );
-      enviar.disabled = servicios.length === 0;
+      total.value = importe.replace(/^desde /, "Desde ");
+      const haySeleccion = servicios.length > 0;
+      cantidad.textContent =
+        servicios.length === 1 ? "1 servicio" : `${servicios.length} servicios`;
+      cantidad.hidden = !haySeleccion;
+      seleccion.hidden = !haySeleccion;
+      lista.replaceChildren(
+        ...servicios.map((servicio) => {
+          const item = document.createElement("li");
+          item.textContent = servicio.value;
+          return item;
+        }),
+      );
+      enviar.disabled = !haySeleccion;
     }
 
-    formulario.addEventListener("change", actualizarTotal);
+    dia.addEventListener("invalid", () => {
+      preferencias.open = true;
+    });
+    formulario.addEventListener("change", ({ target }) => {
+      if (target instanceof HTMLInputElement && target.name === "servicio") {
+        actualizarSeleccion();
+      }
+    });
     formulario.addEventListener("submit", (evento) => {
       evento.preventDefault();
       actualizarDiaMinimo();
@@ -135,8 +186,8 @@ const enlaceGeneral = enlaceWhatsApp(negocio.whatsapp, negocio.mensajeWhatsapp);
     });
 
     actualizarDiaMinimo();
-    actualizarTotal();
-    window.addEventListener("pageshow", actualizarTotal);
+    actualizarSeleccion();
+    window.addEventListener("pageshow", actualizarSeleccion);
     formulario.hidden = false;
   }
 </script>
@@ -151,6 +202,20 @@ const enlaceGeneral = enlaceWhatsApp(negocio.whatsapp, negocio.mensajeWhatsapp);
     font: 400 clamp(2.3rem, 4vw, 3.5rem) var(--font-titulo);
     text-transform: uppercase;
   }
+  .instruccion,
+  .nota {
+    color: var(--color-apagado);
+  }
+  .grupos,
+  .opciones,
+  .preferencias {
+    display: grid;
+    gap: 0.75rem;
+  }
+  .grupos {
+    gap: 1.25rem;
+    margin-block: 1.25rem;
+  }
   fieldset {
     border: 0;
     padding: 0;
@@ -158,54 +223,147 @@ const enlaceGeneral = enlaceWhatsApp(negocio.whatsapp, negocio.mensajeWhatsapp);
     min-inline-size: 0;
   }
   legend {
-    margin-bottom: 0.75rem;
-    font-weight: 700;
+    margin-bottom: 0.55rem;
+    font-weight: 800;
   }
   .opciones,
   .preferencias {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  }
+  .opcion {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
-    gap: 0.75rem;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.65rem;
+    min-height: 56px;
+    padding: 0.65rem 0.8rem;
+    border: 1px solid var(--color-linea);
+    border-radius: 0.75rem;
+    background: var(--color-superficie);
+    cursor: pointer;
+    font-weight: 700;
+  }
+  .opcion:has(:checked) {
+    border-color: var(--color-acento);
+    background: color-mix(
+      in srgb,
+      var(--color-superficie),
+      var(--color-acento) 10%
+    );
+    box-shadow: inset 0 0 0 1px var(--color-acento);
+  }
+  .opcion:has(:focus-visible),
+  summary:focus-visible {
+    outline: 3px solid var(--color-acento);
+    outline-offset: 3px;
+  }
+  input[type="checkbox"] {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+    appearance: auto;
+    accent-color: var(--color-acento);
+  }
+  .precio {
+    color: var(--color-acento);
+    white-space: nowrap;
+    font-size: 0.875rem;
+  }
+  .seleccion {
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    background: var(--color-superficie);
+  }
+  .seleccion h3 {
+    font: 800 0.875rem var(--font-texto);
+  }
+  .seleccion ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1.5rem;
+    list-style: disc;
+    padding-inline-start: 1.1rem;
+    margin-top: 0.35rem;
+    font-size: 0.875rem;
+  }
+  .cantidad {
+    color: var(--color-apagado);
+    font-size: 0.75rem;
+  }
+  details {
+    border-block: 1px solid var(--color-linea);
+    margin-bottom: 1rem;
+  }
+  summary {
+    min-height: 48px;
+    padding-block: 0.75rem;
+    cursor: pointer;
+    font-weight: 700;
   }
   .preferencias {
-    margin-top: 1.25rem;
+    padding-block: 0.25rem 1rem;
   }
   .preferencias label {
     display: grid;
     gap: 0.35rem;
+    min-inline-size: 0;
   }
-  .opcion {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: 0.6rem;
-    cursor: pointer;
-  }
-  .opcion,
   .preferencias input,
   .preferencias select {
     min-height: 48px;
+    min-inline-size: 0;
+    inline-size: 100%;
     padding: 0.55rem 0.75rem;
     border: 1px solid var(--color-acento);
     border-radius: 0.75rem;
+    background: var(--color-superficie);
   }
-  input[type="checkbox"] {
-    inline-size: 1rem;
-    block-size: 1rem;
-    appearance: auto;
-    accent-color: var(--color-acento);
+  .resumen {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem 0.75rem;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: var(--color-superficie);
+    border: 1px solid var(--color-linea);
+    border-radius: 1rem;
+  }
+  .etiqueta-total {
+    font-size: 0.8rem;
+    color: var(--color-apagado);
+  }
+  output {
+    font-size: 1.15rem;
+    font-weight: 800;
   }
   button {
     min-height: 48px;
-    padding-inline: 1rem;
-    border-radius: 1rem;
-    font-weight: 700;
+    padding: 0.45rem 0.85rem;
+    border-radius: var(--radio-boton);
+    font-weight: 800;
     background: var(--color-acento);
-    color: var(--color-fondo);
+    color: var(--color-sobre-acento);
     cursor: pointer;
   }
   button:disabled {
     opacity: 0.65;
     cursor: default;
+  }
+  @media (max-width: 767px) {
+    .opcion input,
+    .preferencias input,
+    .preferencias select,
+    summary {
+      scroll-margin-bottom: 8rem;
+    }
+    .resumen:has(button:enabled) {
+      position: sticky;
+      bottom: 0;
+      z-index: 21;
+      padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
+      box-shadow: 0 -6px 18px #0002;
+    }
   }
 </style>
